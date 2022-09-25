@@ -2,9 +2,8 @@ import axios from "axios"
 
 const auth = axios.create({
   baseURL: "http://localhost:8003",
-  headers: {
-    Credential: true,
-  },
+  withCredentials: true,
+  headers: {},
 })
 
 export const login = async (user: { email: string; password: string }) => {
