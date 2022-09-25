@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { register } from '../../api/auth'
+import { register, sendMail } from '../../api/auth'
 import { useNavigate } from 'react-router-dom'
 import {
   OuterBox,
@@ -17,6 +17,8 @@ import {
 export default function Register() {
   const navigate = useNavigate()
   const [user, setUser] = useState({ email: '', password: '', name: '' })
+  const [serverCode, setServerCode] = useState(0)
+  const [inputCode, setInputCode] = useState(0)
 
   const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -31,6 +33,23 @@ export default function Register() {
       alert('ERROR')
     }
   }
+
+  const onSendCode = async () => {
+    try {
+      const response = await sendMail(user.email)
+      setServerCode(() => response.data)
+      alert('코드를 전송하였습니다.')
+    } catch (err) {
+      alert('ERROR')
+    }
+  }
+
+  const onCheckCode = async () => {
+    if (serverCode === inputCode) return true
+    return alert('같지 않습니다.')
+  }
+
+  const onCheckPassword = async () => {}
 
   return (
     <OuterBox>
@@ -48,7 +67,7 @@ export default function Register() {
           <LabelText>이메일</LabelText>
           <InputEmail onChange={onChange} type="text" name="email" />
         </label>
-        <CodeBtn>코드 전송</CodeBtn>
+        <CodeBtn onClick={onSendCode}>코드 전송</CodeBtn>
         <label>
           <LabelText>인증 코드</LabelText>
           <InputEmail onChange={onChange} type="text" name="email" />

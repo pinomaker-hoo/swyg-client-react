@@ -17,3 +17,9 @@ export const register = async (user: {
 }) => {
   return await auth.post("/auth", user)
 }
+
+export const sendMail = async (email: string) => {
+  return await auth.post("/auth/mail", {
+    email,
+  })
+}
