@@ -7,6 +7,9 @@ const auth = axios.create({
   },
 })
 
+export const login = async (user: { email: string; password: string }) => {
+  return await auth.post("/auth/local", user)
+}
 
 export const register = async (user: {
   email: string
