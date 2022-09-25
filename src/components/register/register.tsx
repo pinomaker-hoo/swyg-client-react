@@ -1,6 +1,18 @@
 import React, { useState } from 'react'
 import { register } from '../../api/auth'
 import { useNavigate } from 'react-router-dom'
+import {
+  OuterBox,
+  InBox,
+  InputName,
+  InputBirth,
+  InputOther,
+  InputEmail,
+  Logo,
+  LabelText,
+  RegisterBtn,
+  CodeBtn,
+} from './style'
 
 export default function Register() {
   const navigate = useNavigate()
@@ -21,23 +33,36 @@ export default function Register() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>matebook</h1>
+    <OuterBox>
+      <InBox>
+        <Logo>matebook</Logo>
         <label>
-          <h3>이름</h3>
-          <input onChange={onChange} type="text" name="name" />
+          <LabelText>이름</LabelText>
+          <InputName onChange={onChange} type="text" name="name" />
         </label>
         <label>
-          <h3>이메일</h3>
-          <input onChange={onChange} type="text" name="email" />
+          <LabelText>생년월일</LabelText>
+          <InputBirth onChange={onChange} type="text" name="name" />
         </label>
         <label>
-          <h3>비밀번호</h3>
-          <input onChange={onChange} type="password" name="password" />
+          <LabelText>이메일</LabelText>
+          <InputEmail onChange={onChange} type="text" name="email" />
         </label>
-        <button onClick={onRegister}>회원가입</button>
-      </div>
-    </div>
+        <CodeBtn>코드 전송</CodeBtn>
+        <label>
+          <LabelText>인증 코드</LabelText>
+          <InputEmail onChange={onChange} type="text" name="email" />
+        </label>
+        <label>
+          <LabelText>비밀번호</LabelText>
+          <InputOther onChange={onChange} type="password" name="password" />
+        </label>
+        <label>
+          <LabelText>비밀번호 확인</LabelText>
+          <InputOther onChange={onChange} type="password" name="password" />
+        </label>
+        <RegisterBtn onClick={onRegister}>회원가입</RegisterBtn>
+      </InBox>
+    </OuterBox>
   )
 }
