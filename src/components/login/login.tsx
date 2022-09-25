@@ -1,6 +1,18 @@
 import React, { useState } from 'react'
 import { login } from '../../api/auth'
 import { Link, useNavigate } from 'react-router-dom'
+import {
+  OuterBox,
+  InBox,
+  InputBox,
+  LoginBtn,
+  Logo,
+  LabelText,
+  OtherTextOne,
+  OtherTextTwo,
+  KakaoBtn,
+  NaverBtn,
+} from './style'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -17,6 +29,7 @@ export default function Login() {
       const response = await login(user)
       goToMainPage()
     } catch (err) {
+      console.log(err)
       alert('ERROR')
     }
   }
@@ -26,23 +39,29 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>matebook</h1>
+    <OuterBox>
+      <InBox>
+        <Logo>matebook</Logo>
         <label>
-          <h3>아이디</h3>
-          <input />
+          <LabelText>아이디</LabelText>
+          <InputBox onChange={onChange} type="text" name="email" />
         </label>
         <label>
-          <h3>아이디</h3>
-          <input />
+          <LabelText>비밀번호</LabelText>
+          <InputBox onChange={onChange} type="password" name="password" />
         </label>
-        <button>로그인</button>
-        <p>아이디/비밀번호 찾기</p>
-        <button>네이버로 로그인</button>
-        <button>카카오계정 로그인</button>
-        <p>matebook이 처음이라면? 회원가입</p>
-      </div>
-    </div>
+        <LoginBtn onClick={onLogin}>로그인</LoginBtn>
+        <OtherTextOne>아이디/비밀번호 찾기</OtherTextOne>
+        <a href="http://localhost:8003/auth/naver">
+          <NaverBtn>네이버 로그인</NaverBtn>
+        </a>
+        <a href="http://localhost:8003/auth/kakao">
+          <KakaoBtn>카카오계정 로그인</KakaoBtn>
+        </a>
+        <Link to={'/auth/register'}>
+          <OtherTextTwo>matebook이 처음이라면? 회원가입</OtherTextTwo>
+        </Link>
+      </InBox>
+    </OuterBox>
   )
 }
