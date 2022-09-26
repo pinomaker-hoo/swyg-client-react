@@ -4,3 +4,8 @@ export const useNull = (arr: any[]) => {
   }
   return true
 }
+
+export const useSame = (a: any, b: any) => {
+  if (a !== b) return false
+  return true
+}
