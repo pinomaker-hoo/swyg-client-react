@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { register, sendMail } from '../../api/auth'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react"
+import { register, sendMail } from "../../api/auth"
+import { useNavigate } from "react-router-dom"
 import {
   OuterBox,
   InBox,
@@ -12,25 +12,36 @@ import {
   LabelText,
   RegisterBtn,
   CodeBtn,
-} from './style'
+} from "./style"
+import { useNull, useSame } from "../../common/hooks/inputHooks"
 
 export default function Register() {
   const navigate = useNavigate()
-  const [user, setUser] = useState({ email: '', password: '', name: '' })
+  const [user, setUser] = useState({ email: "", password: "", name: "" })
   const [serverCode, setServerCode] = useState(0)
   const [inputCode, setInputCode] = useState(0)
+  const [passwordC, setPasswordC] = useState("")
 
   const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
     setUser({ ...user, [name]: value })
   }
 
+  const onChangePwc = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPasswordC(() => event.target.value)
+  }
+
   const onRegister = async () => {
     try {
+      if (!useNull([user.email, user.name, user.password, inputCode]))
+        return alert("Null ERROR")
+      if (!useSame(user.password, passwordC))
+        return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
+      onCheckCode()
       const response = await register(user)
-      navigate('/')
+      navigate("/")
     } catch (err) {
-      alert('ERROR')
+      alert("ERROR")
     }
   }
 
@@ -38,18 +49,15 @@ export default function Register() {
     try {
       const response = await sendMail(user.email)
       setServerCode(() => response.data)
-      alert('코드를 전송하였습니다.')
+      alert("코드를 전송하였습니다.")
     } catch (err) {
-      alert('ERROR')
+      alert("ERROR")
     }
   }
 
   const onCheckCode = async () => {
-    if (serverCode === inputCode) return true
-    return alert('같지 않습니다.')
+    if (serverCode !== inputCode) return alert("같지 않습니다.")
   }
-
-  const onCheckPassword = async () => {}
 
   return (
     <OuterBox>
@@ -78,7 +86,7 @@ export default function Register() {
         </label>
         <label>
           <LabelText>비밀번호 확인</LabelText>
-          <InputOther onChange={onChange} type="password" name="password" />
+          <InputOther onChange={onChangePwc} type="password" name="passwordc" />
         </label>
         <RegisterBtn onClick={onRegister}>회원가입</RegisterBtn>
       </InBox>
