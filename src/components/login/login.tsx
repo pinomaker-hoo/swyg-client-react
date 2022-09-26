@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { login } from '../../api/auth'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from "react"
+import { login } from "../../api/auth"
+import { Link, useNavigate } from "react-router-dom"
 import {
   OuterBox,
   InBox,
@@ -12,12 +12,13 @@ import {
   OtherTextTwo,
   KakaoBtn,
   NaverBtn,
-} from './style'
+} from "./style"
+import { useNull } from "../../common/hooks/inputHooks"
 
 export default function Login() {
   const navigate = useNavigate()
 
-  const [user, setUser] = useState({ email: '', password: '' })
+  const [user, setUser] = useState({ email: "", password: "" })
 
   const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -26,16 +27,17 @@ export default function Login() {
 
   const onLogin = async () => {
     try {
+      if (!useNull([user.email, user.password])) return alert("Null ERROR")
       const response = await login(user)
       goToMainPage()
     } catch (err) {
       console.log(err)
-      alert('ERROR')
+      alert("ERROR")
     }
   }
 
   const goToMainPage = () => {
-    navigate('/')
+    navigate("/")
   }
 
   return (
@@ -58,7 +60,7 @@ export default function Login() {
         <a href="http://localhost:8003/auth/kakao">
           <KakaoBtn>카카오계정 로그인</KakaoBtn>
         </a>
-        <Link to={'/auth/register'}>
+        <Link to={"/auth/register"}>
           <OtherTextTwo>matebook이 처음이라면? 회원가입</OtherTextTwo>
         </Link>
       </InBox>
