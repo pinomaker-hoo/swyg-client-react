@@ -68,7 +68,7 @@ export const KakaoBtn = styled.button`
   background-color: #ffe715;
   border: 8px;
   color: black;
-  font-family: SB_Aggro_L;r
+  font-family: SB_Aggro_L;
   border-radius: 8px;
 `
 

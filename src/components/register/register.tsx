@@ -31,8 +31,13 @@ export default function Register() {
     setPasswordC(() => event.target.value)
   }
 
+  const onChangeCode = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputCode(() => Number(event.target.value))
+  }
+
   const onRegister = async () => {
     try {
+      console.log(user.email, user.name, user.password, inputCode)
       if (!useNull([user.email, user.name, user.password, inputCode]))
         return alert("Null ERROR")
       if (!useSame(user.password, passwordC))
@@ -78,7 +83,7 @@ export default function Register() {
         <CodeBtn onClick={onSendCode}>코드 전송</CodeBtn>
         <label>
           <LabelText>인증 코드</LabelText>
-          <InputEmail onChange={onChange} type="text" name="email" />
+          <InputEmail onChange={onChangeCode} type="text" />
         </label>
         <label>
           <LabelText>비밀번호</LabelText>
@@ -86,7 +91,7 @@ export default function Register() {
         </label>
         <label>
           <LabelText>비밀번호 확인</LabelText>
-          <InputOther onChange={onChangePwc} type="password" name="passwordc" />
+          <InputOther onChange={onChangePwc} type="password" />
         </label>
         <RegisterBtn onClick={onRegister}>회원가입</RegisterBtn>
       </InBox>
