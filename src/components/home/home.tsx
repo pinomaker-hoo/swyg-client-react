@@ -15,6 +15,9 @@ export default function Home() {
       <Link to={"/auth/info"}>
         <button>INFO</button>
       </Link>
+      <Link to={"/quiz/make"}>
+        <button>make</button>
+      </Link>
     </div>
   )
 }
