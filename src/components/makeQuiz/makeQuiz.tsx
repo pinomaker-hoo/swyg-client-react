@@ -21,7 +21,6 @@ export default function MakeQuiz() {
   const [text, setText] = useState("")
 
   const onClick = async () => {
-    console.log(text, answer)
     try {
       const res = await saveQuiz(text, answer)
       navigate("/")
