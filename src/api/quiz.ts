@@ -9,3 +9,6 @@ const quiz = axios.create({
 export const saveQuiz = async (text: string, answer: boolean) => {
   return await quiz.post("/quiz", { text, answer })
 }
+export const getQuizList = async () => {
+  return await quiz.get("/quiz")
+}
