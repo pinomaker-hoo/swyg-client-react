@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { KakaoSearch } from "../../api/book"
+import { KakaoSearch, SaveBook } from "../../api/book"
 import {
   BookBox,
   BookDiv,
@@ -27,6 +27,11 @@ export default function UserInfo() {
     }
     const { documents } = await (await KakaoSearch(params)).data
     setBookList(() => documents)
+    for (const item of documents) {
+      console.log(item)
+      const res = await SaveBook(item)
+      console.log(res)
+    }
   }
 
   const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
