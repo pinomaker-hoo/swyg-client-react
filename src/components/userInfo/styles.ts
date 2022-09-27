@@ -3,7 +3,7 @@ export const OuterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 672px;
+  width: 800px;
   height: 972px;
 `
 
@@ -31,4 +31,20 @@ export const InputBox = styled.input`
   padding: 0px;
   border: none;
   border-radius: 8px;
+`
+
+export const BookDiv = styled.div`
+  margin-top: 30px;
+`
+
+export const BookBox = styled.div`
+  width: 100%;
+`
+
+export const BookImg = styled.img`
+  width: 180px;
+  height: 240px;
+  float: left;
+  margin-right: 65px;
+  margin-top: 30px;
 `
