@@ -26,15 +26,46 @@ export const QuizBox = styled.div`
   margin-top: 90px;
 `
 
-export const QuizCard = styled.div`
+export const QuizContainer = styled.div`
+  margin-left: 56px;
+  float: left;
+  width: 368px;
+  height: 500px;
+  perspective: 500px;
+  position: relative;
+  transform-style: preserve-3d;
+  &:hover .front {
+    transform: rotateX(-180deg);
+  }
+  &:hover .back {
+    transform: rotateX(0deg);
+  }
+`
+
+export const QuizCardFront = styled.div`
   width: 368px;
   height: 500px;
   background-color: #442d7a;
   opacity: 0.59;
-  float: left;
-  margin-left: 56px;
   border-radius: 15px;
+  backface-visibility: hidden;
+  transition: 0.5s linear;
+  position: absolute;
+  z-index: 2;
 `
+
+export const QuizCardBack = styled.div`
+  width: 368px;
+  height: 500px;
+  background-color: #442d7a;
+  opacity: 0.59;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  transition: 0.5s linear;
+  position: absolute;
+  transform: rotateX(180deg);
+`
+
 export const MainImgBox = styled.div``
 
 export const MainImg = styled.img`
