@@ -3,6 +3,7 @@ import Home from "./components/home/home"
 import Login from "./components/login/login"
 import MakeQuiz from "./components/makeQuiz/makeQuiz"
 import Quiz from "./components/quiz/quiz"
+import QuizChoice from "./components/quizChoice/quizChoice"
 import Register from "./components/register/register"
 import UserInfo from "./components/userInfo/userInfo"
 
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/auth/info" element={<UserInfo />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/quiz/make" element={<MakeQuiz />} />
+        <Route path="/quiz/make/choice" element={<QuizChoice />} />
       </Routes>
     </div>
   )
