@@ -1,4 +1,6 @@
-import { useState } from "react"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { getQuizList } from "../../api/quiz"
 import {
   InBox,
   OuterBox,
@@ -13,11 +15,23 @@ import {
   PointText,
   QuizContainer,
   QuizCardBack,
+  QuizNumber,
+  QuizTitle,
+  QuizButton,
+  QuizButtonTwo,
 } from "./styles"
 
 export default function Quiz() {
-  const [fliped, setFliped] = useState(false)
-  const onClick = () => {}
+  const [dataList, setDataList] = useState([])
+  useEffect(() => {
+    onCallApi()
+  }, [])
+
+  const onCallApi = async () => {
+    const { data } = await getQuizList()
+    setDataList(() => data)
+  }
+
   return (
     <OuterBox>
       <InBox>
@@ -26,66 +40,25 @@ export default function Quiz() {
           친구들이 낸 퀴즈를 모두 맞추면 북도리가 바깥 세상으로 나올 수 있어!
         </Text>
         <QuizBox>
-          <QuizContainer>
-            <QuizCardFront className="front">
-              <MainImgBox>
-                <MainImg src="../../../public/earth.png" />
-              </MainImgBox>
-              <StarImgBox>
-                <StarImg src="../../../public/star.png" />
-                <PointText>5P</PointText>
-              </StarImgBox>
-            </QuizCardFront>
-            <QuizCardBack className="back">
-              <MainImgBox>
-                <MainImg src="../../../public/earth.png" />
-              </MainImgBox>
-              <StarImgBox>
-                <StarImg src="../../../public/star.png" />
-                <PointText>CLEAR</PointText>
-              </StarImgBox>
-            </QuizCardBack>
-          </QuizContainer>
-          <QuizContainer>
-            <QuizCardFront className="front">
-              <MainImgBox>
-                <MainImg src="../../../public/earth.png" />
-              </MainImgBox>
-              <StarImgBox>
-                <StarImg src="../../../public/star.png" />
-                <PointText>5P</PointText>
-              </StarImgBox>
-            </QuizCardFront>
-            <QuizCardBack className="back">
-              <MainImgBox>
-                <MainImg src="../../../public/earth.png" />
-              </MainImgBox>
-              <StarImgBox>
-                <StarImg src="../../../public/star.png" />
-                <PointText>CLEAR</PointText>
-              </StarImgBox>
-            </QuizCardBack>
-          </QuizContainer>
-          <QuizContainer>
-            <QuizCardFront className="front">
-              <MainImgBox>
-                <MainImg src="../../../public/earth.png" />
-              </MainImgBox>
-              <StarImgBox>
-                <StarImg src="../../../public/star.png" />
-                <PointText>5P</PointText>
-              </StarImgBox>
-            </QuizCardFront>
-            <QuizCardBack className="back">
-              <MainImgBox>
-                <MainImg src="../../../public/earth.png" />
-              </MainImgBox>
-              <StarImgBox>
-                <StarImg src="../../../public/star.png" />
-                <PointText>CLEAR</PointText>
-              </StarImgBox>
-            </QuizCardBack>
-          </QuizContainer>
+          {dataList.map((item: any) => (
+            <QuizContainer>
+              <QuizCardFront className="front">
+                <MainImgBox>
+                  <MainImg src="../../../public/earth.png" />
+                </MainImgBox>
+                <StarImgBox>
+                  <StarImg src="../../../public/star.png" />
+                  <PointText>5P</PointText>
+                </StarImgBox>
+              </QuizCardFront>
+              <QuizCardBack className="back">
+                <QuizNumber>Q1</QuizNumber>
+                <QuizTitle>{item.text}</QuizTitle>
+                <QuizButton>O</QuizButton>
+                <QuizButtonTwo>X</QuizButtonTwo>
+              </QuizCardBack>
+            </QuizContainer>
+          ))}
         </QuizBox>
       </InBox>
     </OuterBox>

@@ -82,3 +82,27 @@ export const StarImg = styled.img`
 export const PointText = styled.h1`
   color: white;
 `
+
+export const QuizNumber = styled.h3`
+  margin-left: -300px;
+  color: white;
+`
+export const QuizTitle = styled.h1`
+  margin-top: 30px;
+  margin-bottom: 100px;
+  color: white;
+`
+export const QuizButton = styled.button`
+  width: 145px;
+  height: 135px;
+  background-color: white;
+  border-radius: 13px;
+`
+
+export const QuizButtonTwo = styled.button`
+  width: 145px;
+  height: 135px;
+  background-color: white;
+  border-radius: 13px;
+  margin-left: 20px;
+`
