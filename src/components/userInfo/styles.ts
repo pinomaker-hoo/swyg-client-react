@@ -48,3 +48,10 @@ export const BookImg = styled.img`
   margin-right: 65px;
   margin-top: 30px;
 `
+
+export const SubBtn = styled.button`
+  background-color: #805fc7;
+  width: 160px;
+  height: 54px;
+  color: white;
+`

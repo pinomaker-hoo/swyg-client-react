@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { KakaoSearch, SaveBook } from "../../api/book"
+import { getBookListCount } from "../../api/book"
+import { saveMate } from "../../api/mate"
 import {
   BookBox,
   BookDiv,
@@ -9,37 +10,33 @@ import {
   LabelText,
   LogoText,
   OuterBox,
+  SubBtn,
 } from "./styles"
 
 export default function UserInfo() {
   const [text, setText] = useState("")
+  const [name, setName] = useState("")
   const [bookList, setBookList] = useState([])
 
-  // useEffect(() => {
-  //   callApi()
-  // }, [])
+  useEffect(() => {
+    getBookList()
+  }, [])
 
-  const callApi = async () => {
-    const params = {
-      query: text,
-      size: 9,
-      target: "title",
-    }
-    const { documents } = await (await KakaoSearch(params)).data
-    setBookList(() => documents)
-    for (const item of documents) {
-      console.log(item)
-      const res = await SaveBook(item)
-      console.log(res)
-    }
+  const getBookList = async () => {
+    const getBookList: [] = await getBookListCount(9)
+    setBookList(() => getBookList)
   }
 
-  const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeText = async (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(() => event.target.value)
   }
 
-  const onPress = async (event: any) => {
-    if (event.key === "Enter") callApi()
+  const onChangeName = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(() => event.target.value)
+  }
+  const saveMateApi = async () => {
+    const res = await saveMate(name)
+    console.log(res)
   }
 
   return (
@@ -48,11 +45,11 @@ export default function UserInfo() {
         <LogoText>matebook</LogoText>
         <label>
           <LabelText>메이트 닉네임</LabelText>
-          <InputBox />
+          <InputBox onChange={onChangeName} />
         </label>
         <label>
           <LabelText>최근에 읽은 책</LabelText>
-          <InputBox onKeyDown={onPress} onChange={onChange} />
+          <InputBox onChange={onChangeText} />
         </label>
         <BookDiv>
           <LabelText>최근에 읽은 책</LabelText>
@@ -62,6 +59,7 @@ export default function UserInfo() {
             </BookBox>
           ))}
         </BookDiv>
+        <SubBtn onClick={saveMateApi}>시작하기</SubBtn>
       </InBox>
     </OuterBox>
   )

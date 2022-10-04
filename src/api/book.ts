@@ -9,7 +9,7 @@ const Kakao = axios.create({
 })
 
 const book = axios.create({
-  //   baseURL: "http://localhost:8003",
+  baseURL: "http://localhost:8003",
   withCredentials: true,
   headers: {},
 })
@@ -32,4 +32,9 @@ export const SaveBook = async (data: any) => {
       isbn: data.isbn,
     },
   })
+}
+
+export const getBookListCount = async (count: number) => {
+  const { data } = await book.get(`/book/count/${count}`)
+  return data
 }
