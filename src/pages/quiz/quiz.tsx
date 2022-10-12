@@ -23,6 +23,7 @@ import {
 
 export default function Quiz() {
   const [dataList, setDataList] = useState([])
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     onCallApi()
   }, [])
@@ -30,8 +31,11 @@ export default function Quiz() {
   const onCallApi = async () => {
     const { data } = await getQuizList()
     setDataList(() => data)
+    setLoading(() => false)
   }
 
+  console.log(dataList)
+  if (loading) return null
   return (
     <OuterBox>
       <InBox>

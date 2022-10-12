@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom"
-import Home from "./components/home/home"
-import Login from "./components/login/login"
-import MakeQuiz from "./components/makeQuiz/makeQuiz"
-import Quiz from "./components/quiz/quiz"
-import QuizChoice from "./components/quizChoice/quizChoice"
-import Register from "./components/register/register"
-import UserInfo from "./components/userInfo/userInfo"
+import Home from "./pages/home/home"
+import Login from "./pages/login/login"
+import MakeQuiz from "./pages/makeQuiz/makeQuiz"
+import Quiz from "./pages/quiz/quiz"
+import QuizChoice from "./pages/quizChoice/quizChoice"
+import Register from "./pages/register/register"
+import UserInfo from "./pages/userInfo/userInfo"
 
 export default function App() {
   return (

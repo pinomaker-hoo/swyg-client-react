@@ -12,8 +12,13 @@ import {
   LabelText,
   RegisterBtn,
   CodeBtn,
+  MaleBtn,
+  LabelTextMale,
+  LineBox,
+  InLineBox,
+  InLineBoxBtn,
 } from "./style"
-import { useNull, useSame } from "../../common/hooks/inputHooks"
+import DateSelect from "../../components/Date"
 
 export default function Register() {
   const navigate = useNavigate()
@@ -21,6 +26,7 @@ export default function Register() {
   const [serverCode, setServerCode] = useState(0)
   const [inputCode, setInputCode] = useState(0)
   const [passwordC, setPasswordC] = useState("")
+  const [male, setMale] = useState(true)
 
   const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -37,17 +43,22 @@ export default function Register() {
 
   const onRegister = async () => {
     try {
-      console.log(user.email, user.name, user.password, inputCode)
-      if (!useNull([user.email, user.name, user.password, inputCode]))
-        return alert("Null ERROR")
-      if (!useSame(user.password, passwordC))
-        return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
-      onCheckCode()
+      // console.log(user.email, user.name, user.password, inputCode)
+      // if (!useNull([user.email, user.name, user.password, inputCode]))
+      //   return alert("Null ERROR")
+      // if (!useSame(user.password, passwordC))
+      //   return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
+      // onCheckCode()
       const response = await register(user)
       navigate("/")
     } catch (err) {
       alert("ERROR")
     }
+  }
+
+  const onChangeMale = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target
+    value === "male" ? setMale(() => true) : setMale(() => false)
   }
 
   const onSendCode = async () => {
@@ -68,13 +79,23 @@ export default function Register() {
     <OuterBox>
       <InBox>
         <Logo>matebook</Logo>
-        <label>
-          <LabelText>이름</LabelText>
-          <InputName onChange={onChange} type="text" name="name" />
-        </label>
+        <LineBox>
+          <InLineBox>
+            <label>
+              <LabelText>이름</LabelText>
+              <InputName onChange={onChange} type="text" name="name" />
+            </label>
+          </InLineBox>
+          <InLineBox>
+            <LabelTextMale>성별</LabelTextMale>
+            <MaleBtn>남자</MaleBtn>
+            <MaleBtn>여자</MaleBtn>
+          </InLineBox>
+        </LineBox>
         <label>
           <LabelText>생년월일</LabelText>
-          <InputBirth onChange={onChange} type="text" name="name" />
+          {/* <InputBirth onChange={onChange} type="text" name="name" /> */}
+          <DateSelect />
         </label>
         <label>
           <LabelText>이메일</LabelText>
@@ -93,7 +114,9 @@ export default function Register() {
           <LabelText>비밀번호 확인</LabelText>
           <InputOther onChange={onChangePwc} type="password" />
         </label>
-        <RegisterBtn onClick={onRegister}>회원가입</RegisterBtn>
+        <InLineBoxBtn>
+          <RegisterBtn onClick={onRegister}>회원가입</RegisterBtn>
+        </InLineBoxBtn>
       </InBox>
     </OuterBox>
   )

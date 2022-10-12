@@ -17,12 +17,14 @@ export const Logo = styled.h1`
   font-family: SB_Aggro_B;
   color: white;
   margin-bottom: 40px;
+  margin-top: -100px;
 `
 
 export const LabelText = styled.h3`
   margin-bottom: 15px;
   font-family: SB_Aggro_M;
   color: white;
+  width: 200px;
 `
 
 export const InputName = styled.input`
@@ -72,12 +74,6 @@ export const InputOther = styled.input`
   border: none;
   border-radius: 8px;
 `
-export const RegisterBtn = styled.button`
-  background-color: #805fc7;
-  width: 160px;
-  height: 54px;
-  color: white;
-`
 
 export const CodeBtn = styled.button`
   margin-left: 10px;
@@ -87,4 +83,41 @@ export const CodeBtn = styled.button`
   color: white;
   border-radius: 8px;
   border: none;
+`
+
+export const MaleBtn = styled.button`
+  width: 104px;
+  height: 60px;
+  background-color: #442d7a;
+  border-radius: 8px;
+  border: none;
+  margin-left: 56px;
+  color: white;
+`
+export const LabelTextMale = styled.h3`
+  margin-bottom: 15px;
+  font-family: SB_Aggro_M;
+  color: white;
+  margin-left: 56px;
+`
+export const LineBox = styled.div`
+  width: 100%;
+`
+
+export const InLineBox = styled.div`
+  float: left;
+  margin-bottom: 15px;
+`
+export const InLineBoxBtn = styled.div`
+  float: left;
+  margin-bottom: 15px;
+`
+export const RegisterBtn = styled.button`
+  background-color: #805fc7;
+  width: 160px;
+  height: 54px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
 `
