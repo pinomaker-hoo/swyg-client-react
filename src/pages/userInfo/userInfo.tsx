@@ -17,10 +17,17 @@ export default function UserInfo() {
   const [text, setText] = useState("")
   const [name, setName] = useState("")
   const [bookList, setBookList] = useState([])
+  const [bookActive, setBookActive] = useState("")
 
   useEffect(() => {
     getBookList()
   }, [])
+
+  const toggleActive = (e: any) => {
+    setBookActive((prev) => {
+      return e.target.value
+    })
+  }
 
   const getBookList = async () => {
     const getBookList: [] = await getBookListCount(9)
@@ -53,8 +60,8 @@ export default function UserInfo() {
         </label>
         <BookDiv>
           <LabelText>최근에 읽은 책</LabelText>
-          {bookList.map((item: any) => (
-            <BookBox>
+          {bookList.map((item: any, idx: number) => (
+            <BookBox onClick={toggleActive}>
               <BookImg src={item.thumbnail}></BookImg>
             </BookBox>
           ))}

@@ -1,5 +1,6 @@
 import styled from "styled-components"
 export const OuterBox = styled.div`
+  margin-left: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +11,7 @@ export const OuterBox = styled.div`
 export const InBox = styled.div`
   width: 100%;
   height: 70%;
+  margin-top: -200px;
 `
 
 export const LogoText = styled.h1`
@@ -54,4 +56,7 @@ export const SubBtn = styled.button`
   width: 160px;
   height: 54px;
   color: white;
+  margin-left: 260px;
+  margin-top: 30px;
+  border-radius: 8px;
 `

@@ -5,7 +5,6 @@ import {
   OuterBox,
   InBox,
   InputName,
-  InputBirth,
   InputOther,
   InputEmail,
   Logo,
@@ -17,8 +16,11 @@ import {
   LineBox,
   InLineBox,
   InLineBoxBtn,
+  YearsSelect,
+  MonthsSelect,
+  DaysSelect,
 } from "./style"
-import DateSelect from "../../components/Date"
+import { useNull, useSame } from "../../common/hooks/inputHooks"
 
 export default function Register() {
   const navigate = useNavigate()
@@ -26,7 +28,37 @@ export default function Register() {
   const [serverCode, setServerCode] = useState(0)
   const [inputCode, setInputCode] = useState(0)
   const [passwordC, setPasswordC] = useState("")
+  const [form, setForm] = useState({
+    year: 2022,
+    month: "01",
+    day: "01",
+  })
   const [male, setMale] = useState(true)
+
+  const now = new Date()
+
+  let years = []
+  for (let y = now.getFullYear(); y >= 1930; y -= 1) {
+    years.push(y)
+  }
+
+  let month = []
+  for (let m = 1; m <= 12; m += 1) {
+    if (m < 10) {
+      month.push("0" + m.toString())
+    } else {
+      month.push(m.toString())
+    }
+  }
+  let days: any[] = []
+  let date = new Date(form.year, Number(form.month), 0).getDate()
+  for (let d = 1; d <= date; d += 1) {
+    if (d < 10) {
+      days.push("0" + d.toString())
+    } else {
+      days.push(d.toString())
+    }
+  }
 
   const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -43,22 +75,22 @@ export default function Register() {
 
   const onRegister = async () => {
     try {
-      // console.log(user.email, user.name, user.password, inputCode)
-      // if (!useNull([user.email, user.name, user.password, inputCode]))
-      //   return alert("Null ERROR")
-      // if (!useSame(user.password, passwordC))
-      //   return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
-      // onCheckCode()
-      const response = await register(user)
+      ;`${form.year}-${form.month}-${form.day}`
+
+      if (!useNull([user.email, user.name, user.password, inputCode]))
+        return alert("Null ERROR")
+      if (!useSame(user.password, passwordC))
+        return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
+      onCheckCode()
+      const response = await register(
+        user,
+        `${form.year}-${form.month}-${form.day}`,
+        male
+      )
       navigate("/")
     } catch (err) {
       alert("ERROR")
     }
-  }
-
-  const onChangeMale = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target
-    value === "male" ? setMale(() => true) : setMale(() => false)
   }
 
   const onSendCode = async () => {
@@ -88,14 +120,52 @@ export default function Register() {
           </InLineBox>
           <InLineBox>
             <LabelTextMale>성별</LabelTextMale>
-            <MaleBtn>남자</MaleBtn>
-            <MaleBtn>여자</MaleBtn>
+            <MaleBtn
+              color={male ? "#F18B45" : "#442d7a"}
+              onClick={() => setMale(() => true)}
+            >
+              남자
+            </MaleBtn>
+            <MaleBtn
+              color={male ? "#442d7a" : "#F18B45"}
+              onClick={() => setMale(() => false)}
+            >
+              여자
+            </MaleBtn>
           </InLineBox>
         </LineBox>
         <label>
           <LabelText>생년월일</LabelText>
-          {/* <InputBirth onChange={onChange} type="text" name="name" /> */}
-          <DateSelect />
+          <YearsSelect
+            value={form.day}
+            onChange={(e) => setForm({ ...form, day: e.target.value })}
+          >
+            {years.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </YearsSelect>
+          <MonthsSelect
+            value={form.day}
+            onChange={(e) => setForm({ ...form, day: e.target.value })}
+          >
+            {month.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </MonthsSelect>
+          <DaysSelect
+            value={form.day}
+            onChange={(e) => setForm({ ...form, day: e.target.value })}
+          >
+            {days.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </DaysSelect>
         </label>
         <label>
           <LabelText>이메일</LabelText>

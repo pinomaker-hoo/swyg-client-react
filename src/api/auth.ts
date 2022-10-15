@@ -10,12 +10,20 @@ export const login = async (user: { email: string; password: string }) => {
   return await auth.post("/auth/local", user)
 }
 
-export const register = async (user: {
-  email: string
-  password: string
-  name: string
-}) => {
-  return await auth.post("/auth", user)
+export const register = async (
+  user: {
+    email: string
+    password: string
+    name: string
+  },
+  birth: string,
+  male: boolean
+) => {
+  return await auth.post("/auth", {
+    ...user,
+    birth,
+    male,
+  })
 }
 
 export const sendMail = async (email: string) => {

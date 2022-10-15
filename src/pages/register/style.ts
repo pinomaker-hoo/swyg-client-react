@@ -93,6 +93,7 @@ export const MaleBtn = styled.button`
   border: none;
   margin-left: 56px;
   color: white;
+  background-color: ${(props) => props.color};
 `
 export const LabelTextMale = styled.h3`
   margin-bottom: 15px;
@@ -119,5 +120,29 @@ export const RegisterBtn = styled.button`
   color: white;
   border: none;
   border-radius: 8px;
-  margin-top: 15px;
+  margin-left: 260px;
+  margin-top: 30px;
+`
+export const YearsSelect = styled.select`
+  background-color: #442d7a;
+  width: 208px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+`
+export const MonthsSelect = styled.select`
+  background-color: #442d7a;
+  width: 208px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  margin-left: 56px;
+`
+export const DaysSelect = styled.select`
+  background-color: #442d7a;
+  width: 104px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  margin-left: 56px;
 `
