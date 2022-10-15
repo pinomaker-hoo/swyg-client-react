@@ -38,3 +38,7 @@ export const getBookListCount = async (count: number) => {
   const { data } = await book.get(`/book/count/${count}`)
   return data
 }
+
+export const getBook = async (idx: string) => {
+  return await book.get(`/book/${idx}`)
+}
