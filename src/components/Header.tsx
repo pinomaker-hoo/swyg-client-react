@@ -13,7 +13,6 @@ export default function Header() {
 
 const OuterBox = styled.div`
   display: flex;
-  background-color: blue;
   width: 1100px;
   height: 100px;
 `
