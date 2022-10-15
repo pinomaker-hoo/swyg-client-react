@@ -21,6 +21,9 @@ export default function Home() {
       <Link to={"/quiz/make/choice"}>
         <button>Quiz Choice</button>
       </Link>
+      <Link to={"/book/1"}>
+        <button>Book</button>
+      </Link>
     </div>
   )
 }
