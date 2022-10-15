@@ -21,7 +21,7 @@ export const KakaoSearch = async (params: any) => {
 export const SaveBook = async (data: any) => {
   return await book({
     method: "post",
-    url: "http://localhost:8003/book",
+    url: "/book",
     data: {
       title: data.title,
       contents: data.contents,
