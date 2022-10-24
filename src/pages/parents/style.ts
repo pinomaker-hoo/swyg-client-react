@@ -23,12 +23,12 @@ export const FirstBox = styled.div`
 export const SecondBox = styled.div`
   margin-top: 100px;
   width: 1100px;
-  height: 400px;
+  height: 300px;
 `
 export const ThirdBox = styled.div`
   margin-top: 100px;
   width: 1100px;
-  height: 750px;
+  height: 400px;
 `
 export const FourthBox = styled.div`
   margin-top: 100px;
@@ -92,16 +92,11 @@ export const BookBox = styled.div`
   height: 250px;
   margin-top: 30px;
 `
-export const BookImageTop = styled.img`
-  width: 230px;
-  height: 340px;
-  float: left;
-  text-align: center;
-`
+
 export const BookImage = styled.img`
   width: 230px;
   height: 340px;
-  margin-left: 50px;
+  margin-right: 40px;
   float: left;
   text-align: center;
 `

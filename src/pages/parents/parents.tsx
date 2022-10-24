@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+import { getBookListCount } from "../../api/book"
 import Header from "../../components/Header"
 import {
   BodyBox,
@@ -25,6 +27,24 @@ import {
 } from "./style"
 
 export default function Parents() {
+  const [bookList1, setBookList1] = useState([])
+  const [bookList2, setBookList2] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    callApi()
+  }, [])
+
+  const callApi = async () => {
+    const { data: data1 } = await getBookListCount(4)
+    setBookList1(() => data1)
+    const { data: data2 } = await getBookListCount(4)
+    setBookList2(() => data2)
+    setLoading(() => false)
+  }
+
+  console.log(bookList1)
+  if (loading) return null
   return (
     <OuterBox>
       <InBox>
@@ -92,17 +112,15 @@ export default function Parents() {
             <FourthTitle>평가 기반 추천 도서</FourthTitle>
             <TagBtn>#언어자극</TagBtn>
             <BookBox>
-              <BookImageTop />
-              <BookImage />
-              <BookImage />
-              <BookImage />
+              {bookList1.map((item: any) => (
+                <BookImage key={item.idx} src={item.thumbnail} />
+              ))}
             </BookBox>
             <TagBtn>#어휘력 향상</TagBtn>
             <BookBox>
-              <BookImageTop />
-              <BookImage />
-              <BookImage />
-              <BookImage />
+              {bookList2.map((item: any) => (
+                <BookImage key={item.idx} src={item.thumbnail} />
+              ))}
             </BookBox>
           </FourthBox>
         </BodyBox>
