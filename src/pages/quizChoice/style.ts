@@ -1,4 +1,5 @@
 import styled from "styled-components"
+
 export const OuterBox = styled.div`
   display: flex;
   justify-content: center;

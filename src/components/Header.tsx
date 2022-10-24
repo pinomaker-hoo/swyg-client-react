@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Header() {
   return (
     <OuterBox>
-      <Logo>matebook</Logo>
+      <Link to={"/"}>
+        <Logo>matebook</Logo>
+      </Link>
       <MenuText>찜</MenuText>
       <MenuText>로그아웃</MenuText>
       <MenuText>보호자</MenuText>

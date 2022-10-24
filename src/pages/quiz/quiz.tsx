@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { getQuizList } from "../../api/quiz"
 import {

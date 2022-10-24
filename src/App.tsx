@@ -3,6 +3,7 @@ import Book from "./pages/book/book"
 import Home from "./pages/home/home"
 import Login from "./pages/login/login"
 import MakeQuiz from "./pages/makeQuiz/makeQuiz"
+import Parents from "./pages/parents/parents"
 import Quiz from "./pages/quiz/quiz"
 import QuizChoice from "./pages/quizChoice/quizChoice"
 import Register from "./pages/register/register"
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/info" element={<UserInfo />} />
+        <Route path="/parents" element={<Parents />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/quiz/make" element={<MakeQuiz />} />
         <Route path="/quiz/make/choice" element={<QuizChoice />} />

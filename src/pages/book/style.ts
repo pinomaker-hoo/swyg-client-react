@@ -19,9 +19,8 @@ export const TopBox = styled.div`
   height: 750px;
 `
 export const BottomBox = styled.div`
-  // background-color: white;
   width: 1100px;
-  height: 800px;
+  height: 2000px;
 `
 
 export const Title = styled.h1`
@@ -75,7 +74,7 @@ export const BookBtn = styled.button`
 `
 
 export const BottomTitle = styled.h1`
-  color: black;
+  color: white;
   margin-bottom: 70px;
 `
 export const CommentBox = styled.div`
@@ -83,6 +82,8 @@ export const CommentBox = styled.div`
   height: 300px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px 3px #efefef;
+  margin-bottom: 30px;
+  background-color: white;
 `
 
 export const CommentLeft = styled.div`

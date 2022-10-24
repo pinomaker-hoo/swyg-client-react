@@ -51,6 +51,9 @@ export default function Home() {
       <Link to={"/book/8"}>
         <button>Book</button>
       </Link>
+      <Link to={"/parents"}>
+        <button>Parents</button>
+      </Link>
       <br />
       <input onChange={onChange} />
       <button onClick={onClick}>CLICK</button>

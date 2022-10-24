@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import { getBook } from "../../api/book"
 import { saveReview } from "../../api/review"
 import Header from "../../components/Header"
-
 import {
   BodyBox,
   BookBox,
@@ -30,8 +29,9 @@ import {
   SubmitBtn,
   Title,
   TopBox,
+  InBox,
+  OuterBox,
 } from "./style"
-import { InBox, OuterBox } from "./style"
 
 export default function Book() {
   const [book, setBook]: any = useState()
@@ -48,7 +48,6 @@ export default function Book() {
       const { data } = await getBook(id)
       setBook(() => data)
     }
-    console.log(1)
   }
 
   const onChangeText = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,13 +108,14 @@ export default function Book() {
 }
 
 const Comment = (props: any) => {
+  console.log(props)
   return (
     <CommentBox>
       <CommentLeft>
         <ImageBox src="../../../public/profile3.jpeg" />
       </CommentLeft>
       <CommentRight>
-        <CommentName>김인후</CommentName>
+        <CommentName>{props.data.name}</CommentName>
         <CommentText>{props.data.text}</CommentText>
         <CommentIcon src="../../../public/icon-like.png" />
         <CommentInfo>5</CommentInfo>
