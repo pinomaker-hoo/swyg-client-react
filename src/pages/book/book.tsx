@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { getBook } from "../../api/book"
+import { saveLikeBook } from "../../api/likeBook"
 import { getReview, saveReview } from "../../api/review"
 import Header from "../../components/Header"
 import {
@@ -62,6 +64,11 @@ export default function Book() {
     const res = await saveReview(text, id)
   }
 
+  const onClickLikeBookBtn = async () => {
+    const { data } = await saveLikeBook(id)
+    data ? alert("찜하였습니다.") : alert("ERROR")
+  }
+
   if (!book) return null
   return (
     <OuterBox>
@@ -82,8 +89,15 @@ export default function Book() {
                   </BookInfo>
                   <BookSub>줄거리</BookSub>
                   <BookStory>{book.contents}</BookStory>
-                  <BookBtn color="#F18B45">퀴즈 맞추기</BookBtn>
-                  <BookBtn color="#805FC7">퀴즈 내기</BookBtn>
+                  <Link to={"/quiz"}>
+                    <BookBtn color="#F18B45">퀴즈 맞추기</BookBtn>
+                  </Link>
+                  <Link to={"/quiz/make/choice"}>
+                    <BookBtn color="#805FC7">퀴즈 내기</BookBtn>
+                  </Link>
+                  <BookBtn onClick={onClickLikeBookBtn} color="#805FC7">
+                    찜하기
+                  </BookBtn>
                 </BookTextBox>
               </BookRightBox>
             </BookBox>

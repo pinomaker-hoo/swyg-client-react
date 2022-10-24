@@ -1,12 +1,12 @@
 import axios from "axios"
 
 const likeBook = axios.create({
-  baseURL: "http://localhost:8003",
+  baseURL: "http://localhost:8003/likeBook",
   withCredentials: true,
   headers: {},
 })
 
-export const saveLikeBook = async (bookId: string) => {
+export const saveLikeBook = async (bookId: string): Promise<any> => {
   try {
     return await likeBook({
       url: `/${bookId}`,
