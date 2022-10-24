@@ -17,3 +17,14 @@ export const saveReview = async (text: string, id: string) => {
     console.log(err)
   }
 }
+
+export const getReview = async (id: string) => {
+  try {
+    return await review({
+      method: "get",
+      url: `/${id}`,
+    })
+  } catch (err) {
+    console.log(err)
+  }
+}
