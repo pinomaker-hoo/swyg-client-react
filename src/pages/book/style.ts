@@ -19,7 +19,7 @@ export const TopBox = styled.div`
   height: 750px;
 `
 export const BottomBox = styled.div`
-  background-color: white;
+  // background-color: white;
   width: 1100px;
   height: 800px;
 `
@@ -122,4 +122,21 @@ export const CommentInfo = styled.h3`
   margin-left: 20px;
   margin-right: 20px;
   font-size: 28px;
+`
+
+export const CommentTextInput = styled.input`
+  border: none;
+  width: 90%;
+  height: 50%;
+`
+
+export const SubmitBtn = styled.button`
+  width: 164px;
+  height: 50px;
+  background-color: #805fc7;
+  color: white;
+  border: none;
+  border-radius: 27px;
+  float: right;
+  margin-right: 100px;
 `

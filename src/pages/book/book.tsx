@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getBook } from "../../api/book"
+import { saveReview } from "../../api/review"
 import Header from "../../components/Header"
 
 import {
@@ -24,7 +25,9 @@ import {
   CommentName,
   CommentRight,
   CommentText,
+  CommentTextInput,
   ImageBox,
+  SubmitBtn,
   Title,
   TopBox,
 } from "./style"
@@ -32,7 +35,9 @@ import { InBox, OuterBox } from "./style"
 
 export default function Book() {
   const [book, setBook]: any = useState()
-  const { id } = useParams()
+  const [text, setText]: any = useState()
+
+  const { id }: any = useParams()
 
   useEffect(() => {
     callApi()
@@ -43,8 +48,18 @@ export default function Book() {
       const { data } = await getBook(id)
       setBook(() => data)
     }
+    console.log(1)
   }
-  console.log(book)
+
+  const onChangeText = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value)
+  }
+
+  const onClickBtn = async () => {
+    const res = await saveReview(text, id)
+    console.log(res)
+  }
+
   if (!book) return null
   return (
     <OuterBox>
@@ -73,7 +88,19 @@ export default function Book() {
           </TopBox>
           <BottomBox>
             <BottomTitle>친구들이 단 코멘트 </BottomTitle>
-            <Comment />
+            {book.review.map((item: any) => (
+              <Comment data={item} />
+            ))}
+            <CommentBox>
+              <CommentLeft>
+                <ImageBox src="../../../public/profile3.jpeg" />
+              </CommentLeft>
+              <CommentRight>
+                <CommentName>김인후</CommentName>
+                <CommentTextInput type="text" onChange={onChangeText} />
+                <SubmitBtn onClick={onClickBtn}>등록하기</SubmitBtn>
+              </CommentRight>
+            </CommentBox>
           </BottomBox>
         </BodyBox>
       </InBox>
@@ -81,7 +108,7 @@ export default function Book() {
   )
 }
 
-const Comment = () => {
+const Comment = (props: any) => {
   return (
     <CommentBox>
       <CommentLeft>
@@ -89,13 +116,7 @@ const Comment = () => {
       </CommentLeft>
       <CommentRight>
         <CommentName>김인후</CommentName>
-        <CommentText>
-          비밀교실은 원하는 것을 상상하면 뭐든 이루어지는 곳이다. 부모님이
-          이혼하셔서 아빠와 살고 있는 한이는 엄마와 만나거 싶다고 생각했다.
-          그래서 비밀교실에서 엄마를 만나게 됐다. 한이가 엄마를 만나는
-          장면에서는 나도 눈물이 날 것 같았다. 시우는 놀이동산처럼 재미있는
-          학교를 상상...
-        </CommentText>
+        <CommentText>{props.data.text}</CommentText>
         <CommentIcon src="../../../public/icon-like.png" />
         <CommentInfo>5</CommentInfo>
         <CommentIcon src="../../../public/icon-comment.png" />
