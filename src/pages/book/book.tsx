@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getBook } from "../../api/book"
-import { saveReview } from "../../api/review"
+import { getReview, saveReview } from "../../api/review"
 import Header from "../../components/Header"
 import {
   BodyBox,
@@ -37,6 +37,10 @@ export default function Book() {
   const [book, setBook]: any = useState()
   const [text, setText]: any = useState()
 
+  useEffect(() => {
+    callApi()
+  }, [])
+
   const { id }: any = useParams()
 
   useEffect(() => {
@@ -56,7 +60,6 @@ export default function Book() {
 
   const onClickBtn = async () => {
     const res = await saveReview(text, id)
-    console.log(res)
   }
 
   if (!book) return null
@@ -88,7 +91,7 @@ export default function Book() {
           <BottomBox>
             <BottomTitle>친구들이 단 코멘트 </BottomTitle>
             {book.review.map((item: any) => (
-              <Comment data={item} />
+              <Comment id={item.idx} />
             ))}
             <CommentBox>
               <CommentLeft>
@@ -108,15 +111,26 @@ export default function Book() {
 }
 
 const Comment = (props: any) => {
-  console.log(props)
+  const [review, setReview]: any = useState()
+
+  useEffect(() => {
+    callApi()
+  }, [])
+
+  const callApi = async () => {
+    const { data } = await getReview(props.id)
+    setReview(data)
+  }
+
+  if (!review) return null
   return (
     <CommentBox>
       <CommentLeft>
         <ImageBox src="../../../public/profile3.jpeg" />
       </CommentLeft>
       <CommentRight>
-        <CommentName>{props.data.name}</CommentName>
-        <CommentText>{props.data.text}</CommentText>
+        <CommentName>{review.user.name}</CommentName>
+        <CommentText>{review.text}</CommentText>
         <CommentIcon src="../../../public/icon-like.png" />
         <CommentInfo>5</CommentInfo>
         <CommentIcon src="../../../public/icon-comment.png" />

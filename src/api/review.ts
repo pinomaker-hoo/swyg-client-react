@@ -18,7 +18,7 @@ export const saveReview = async (text: string, id: string) => {
   }
 }
 
-export const getReview = async (id: string) => {
+export const getReview = async (id: string): Promise<any> => {
   try {
     return await review({
       method: "get",
