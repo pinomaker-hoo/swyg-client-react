@@ -9,7 +9,7 @@ const Kakao = axios.create({
 })
 
 const book = axios.create({
-  baseURL: "http://localhost:8003",
+  baseURL: "http://localhost:8003/book",
   withCredentials: true,
   headers: {},
 })
@@ -21,7 +21,7 @@ export const KakaoSearch = async (params: any) => {
 export const SaveBook = async (data: any) => {
   return await book({
     method: "post",
-    url: "/book",
+    url: "/",
     data: {
       title: data.title,
       contents: data.contents,
@@ -35,9 +35,9 @@ export const SaveBook = async (data: any) => {
 }
 
 export const getBookListCount = async (count: number) => {
-  return await book.get(`/book/count/${count}`)
+  return await book.get(`/count/${count}`)
 }
 
 export const getBook = async (idx: string) => {
-  return await book.get(`/book/${idx}`)
+  return await book.get(`/${idx}`)
 }
