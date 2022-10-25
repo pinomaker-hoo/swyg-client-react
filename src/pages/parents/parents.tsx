@@ -5,7 +5,6 @@ import {
   BodyBox,
   BookBox,
   BookImage,
-  BookImageTop,
   DateBox,
   DateColum,
   DateText,
