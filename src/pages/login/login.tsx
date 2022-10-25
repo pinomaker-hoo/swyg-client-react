@@ -28,16 +28,13 @@ export default function Login() {
   const onLogin = async () => {
     try {
       if (!useNull([user.email, user.password])) return alert("Null ERROR")
-      const response = await login(user)
-      goToMainPage()
+      const { data } = await login(user)
+      if (data) return navigate("/")
+      return alert("ERROR")
     } catch (err) {
       console.log(err)
       alert("ERROR")
     }
-  }
-
-  const goToMainPage = () => {
-    navigate("/")
   }
 
   return (

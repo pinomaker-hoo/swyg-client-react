@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { getBookListCount } from "../../api/book"
 import { saveMate } from "../../api/mate"
 import {
@@ -17,21 +18,17 @@ export default function UserInfo() {
   const [text, setText] = useState("")
   const [name, setName] = useState("")
   const [bookList, setBookList] = useState([])
-  const [bookActive, setBookActive] = useState("")
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     getBookList()
   }, [])
 
-  const toggleActive = (e: any) => {
-    setBookActive((prev) => {
-      return e.target.value
-    })
-  }
-
   const getBookList = async () => {
-    const getBookList: any = await getBookListCount(9)
-    setBookList(() => getBookList)
+    const { data }: any = await getBookListCount(9)
+    setBookList(() => data)
+    console.log(data)
   }
 
   const onChangeText = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +39,8 @@ export default function UserInfo() {
     setName(() => event.target.value)
   }
   const saveMateApi = async () => {
-    const res = await saveMate(name)
+    const { data } = await saveMate(name)
+    return data ? navigate("/") : alert("ERROR")
   }
 
   return (
@@ -60,7 +58,7 @@ export default function UserInfo() {
         <BookDiv>
           <LabelText>최근에 읽은 책</LabelText>
           {bookList.map((item: any, idx: number) => (
-            <BookBox key={item.idx} onClick={toggleActive}>
+            <BookBox key={item.idx}>
               <BookImg src={item.thumbnail}></BookImg>
             </BookBox>
           ))}

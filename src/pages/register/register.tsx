@@ -76,19 +76,17 @@ export default function Register() {
 
   const onRegister = async () => {
     try {
-      ;`${form.year}-${form.month}-${form.day}`
-
-      if (!useNull([user.email, user.name, user.password, inputCode]))
+      if (!useNull([user.email, user.name, user.password]))
         return alert("Null ERROR")
       if (!useSame(user.password, passwordC))
         return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
-      onCheckCode()
+      // onCheckCode()
       const response = await register(
         user,
         `${form.year}-${form.month}-${form.day}`,
         male
       )
-      navigate("/")
+      navigate("/auth/info")
     } catch (err) {
       alert("ERROR")
     }
