@@ -105,7 +105,7 @@ export default function Book() {
           <BottomBox>
             <BottomTitle>친구들이 단 코멘트 </BottomTitle>
             {book.review.map((item: any) => (
-              <Comment id={item.idx} />
+              <Comment key={item.idx} id={item.idx} />
             ))}
             <CommentBox>
               <CommentLeft>

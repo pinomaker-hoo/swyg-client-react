@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { getBookListCount } from "../../api/book"
 import Header from "../../components/Header"
 import {
@@ -42,7 +43,6 @@ export default function Parents() {
     setLoading(() => false)
   }
 
-  console.log(bookList1)
   if (loading) return null
   return (
     <OuterBox>
@@ -112,13 +112,17 @@ export default function Parents() {
             <TagBtn>#언어자극</TagBtn>
             <BookBox>
               {bookList1.map((item: any) => (
-                <BookImage key={item.idx} src={item.thumbnail} />
+                <Link to={`/book/${item.idx}`}>
+                  <BookImage key={item.idx} src={item.thumbnail} />
+                </Link>
               ))}
             </BookBox>
             <TagBtn>#어휘력 향상</TagBtn>
             <BookBox>
               {bookList2.map((item: any) => (
-                <BookImage key={item.idx} src={item.thumbnail} />
+                <Link to={`/book/${item.idx}`}>
+                  <BookImage key={item.idx} src={item.thumbnail} />
+                </Link>
               ))}
             </BookBox>
           </FourthBox>

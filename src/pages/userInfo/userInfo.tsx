@@ -30,7 +30,7 @@ export default function UserInfo() {
   }
 
   const getBookList = async () => {
-    const getBookList: [] = await getBookListCount(9)
+    const getBookList: any = await getBookListCount(9)
     setBookList(() => getBookList)
   }
 
@@ -43,7 +43,6 @@ export default function UserInfo() {
   }
   const saveMateApi = async () => {
     const res = await saveMate(name)
-    console.log(res)
   }
 
   return (
@@ -61,7 +60,7 @@ export default function UserInfo() {
         <BookDiv>
           <LabelText>최근에 읽은 책</LabelText>
           {bookList.map((item: any, idx: number) => (
-            <BookBox onClick={toggleActive}>
+            <BookBox key={item.idx} onClick={toggleActive}>
               <BookImg src={item.thumbnail}></BookImg>
             </BookBox>
           ))}
