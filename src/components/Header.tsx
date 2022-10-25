@@ -7,7 +7,9 @@ export default function Header() {
       <Link to={"/"}>
         <Logo>matebook</Logo>
       </Link>
-      <MenuText>찜</MenuText>
+      <Link to={"/likebook"}>
+        <MenuText>찜</MenuText>
+      </Link>
       <MenuText>로그아웃</MenuText>
       <MenuText>보호자</MenuText>
     </OuterBox>
