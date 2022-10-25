@@ -28,7 +28,7 @@ export const deleteLikeBook = async (bookId: string) => {
   }
 }
 
-export const getLikeBookList = async () => {
+export const getLikeBookList = async (): Promise<any> => {
   try {
     return await likeBook({
       url: "/",

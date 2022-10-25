@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import Book from "./pages/book/book"
 import Home from "./pages/home/home"
+import LikeBook from "./pages/likeBook/likeBook"
 import Login from "./pages/login/login"
 import MakeQuiz from "./pages/makeQuiz/makeQuiz"
 import Parents from "./pages/parents/parents"
@@ -15,6 +16,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/book/:id" element={<Book />} />
+        <Route path="/likebook" element={<LikeBook />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/info" element={<UserInfo />} />

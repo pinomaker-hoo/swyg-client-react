@@ -48,9 +48,10 @@ export default function Home() {
       <Link to={"/quiz/make/choice"}>
         <button>Quiz Choice</button>
       </Link>
-      <Link to={"/book/8"}>
+      <Link to={"/book/27"}>
         <button>Book</button>
       </Link>
+      ㄴ
       <Link to={"/parents"}>
         <button>Parents</button>
       </Link>
