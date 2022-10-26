@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { KakaoSearch, SaveBook } from "../../api/book"
+import Header from "../../components/Header"
+import { BodyBox, InBox, OuterBox } from "./styles"
 
 export default function Home() {
   const [text, setText] = useState("")
@@ -29,35 +31,39 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <Link to={"/auth/login"}>
-        <button>LOGIN</button>
-      </Link>
-      <Link to={"/auth/register"}>
-        <button>REGISTER</button>
-      </Link>
-      <Link to={"/quiz/27"}>
-        <button>QUIZ</button>
-      </Link>
-      <Link to={"/auth/info"}>
-        <button>INFO</button>
-      </Link>
-      <Link to={"/quiz/make/27"}>
-        <button>make</button>
-      </Link>
-      <Link to={"/quiz/make/choice/27"}>
-        <button>Quiz Choice</button>
-      </Link>
-      <Link to={"/book/27"}>
-        <button>Book</button>
-      </Link>
-      ㄴ
-      <Link to={"/parents"}>
-        <button>Parents</button>
-      </Link>
-      <br />
-      <input onChange={onChange} />
-      <button onClick={onClick}>CLICK</button>
-    </div>
+    <OuterBox>
+      <InBox>
+        <Header />
+        <BodyBox>
+          <Link to={"/auth/login"}>
+            <button>LOGIN</button>
+          </Link>
+          <Link to={"/auth/register"}>
+            <button>REGISTER</button>
+          </Link>
+          <Link to={"/quiz/27"}>
+            <button>QUIZ</button>
+          </Link>
+          <Link to={"/auth/info"}>
+            <button>INFO</button>
+          </Link>
+          <Link to={"/quiz/make/27"}>
+            <button>make</button>
+          </Link>
+          <Link to={"/quiz/make/choice/27"}>
+            <button>Quiz Choice</button>
+          </Link>
+          <Link to={"/book/27"}>
+            <button>Book</button>
+          </Link>
+          <Link to={"/parents"}>
+            <button>Parents</button>
+          </Link>
+          <br />
+          <input onChange={onChange} />
+          <button onClick={onClick}>CLICK</button>
+        </BodyBox>
+      </InBox>
+    </OuterBox>
   )
 }
