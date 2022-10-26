@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 import {
   InBox,
@@ -14,6 +14,9 @@ import {
 
 export default function QuizChoice() {
   const [color, setColor] = useState("#442d7a")
+
+  const { id }: any = useParams()
+
   const onClick = () => {
     color === "#442d7a" ? setColor("#F18B45") : setColor("#442d7a")
   }
@@ -34,7 +37,7 @@ export default function QuizChoice() {
             <BoxText>주관식</BoxText>
           </ChoiceBox>
         </ChoiceDiv>
-        <Link to={"/quiz/make"}>
+        <Link to={`/quiz/make/${id}`}>
           <SubBtn>선택완료</SubBtn>
         </Link>
       </InBox>

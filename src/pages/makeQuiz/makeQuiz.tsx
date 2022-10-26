@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { saveQuiz } from "../../api/quiz"
 import {
   FalseBtn,
@@ -20,10 +20,12 @@ export default function MakeQuiz() {
   const [colorTwo, setColorTwo] = useState("#442D7A")
   const [text, setText] = useState("")
 
+  const { id }: any = useParams()
+
   const onClick = async () => {
     try {
-      const res = await saveQuiz(text, answer)
-      navigate("/")
+      const { data } = await saveQuiz(text, answer, id)
+      return data ? navigate("/") : alert("ERROR")
     } catch (err) {
       console.log(err)
     }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { getQuizList } from "../../api/quiz"
 import {
   InBox,
@@ -23,12 +24,15 @@ import {
 export default function Quiz() {
   const [dataList, setDataList] = useState([])
   const [loading, setLoading] = useState(true)
+
+  const { id }: any = useParams()
+
   useEffect(() => {
-    onCallApi()
+    callApi()
   }, [])
 
-  const onCallApi = async () => {
-    const { data } = await getQuizList()
+  const callApi = async () => {
+    const { data } = await getQuizList(id)
     setDataList(() => data)
     setLoading(() => false)
   }
@@ -44,26 +48,32 @@ export default function Quiz() {
         </Text>
         <QuizBox>
           {dataList.map((item: any) => (
-            <QuizContainer>
-              <QuizCardFront className="front">
-                <MainImgBox>
-                  <MainImg src="../../../public/earth.png" />
-                </MainImgBox>
-                <StarImgBox>
-                  <StarImg src="../../../public/star.png" />
-                  <PointText>5P</PointText>
-                </StarImgBox>
-              </QuizCardFront>
-              <QuizCardBack className="back">
-                <QuizNumber>Q1</QuizNumber>
-                <QuizTitle>{item.text}</QuizTitle>
-                <QuizButton>O</QuizButton>
-                <QuizButtonTwo>X</QuizButtonTwo>
-              </QuizCardBack>
-            </QuizContainer>
+            <QuizCard key={item.idx} data={item} />
           ))}
         </QuizBox>
       </InBox>
     </OuterBox>
+  )
+}
+
+const QuizCard = (props: any) => {
+  return (
+    <QuizContainer>
+      <QuizCardFront className="front">
+        <MainImgBox>
+          <MainImg src="../../../public/earth.png" />
+        </MainImgBox>
+        <StarImgBox>
+          <StarImg src="../../../public/star.png" />
+          <PointText>5P</PointText>
+        </StarImgBox>
+      </QuizCardFront>
+      <QuizCardBack className="back">
+        <QuizNumber>Q1</QuizNumber>
+        <QuizTitle>{props.data.text}</QuizTitle>
+        <QuizButton>O</QuizButton>
+        <QuizButtonTwo>X</QuizButtonTwo>
+      </QuizCardBack>
+    </QuizContainer>
   )
 }

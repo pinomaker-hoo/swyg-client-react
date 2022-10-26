@@ -36,16 +36,16 @@ export default function Home() {
       <Link to={"/auth/register"}>
         <button>REGISTER</button>
       </Link>
-      <Link to={"/quiz"}>
+      <Link to={"/quiz/27"}>
         <button>QUIZ</button>
       </Link>
       <Link to={"/auth/info"}>
         <button>INFO</button>
       </Link>
-      <Link to={"/quiz/make"}>
+      <Link to={"/quiz/make/27"}>
         <button>make</button>
       </Link>
-      <Link to={"/quiz/make/choice"}>
+      <Link to={"/quiz/make/choice/27"}>
         <button>Quiz Choice</button>
       </Link>
       <Link to={"/book/27"}>

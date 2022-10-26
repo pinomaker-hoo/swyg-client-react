@@ -21,9 +21,9 @@ export default function App() {
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/info" element={<UserInfo />} />
         <Route path="/parents" element={<Parents />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/quiz/make" element={<MakeQuiz />} />
-        <Route path="/quiz/make/choice" element={<QuizChoice />} />
+        <Route path="/quiz/:id" element={<Quiz />} />
+        <Route path="/quiz/make/:id" element={<MakeQuiz />} />
+        <Route path="/quiz/make/choice/:id" element={<QuizChoice />} />
       </Routes>
     </div>
   )

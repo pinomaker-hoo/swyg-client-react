@@ -89,10 +89,10 @@ export default function Book() {
                   </BookInfo>
                   <BookSub>줄거리</BookSub>
                   <BookStory>{book.contents}</BookStory>
-                  <Link to={"/quiz"}>
+                  <Link to={`/quiz/${id}`}>
                     <BookBtn color="#F18B45">퀴즈 맞추기</BookBtn>
                   </Link>
-                  <Link to={"/quiz/make/choice"}>
+                  <Link to={`/quiz/make/choice/${id}`}>
                     <BookBtn color="#805FC7">퀴즈 내기</BookBtn>
                   </Link>
                   <BookBtn onClick={onClickLikeBookBtn} color="#805FC7">
