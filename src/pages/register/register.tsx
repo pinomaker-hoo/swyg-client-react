@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { register, sendMail } from "../../api/auth"
 import { useNavigate } from "react-router-dom"
-
 import {
   OuterBox,
   InBox,
@@ -21,7 +20,7 @@ import {
   MonthsSelect,
   DaysSelect,
 } from "./style"
-import { useNull, useSame } from "../../common/hooks/inputHooks"
+import { useNull, useSame } from "../../common/Hooks"
 
 export default function Register() {
   const navigate = useNavigate()

@@ -13,7 +13,7 @@ import {
   KakaoBtn,
   NaverBtn,
 } from "./style"
-import { useNull } from "../../common/hooks/inputHooks"
+import { useNull } from "../../common/Hooks"
 
 export default function Login() {
   const navigate = useNavigate()
