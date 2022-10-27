@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { KakaoSearch, SaveBook } from "../../api/book"
 import Header from "../../components/Header"
-import { BookTitle } from "../book/style"
 import {
   BodyBox,
   FifthBox,
@@ -48,24 +47,7 @@ export default function Home() {
     setText(event.target.value)
   }
 
-  const onClick = () => {
-    callApi()
-  }
 
-  const callApi = async () => {
-    const params = {
-      query: text,
-      size: 9,
-      target: "title",
-    }
-    const { documents } = await (await KakaoSearch(params)).data
-    console.log(documents)
-    for (const item of documents) {
-      console.log(item)
-      const res = await SaveBook(item)
-      console.log(res)
-    }
-  }
 
   return (
     <OuterBox>
@@ -94,9 +76,8 @@ export default function Home() {
           <SecondBox>
             <SecondTitle>어떤 책을 찾고 있어?</SecondTitle>
             <SecondInputBox>
-              <SecondInput placeholder="ex. 안나의 일기" />
+              <SecondInput onChange={onChange} placeholder="ex. 안나의 일기" />
             </SecondInputBox>
-
             <SecondTagBtnBox>
               <SecondTagBtn1># 흥미진진한</SecondTagBtn1>
               <SecondTagBtn># 모험적인</SecondTagBtn>

@@ -31,3 +31,7 @@ export const sendMail = async (email: string) => {
     email,
   })
 }
+
+export const getUserInfo = async () => {
+  return await auth.get("/")
+}

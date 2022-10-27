@@ -14,6 +14,11 @@ const book = axios.create({
   headers: {},
 })
 
+/**
+ *
+ * @param params query : text, size : number, target : "title"
+ * @returns
+ */
 export const KakaoSearch = async (params: any) => {
   return await Kakao.get("/v3/search/book", { params })
 }
