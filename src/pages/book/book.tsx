@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { getBook } from "../../api/book"
 import { saveLikeBook } from "../../api/likeBook"
 import { getReview, saveReview } from "../../api/review"
+import { useLogined } from "../../common/Hooks"
 import Header from "../../components/Header"
 import {
   BodyBox,
@@ -39,6 +40,8 @@ export default function Book() {
   const [book, setBook]: any = useState()
   const [text, setText]: any = useState()
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     callApi()
   }, [])
@@ -61,12 +64,35 @@ export default function Book() {
   }
 
   const onClickBtn = async () => {
-    const res = await saveReview(text, id)
+    const logined = await useLogined()
+    if (logined) return await saveReview(text, id)
+    alert("로그인이 필요합니다.")
+    navigate("/auth/login")
   }
 
   const onClickLikeBookBtn = async () => {
-    const { data } = await saveLikeBook(id)
-    data ? alert("찜하였습니다.") : alert("ERROR")
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인이 필요합니다.")
+      navigate("/auth/login")
+    } else {
+      const { data } = await saveLikeBook(id)
+      data ? alert("찜하였습니다.") : alert("ERROR")
+    }
+  }
+
+  const onClickQuiz = async () => {
+    const logined = await useLogined()
+    if (logined) return navigate(`/quiz/${id}`)
+    alert("로그인이 필요합니다.")
+    navigate("/auth/login")
+  }
+
+  const onClickMakeQuiz = async () => {
+    const logined = await useLogined()
+    if (logined) return navigate(`/quiz/make/choice/${id}`)
+    alert("로그인이 필요합니다.")
+    navigate("/auth/login")
   }
 
   if (!book) return null
@@ -89,12 +115,12 @@ export default function Book() {
                   </BookInfo>
                   <BookSub>줄거리</BookSub>
                   <BookStory>{book.contents}</BookStory>
-                  <Link to={`/quiz/${id}`}>
-                    <BookBtn color="#F18B45">퀴즈 맞추기</BookBtn>
-                  </Link>
-                  <Link to={`/quiz/make/choice/${id}`}>
-                    <BookBtn color="#805FC7">퀴즈 내기</BookBtn>
-                  </Link>
+                  <BookBtn onClick={onClickQuiz} color="#F18B45">
+                    퀴즈 맞추기
+                  </BookBtn>
+                  <BookBtn onClick={onClickMakeQuiz} color="#805FC7">
+                    퀴즈 내기
+                  </BookBtn>
                   <BookBtn onClick={onClickLikeBookBtn} color="#805FC7">
                     찜하기
                   </BookBtn>

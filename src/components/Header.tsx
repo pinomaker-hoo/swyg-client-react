@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import { getCookie, removeCookie } from "../common/Cookie"
+import { removeCookie } from "../common/Cookie"
+import { getJwtCookie, useLogined } from "../common/Hooks"
 
 export default function Header() {
   const [logined, setLogined] = useState(false)
@@ -17,13 +18,16 @@ export default function Header() {
     cookie ? setLogined(() => true) : setLogined(() => false)
   }
 
-  const getJwtCookie = async (): Promise<string> => {
-    return await getCookie("accessToken")
-  }
-
   const logoutBtn = async () => {
     removeCookie("accessToken")
     navigate("/")
+  }
+
+  const onClickNotLogined = async () => {
+    const logined = await useLogined()
+    if (!logined) return
+    alert("로그인이 필요합니다.")
+    navigate("/auth/login")
   }
 
   return (
@@ -31,9 +35,13 @@ export default function Header() {
       <Link to={"/"}>
         <Logo>matebook</Logo>
       </Link>
-      <Link to={"/likebook"}>
-        <MenuText>찜</MenuText>
-      </Link>
+      {logined ? (
+        <Link to={"/likebook"}>
+          <MenuText>찜</MenuText>
+        </Link>
+      ) : (
+        <MenuText onClick={onClickNotLogined}>찜</MenuText>
+      )}
       {logined ? (
         <MenuText onClick={logoutBtn}>로그아웃</MenuText>
       ) : (
@@ -41,9 +49,13 @@ export default function Header() {
           <MenuText>로그인</MenuText>
         </Link>
       )}
-      <Link to={"/parents"}>
-        <MenuText>보호자</MenuText>
-      </Link>
+      {logined ? (
+        <Link to={"/parents"}>
+          <MenuText>보호자</MenuText>
+        </Link>
+      ) : (
+        <MenuText onClick={onClickNotLogined}>보호자</MenuText>
+      )}
     </OuterBox>
   )
 }
