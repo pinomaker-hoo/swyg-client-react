@@ -12,7 +12,6 @@ import {
   FirstInfoBox,
   FirstLeftBox,
   FirstRightBox,
-  FirstStateBox,
   FirstTitleText,
   FourthBody,
   FourthBox,
