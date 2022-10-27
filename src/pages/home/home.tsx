@@ -72,7 +72,7 @@ export default function Home() {
               <FirstTitleText>바깥 세상이 궁금해!</FirstTitleText>
             </FirstLeftBox>
             <FirstRightBox>
-              <FirstImg src="../../../public/egg.png" />
+              <FirstImg src="/egg.png" />
             </FirstRightBox>
           </FirstBox>
           <SecondBox>

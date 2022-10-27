@@ -33,6 +33,7 @@ export default function Header() {
   return (
     <OuterBox>
       <Link to={"/"}>
+        <LogoImg src="/logo.png" />
         <Logo>matebook</Logo>
       </Link>
       {logined ? (
@@ -65,14 +66,26 @@ const OuterBox = styled.div`
   width: 1100px;
   height: 100px;
 `
-export const Logo = styled.h1`
-  font-family: SB_Aggro_B;
+const Logo = styled.h1`
+  font-family: Aggro-B;
   color: white;
-  margin-right: 550px;
+  float: left;
+  font-size: 40px;
+  margin-right: 600px;
 `
-export const MenuText = styled.h3`
-  font-family: SB_Aggro_B;
+
+const LogoImg = styled.img`
+  float: left;
+  width: 43px;
+  height: 35.85;
+  margin-top: 24px;
+  margin-right: 12px;
+`
+const MenuText = styled.h3`
+  font-family: Aggro-L;
   color: white;
-  width: 100px;
-  margin-left: 30px;
+  font-size: 18px;
+  margin-left: 50px;
+  margin-top: 40px;
+  float: left;
 `
