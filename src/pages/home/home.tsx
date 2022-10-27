@@ -6,9 +6,13 @@ import {
   BodyBox,
   FifthBox,
   FirstBox,
+  FirstIcon,
+  FirstIconText,
   FirstImg,
+  FirstInfoBox,
   FirstLeftBox,
   FirstRightBox,
+  FirstStateBox,
   FirstTitleText,
   FourthBody,
   FourthBox,
@@ -24,7 +28,9 @@ import {
   PText,
   SecondBox,
   SecondInput,
+  SecondInputBox,
   SecondTagBtn,
+  SecondTagBtn1,
   SecondTagBtnBox,
   SecondTitle,
   ThirdBookCard,
@@ -33,6 +39,7 @@ import {
   ThirdBookCardText,
   ThirdBox,
   ThirdSubTitle,
+  ThirdTitle,
 } from "./styles"
 
 export default function Home() {
@@ -70,6 +77,16 @@ export default function Home() {
             <FirstLeftBox>
               <PText>00아 북도리를 만난 걸 환영해</PText>
               <FirstTitleText>바깥 세상이 궁금해!</FirstTitleText>
+              <FirstInfoBox>
+                <FirstIcon src="/level.png" />
+                <FirstIconText>Lv1.</FirstIconText>
+                <FirstIcon src="/homestar.png" />
+                <FirstIconText>10p</FirstIconText>
+                <FirstIcon src="/comment.png" />
+                <FirstIconText>코멘트</FirstIconText>
+                <FirstIcon src="/quiz.png" />
+                <FirstIconText>퀴즈</FirstIconText>
+              </FirstInfoBox>
             </FirstLeftBox>
             <FirstRightBox>
               <FirstImg src="/egg.png" />
@@ -77,17 +94,20 @@ export default function Home() {
           </FirstBox>
           <SecondBox>
             <SecondTitle>어떤 책을 찾고 있어?</SecondTitle>
-            <SecondInput placeholder="ex. 안나의 일기" />
+            <SecondInputBox>
+              <SecondInput placeholder="ex. 안나의 일기" />
+            </SecondInputBox>
+
             <SecondTagBtnBox>
-              <SecondTagBtn>#흥미진진한</SecondTagBtn>
-              <SecondTagBtn>#모험적인</SecondTagBtn>
-              <SecondTagBtn>#인기있는</SecondTagBtn>
-              <SecondTagBtn>#스릴있는</SecondTagBtn>
-              <SecondTagBtn>#신기한</SecondTagBtn>
+              <SecondTagBtn1># 흥미진진한</SecondTagBtn1>
+              <SecondTagBtn># 모험적인</SecondTagBtn>
+              <SecondTagBtn># 인기있는</SecondTagBtn>
+              <SecondTagBtn># 스릴있는</SecondTagBtn>
+              <SecondTagBtn># 신기한</SecondTagBtn>
             </SecondTagBtnBox>
           </SecondBox>
           <ThirdBox>
-            <BookTitle>북도리 성장을 도와주는 책</BookTitle>
+            <ThirdTitle>북도리 성장을 도와주는 책</ThirdTitle>
             <ThirdSubTitle>
               관심 있는 카테고리 책을 골라 <br />
               메이트 성장을 도울 수 있어요!
@@ -111,7 +131,9 @@ export default function Home() {
               <FourthBook />
             </FourthBody>
           </FourthBox>
-          <FifthBox></FifthBox>
+          <FifthBox>
+            <h1>코멘트 달 책 둘러보기</h1>
+          </FifthBox>
         </BodyBox>
       </InBox>
     </OuterBox>
