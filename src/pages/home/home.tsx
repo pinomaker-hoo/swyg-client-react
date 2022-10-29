@@ -47,7 +47,20 @@ export default function Home() {
     setText(event.target.value)
   }
 
+  const onClickBook = async (event: any) => {
+    if (event.key === "Enter") {
+      const params = {
+        query: text,
+        size: 3,
+        target: "title",
+      }
+      const { data }: any = await KakaoSearch(params)
 
+      for (const item of data.documents) {
+        const { data } = await SaveBook(item)
+      }
+    }
+  }
 
   return (
     <OuterBox>
@@ -76,7 +89,11 @@ export default function Home() {
           <SecondBox>
             <SecondTitle>어떤 책을 찾고 있어?</SecondTitle>
             <SecondInputBox>
-              <SecondInput onChange={onChange} placeholder="ex. 안나의 일기" />
+              <SecondInput
+                onChange={onChange}
+                placeholder="ex. 안나의 일기"
+                onKeyPress={onClickBook}
+              />
             </SecondInputBox>
             <SecondTagBtnBox>
               <SecondTagBtn1># 흥미진진한</SecondTagBtn1>
