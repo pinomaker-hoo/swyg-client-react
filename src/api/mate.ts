@@ -9,3 +9,7 @@ const mate = axios.create({
 export const saveMate = async (name: string) => {
   return await mate({ method: "post", url: "/", data: { name } })
 }
+
+export const getMate = async () => {
+  return await mate({ method: "get", url: "/" })
+}
