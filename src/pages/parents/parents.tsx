@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
+import { getUserInfo, updateImg } from "../../api/auth"
 import { getBookListCount } from "../../api/book"
 import Header from "../../components/Header"
 import {
@@ -11,8 +12,10 @@ import {
   DateText,
   DateTitle,
   FirstBox,
+  FirstDiv,
   FourthBox,
   FourthTitle,
+  HideInput,
   ImgBox,
   InBox,
   ListLi,
@@ -27,6 +30,7 @@ import {
 } from "./style"
 
 export default function Parents() {
+  const [user, setUser]: any = useState()
   const [bookList1, setBookList1] = useState([])
   const [bookList2, setBookList2] = useState([])
   const [loading, setLoading] = useState(true)
@@ -35,12 +39,27 @@ export default function Parents() {
     callApi()
   }, [])
 
+  const imgInput: any = useRef()
+
   const callApi = async () => {
     const { data: data1 } = await getBookListCount(4)
     setBookList1(() => data1)
     const { data: data2 } = await getBookListCount(4)
     setBookList2(() => data2)
+    const { data } = await getUserInfo()
+    setUser(() => data)
     setLoading(() => false)
+  }
+
+  const onClickImg = async () => {
+    imgInput.current.click()
+  }
+
+  const onChangeImg = async (event: any) => {
+    const formData = new FormData()
+    formData.append("files", event.target.files[0])
+    const { data }: any = await updateImg(formData)
+    console.log(data)
   }
 
   if (loading) return null
@@ -50,8 +69,21 @@ export default function Parents() {
         <Header />
         <BodyBox>
           <FirstBox>
-            <ImgBox src="../../../public/profile3.jpeg" />
-            <NameText>김인후</NameText>
+            <FirstDiv>
+              <ImgBox
+                src="../../../public/profile3.jpeg"
+                onClick={onClickImg}
+              />
+              <HideInput
+                type="file"
+                accept="image/*"
+                ref={imgInput}
+                onChange={onChangeImg}
+              />
+            </FirstDiv>
+            <FirstDiv>
+              <NameText>{user.name}</NameText>
+            </FirstDiv>
           </FirstBox>
           <SecondBox>
             <DateTitle>최근 독서 기록</DateTitle>

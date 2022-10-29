@@ -17,8 +17,6 @@ export const FirstBox = styled.div`
   margin-top: 100px;
   width: 1100px;
   height: 400px;
-  justify-content: center;
-  align-items: center;
 `
 export const SecondBox = styled.div`
   margin-top: 100px;
@@ -40,9 +38,11 @@ export const ImgBox = styled.img`
   height: 275px;
   border: 3px white solid;
   border-radius: 137.5px;
+  margin: auto;
 `
 export const NameText = styled.h1`
   color: white;
+  margin: auto;
 `
 export const DateBox = styled.div`
   width: 100%;
@@ -74,6 +74,7 @@ export const ListLi = styled.li`
 `
 export const ListText = styled.h3`
   color: #f18b45;
+  margin-left: 10px;
 `
 
 export const TagBtn = styled.button`
@@ -99,4 +100,14 @@ export const BookImage = styled.img`
   margin-right: 40px;
   float: left;
   text-align: center;
+  border-radius: 10px;
+`
+
+export const FirstDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+`
+export const HideInput = styled.input`
+  display: none;
 `
