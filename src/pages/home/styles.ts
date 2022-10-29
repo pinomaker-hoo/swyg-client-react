@@ -4,16 +4,18 @@ export const OuterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1100px;
+  width: 100%;
+  background-image: url("/Group1.png");
 `
 
 export const InBox = styled.div`
-  width: 100%;
-  height: 70%;
+  width: 70%;
+  height: 100%;
 `
 export const BodyBox = styled.div``
 
 export const FirstBox = styled.div`
+  margin-top: 50px;
   width: 100%;
   height: 400px;
 `
@@ -38,13 +40,14 @@ export const FifthBox = styled.div`
   margin-top: 100px;
 `
 export const FirstLeftBox = styled.div`
-  width: 50%;
+  width: 46%;
   height: 100%;
   float: left;
+  margin-left: 8%;
 `
 
 export const FirstRightBox = styled.div`
-  width: 50%;
+  width: 46%;
   height: 100%;
   float: left;
   position: relative;
@@ -108,26 +111,25 @@ export const SecondTagBtnBox = styled.div`
   margin-top: 30px;
 `
 export const SecondTagBtn1 = styled.button`
-  width: 160px;
+  width: 130px;
   height: 50px;
   border: none;
   border-radius: 25px;
   background-color: white;
   border: 3px solid #ffef62;
   float: left;
-  margin-right: 30px;
-  margin-left: 90px;
+  margin-left: 180px;
   font-size: 18px;
 `
 export const SecondTagBtn = styled.button`
-  width: 160px;
+  width: 130px;
   height: 50px;
   border: none;
   border-radius: 25px;
   background-color: white;
   border: 3px solid #ffef62;
   float: left;
-  margin-right: 30px;
+  margin-left: 30px;
   font-size: 18px;
   font-family: Aggro-M;
 `
@@ -165,7 +167,10 @@ export const FourthTitle = styled.h1`
   color: white;
   font-size: 35px;
 `
-export const FourthBody = styled.div``
+export const FourthBody = styled.div`
+  margin-left: 100px;
+`
+
 export const FourthImgCard = styled.div`
   width: 300px;
   height: 200px;
@@ -177,7 +182,7 @@ export const FourthImgCardImg = styled.img`
 `
 export const FourthImgCardTitle = styled.p`
   margin-top: 110px;
-  font-size: 20px;
+  font-size: 12px;
   color: white;
 `
 export const FourthImgCardText = styled.p`
@@ -194,3 +199,32 @@ export const FourthImgCardRight = styled.div`
   width: 50%;
   height: 100%;
 `
+export const FifthImg = styled.img`
+  width: 64%;
+  margin-left: 4%;
+`
+export const FifthLeftBox = styled.div`
+  width: 24%;
+  float: left;
+  margin-left: 8%;
+`
+export const FifthTitle = styled.h1`
+  margin-top: -5px;
+  color: white;
+`
+export const FifthText = styled.p`
+  color: white;
+`
+export const FifthBtn = styled.button`
+  width: 160px;
+  height: 57px;
+  background-color: white;
+  border-radius: 28.5px;
+  margin-top: 10px;
+`
+// export const EarthImage = styled.img`
+//   display: flex;
+//   position: absolute;
+//   width: 450px;
+//   margin-left: -120px;
+// `

@@ -1,9 +1,16 @@
-import { useState } from "react"
-import { KakaoSearch, SaveBook } from "../../api/book"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { getBookListCount, KakaoSearch, SaveBook } from "../../api/book"
+import { getMate } from "../../api/mate"
 import Header from "../../components/Header"
 import {
   BodyBox,
   FifthBox,
+  FifthBtn,
+  FifthImg,
+  FifthLeftBox,
+  FifthText,
+  FifthTitle,
   FirstBox,
   FirstIcon,
   FirstIconText,
@@ -42,6 +49,21 @@ import {
 
 export default function Home() {
   const [text, setText] = useState("")
+  const [bookList, setBookList] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [mate, setMate]: any = useState()
+
+  useEffect(() => {
+    callApi()
+  }, [])
+
+  const callApi = async () => {
+    const { data: bookData }: any = await getBookListCount(15)
+    const { data: mateData }: any = await getMate()
+    setBookList(() => bookData)
+    setMate(() => mateData)
+    setLoading(() => false)
+  }
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value)
@@ -55,13 +77,13 @@ export default function Home() {
         target: "title",
       }
       const { data }: any = await KakaoSearch(params)
-
       for (const item of data.documents) {
         const { data } = await SaveBook(item)
       }
     }
   }
 
+  if (loading) return null
   return (
     <OuterBox>
       <InBox>
@@ -69,7 +91,9 @@ export default function Home() {
         <BodyBox>
           <FirstBox>
             <FirstLeftBox>
-              <PText>00아 북도리를 만난 걸 환영해</PText>
+              <PText>
+                {mate.user.name}아 {mate.name}을 만난 걸 환영해
+              </PText>
               <FirstTitleText>바깥 세상이 궁금해!</FirstTitleText>
               <FirstInfoBox>
                 <FirstIcon src="/level.png" />
@@ -110,26 +134,33 @@ export default function Home() {
               메이트 성장을 도울 수 있어요!
             </ThirdSubTitle>
             <ThirdBookCardBox>
-              <ThirdBook />
-              <ThirdBook />
-              <ThirdBook />
-              <ThirdBook />
-              <ThirdBook />
+              {bookList.splice(0, 5).map((item: any) => (
+                <Link to={`/book/${item.idx}`}>
+                  <ThirdBook data={item} key={item.idx} />
+                </Link>
+              ))}
             </ThirdBookCardBox>
           </ThirdBox>
           <FourthBox>
             <FourthTitle>친구들이 가장 많이 읽은 Top 6</FourthTitle>
             <FourthBody>
-              <FourthBook />
-              <FourthBook />
-              <FourthBook />
-              <FourthBook />
-              <FourthBook />
-              <FourthBook />
+              {bookList.splice(0, 6).map((item: any) => (
+                <Link to={`/book/${item.idx}`}>
+                  <FourthBook data={item} key={item.idx} />
+                </Link>
+              ))}
             </FourthBody>
           </FourthBox>
           <FifthBox>
-            <h1>코멘트 달 책 둘러보기</h1>
+            <FifthLeftBox>
+              <FifthTitle>코멘트 달 책 둘러보기</FifthTitle>
+              <FifthText>
+                평소 읽고 싶었던 책, 관심 있는 책을 살펴보고 내가 읽었던 책을
+                찾아서 코멘트 달 수 있어요!
+              </FifthText>
+              <FifthBtn>전체보기</FifthBtn>
+            </FifthLeftBox>
+            <FifthImg src="/bookList.png" />
           </FifthBox>
         </BodyBox>
       </InBox>
@@ -140,20 +171,20 @@ export default function Home() {
 const ThirdBook = (props: any) => {
   return (
     <ThirdBookCard>
-      <ThirdBookCardImg />
-      <ThirdBookCardText>비밀교실</ThirdBookCardText>
+      <ThirdBookCardImg src={props.data.thumbnail} />
+      <ThirdBookCardText>{props.data.title}</ThirdBookCardText>
     </ThirdBookCard>
   )
 }
 
-const FourthBook = () => {
+const FourthBook = (props: any) => {
   return (
     <FourthImgCard>
       <FourthImgCardLeft>
-        <FourthImgCardImg />
+        <FourthImgCardImg src={props.data.thumbnail} />
       </FourthImgCardLeft>
       <FourthImgCardRight>
-        <FourthImgCardTitle>가짜 모범생</FourthImgCardTitle>
+        <FourthImgCardTitle>{props.data.title}</FourthImgCardTitle>
         <FourthImgCardText>#재미있는</FourthImgCardText>
       </FourthImgCardRight>
     </FourthImgCard>
