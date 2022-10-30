@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Book from "./pages/book/book"
+import BookList from "./pages/booklist/booklist"
 import Home from "./pages/home/home"
 import LikeBook from "./pages/likeBook/likeBook"
 import Login from "./pages/login/login"
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/book/:id" element={<Book />} />
+        <Route path="/book/list" element={<BookList />} />
         <Route path="/likebook" element={<LikeBook />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />

@@ -55,7 +55,7 @@ import {
   ThirdBox,
   ThirdSubTitle,
   ThirdTitle,
-} from "./styles"
+} from "./style"
 
 export default function Home() {
   const [text, setText] = useState("")
@@ -188,7 +188,9 @@ export default function Home() {
                 평소 읽고 싶었던 책, 관심 있는 책을 살펴보고 내가 읽었던 책을
                 찾아서 코멘트 달 수 있어요!
               </FifthText>
-              <FifthBtn>전체보기</FifthBtn>
+              <Link to={"/book/list"}>
+                <FifthBtn>전체보기</FifthBtn>
+              </Link>
             </FifthLeftBox>
             <FifthImg src="/bookList.png" />
           </FifthBox>
