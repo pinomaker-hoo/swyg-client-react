@@ -121,7 +121,7 @@ export const CommentIcon = styled.img`
 `
 
 export const CommentInfo = styled.h3`
-  color: #f18b45;
+  color: ${(props) => props.color};
   float: left;
   margin-left: 20px;
   margin-right: 20px;

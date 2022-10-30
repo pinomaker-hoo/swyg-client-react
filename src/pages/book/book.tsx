@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
+import { getUserInfo } from "../../api/auth"
 import { getBook } from "../../api/book"
 import { saveLikeBook } from "../../api/likeBook"
-import { getReview, saveReview } from "../../api/review"
+import { getReview, getReviewList, saveReview } from "../../api/review"
+import {
+  deleteReviewLike,
+  getReviewLikeList,
+  saveReviewLike,
+} from "../../api/reviewLike"
 import { useLogined } from "../../common/Hooks"
 import Header from "../../components/Header"
 import {
@@ -39,6 +45,9 @@ import {
 export default function Book() {
   const [book, setBook]: any = useState()
   const [text, setText]: any = useState()
+  const [user, setUser]: any = useState()
+  const [reviewList, setReviewList]: any = useState([])
+  const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate()
 
@@ -53,6 +62,11 @@ export default function Book() {
       const { data } = await getBook(id)
       setBook(() => data)
     }
+    const { data }: any = await getUserInfo()
+    setUser(() => data)
+    const { data: reviewData }: any = await getReviewList(id)
+    setReviewList(() => reviewData)
+    setLoading(() => false)
   }
 
   const onChangeText = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,8 +95,6 @@ export default function Book() {
     }
   }
 
-  const onClickReviewLike = async () => {}
-
   const onClickQuiz = async () => {
     const logined = await useLogined()
     if (logined) return navigate(`/quiz/${id}`)
@@ -97,7 +109,7 @@ export default function Book() {
     navigate("/")
   }
 
-  if (!book) return null
+  if (!book || loading) return null
   return (
     <OuterBox>
       <InBox>
@@ -128,16 +140,24 @@ export default function Book() {
             </BookBox>
           </TopBox>
           <BottomBox>
+            {reviewList
+              .filter((item: any) => item.user.idx === user.idx)
+              .map((item: any) => (
+                <Comment key={item.idx} data={item} />
+              ))}
             <BottomTitle>친구들이 단 코멘트 </BottomTitle>
-            {book.review.map((item: any) => (
-              <Comment key={item.idx} id={item.idx} />
-            ))}
+            {reviewList
+              .filter((item: any) => item.user.idx !== user.idx)
+              .map((item: any) => (
+                <Comment key={item.idx} data={item} />
+              ))}
+
             <CommentBox>
               <CommentLeft>
-                <ImageBox src="../../../public/profile3.jpeg" />
+                <ImageBox src={`http://localhost:8003/${user.imgPath}`} />
               </CommentLeft>
               <CommentRight>
-                <CommentName>김인후</CommentName>
+                <CommentName>{user.name}</CommentName>
                 <CommentTextInput type="text" onChange={onChangeText} />
                 <SubmitBtn onClick={onClickBtn}>등록하기</SubmitBtn>
               </CommentRight>
@@ -150,30 +170,48 @@ export default function Book() {
 }
 
 const Comment = (props: any) => {
-  const [review, setReview]: any = useState()
+  const [likeList, setLikeList]: any = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const { data } = props
+  const navigate = useNavigate()
 
   useEffect(() => {
-    callApi()
-  }, [])
+    callApi().then(() => setLoading(false))
+  }, [likeList])
 
   const callApi = async () => {
-    const { data } = await getReview(props.id)
-    setReview(data)
+    const { data: reviewLikeData }: any = await getReviewLikeList(data.idx)
+    setLikeList(() => reviewLikeData)
   }
 
-  if (!review) return null
+  const onClickReviewLike = async () => {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인이 필요합니다.")
+      return navigate("/")
+    }
+    const { data: likeData }: any = await saveReviewLike(data.idx)
+    likeData ? alert("좋아요를 눌렀습니다.") : alert("좋아요를 취소했습니다.")
+    console.log(likeData)
+  }
+
+  if (loading) return null
   return (
     <CommentBox>
       <CommentLeft>
-        <ImageBox src="../../../public/profile3.jpeg" />
+        <ImageBox src={`http://localhost:8003/${data.user.imgPath}`} />
       </CommentLeft>
       <CommentRight>
-        <CommentName>{review.user.name}</CommentName>
-        <CommentText>{review.text}</CommentText>
-        <CommentIcon src="../../../public/icon-like.png" />
-        <CommentInfo>5</CommentInfo>
-        <CommentIcon src="../../../public/icon-comment.png" />
-        <CommentInfo>10</CommentInfo>
+        <CommentName>{data.user.name}</CommentName>
+        <CommentText>{data.text}</CommentText>
+        <CommentIcon
+          onClick={onClickReviewLike}
+          src="../../../public/icon-like.png"
+        />
+        <CommentInfo color="#f18b45">{likeList.length}</CommentInfo>
+        {/* <CommentIcon src="../../../public/icon-comment.png" />
+        <CommentInfo>10</CommentInfo> */}
       </CommentRight>
     </CommentBox>
   )

@@ -18,6 +18,7 @@ export const saveReviewLike = async (id: string) => {
 }
 export const deleteReviewLike = async (id: string) => {
   try {
+    console.log(id)
     return await reviewLike({
       url: `/${id}`,
       method: "delete",
