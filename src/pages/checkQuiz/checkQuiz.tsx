@@ -1,9 +1,10 @@
 import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Img, InBox, OuterBox, Title } from "./style"
 
 export default function CheckQuiz() {
   const navigate = useNavigate()
+  const { id }: any = useParams()
 
   useEffect(() => {
     checkPage()
@@ -11,7 +12,7 @@ export default function CheckQuiz() {
 
   const checkPage = () => {
     setTimeout(() => {
-      navigate("/quiz/point")
+      navigate(`/quiz/point/${id}`)
     }, 2000)
   }
 
