@@ -25,8 +25,6 @@ import {
 export default function QuizTest() {
   const [dataList, setDataList]: any = useState([])
   const [loading, setLoading] = useState(true)
-  const [colorOne, setColorOne] = useState("#442D7A")
-  const [colorTwo, setColorTwo] = useState("#442D7A")
   const [answer, setAnswer] = useState(true || false)
 
   const { id }: any = useParams()
@@ -77,18 +75,8 @@ export default function QuizTest() {
             <QuizCardBack className="back">
               <QuizNumber>Q1</QuizNumber>
               <QuizTitle>{dataList[0].text}</QuizTitle>
-              <QuizButton
-                name="true"
-                onClick={onClickBtn}
-                color={answer ? "#F18B45" : "#442d7a"}
-              >
-                O
-              </QuizButton>
-              <QuizButtonTwo
-                name="false"
-                onClick={onClickBtn}
-                color={answer ? "#442d7a" : "#F18B45"}
-              >
+              <QuizButton color={answer ? "#F18B45" : "#442d7a"}>O</QuizButton>
+              <QuizButtonTwo color={answer ? "#442d7a" : "#F18B45"}>
                 X
               </QuizButtonTwo>
             </QuizCardBack>
