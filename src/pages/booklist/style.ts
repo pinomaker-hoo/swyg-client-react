@@ -15,9 +15,10 @@ export const BodyBox = styled.div`
   height: 1000px;
 `
 export const BookBox = styled.div`
-  width: 100%;
+  width: 85%;
   height: 350px;
   margin-top: 50px;
+  margin-left: 100px;
 `
 export const BookLeftBox = styled.div`
   width: 25%;
@@ -85,8 +86,10 @@ export const BookTagBtn = styled.button`
   font-size: 18px;
   margin-bottom: 30px;
   margin-top: 50px;
+  margin-left: 100px;
 `
 export const WhiteLine = styled.hr`
   color: white;
-  margin-top: 30px;
+  margin-left: 100px;
+  width: 85%;
 `

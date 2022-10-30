@@ -93,7 +93,7 @@ const BookCard = (props: any) => {
           작가 {props.data.authors} {props.data.publisher}
         </BookSubTitle>
         <BookIntroduce>소개</BookIntroduce>
-        <BookText>{props.data.contents.substr(0, 120)} . . .</BookText>
+        <BookText>{props.data.contents.substr(0, 80)} . . .</BookText>
       </BookMiddleBox>
       <BookRightBox>
         <Link to={`/book/${props.data.idx}`}>

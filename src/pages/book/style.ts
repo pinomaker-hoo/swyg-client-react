@@ -4,22 +4,23 @@ export const OuterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1100px;
+  width: 100%;
 `
 
 export const InBox = styled.div`
-  width: 100%;
-  height: 70%;
+  width: 70%;
+  height: 100%;
+  background-color: blue;
 `
 export const BodyBox = styled.div``
 
 export const TopBox = styled.div`
   margin-top: 100px;
-  width: 1100px;
+  width: 100%;
   height: 750px;
 `
 export const BottomBox = styled.div`
-  width: 1100px;
+  width: 100%;
   height: 2000px;
 `
 
@@ -78,7 +79,7 @@ export const BottomTitle = styled.h1`
   margin-bottom: 70px;
 `
 export const CommentBox = styled.div`
-  width: 1100px;
+  width: 100%;
   height: 300px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px 3px #efefef;

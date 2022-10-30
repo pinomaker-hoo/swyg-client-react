@@ -11,6 +11,7 @@ export const OuterBox = styled.div`
 export const InBox = styled.div`
   width: 70%;
   height: 100%;
+  background-color: blue;
 `
 export const BodyBox = styled.div``
 
