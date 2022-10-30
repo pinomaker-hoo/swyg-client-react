@@ -26,3 +26,11 @@ export const deleteReviewLike = async (id: string) => {
     console.log(err)
   }
 }
+
+export const getReviewLikeList = async (id: string) => {
+  try {
+    return await reviewLike.get(`/${id}`)
+  } catch (err) {
+    console.log(err)
+  }
+}

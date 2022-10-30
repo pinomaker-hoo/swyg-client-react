@@ -28,3 +28,11 @@ export const getReview = async (id: string): Promise<any> => {
     console.log(err)
   }
 }
+
+export const getReviewList = async (id: string) => {
+  try {
+    return await review.get(`/list/${id}`)
+  } catch (err) {
+    console.log(err)
+  }
+}
