@@ -48,10 +48,6 @@ export default function Book() {
 
   const { id }: any = useParams()
 
-  useEffect(() => {
-    callApi()
-  }, [])
-
   const callApi = async () => {
     if (id) {
       const { data } = await getBook(id)
@@ -65,9 +61,13 @@ export default function Book() {
 
   const onClickBtn = async () => {
     const logined = await useLogined()
-    if (logined) return await saveReview(text, id)
-    alert("로그인이 필요합니다.")
-    navigate("/")
+    if (logined) {
+      await saveReview(text, id)
+      navigate(`/book/comment/${id}`)
+    } else {
+      alert("로그인이 필요합니다.")
+      navigate("/")
+    }
   }
 
   const onClickLikeBookBtn = async () => {
@@ -80,6 +80,8 @@ export default function Book() {
       data ? alert("찜하였습니다.") : alert("ERROR")
     }
   }
+
+  const onClickReviewLike = async () => {}
 
   const onClickQuiz = async () => {
     const logined = await useLogined()

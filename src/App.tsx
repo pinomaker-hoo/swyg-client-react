@@ -14,6 +14,8 @@ import QuizTrue from "./pages/quizTrue/quizTrue"
 import QuizFalse from "./pages/quizFalse/quizFalse"
 import CheckQuiz from "./pages/checkQuiz/checkQuiz"
 import PointQuiz from "./pages/pointQuiz/pointQuiz"
+import CheckComment from "./pages/checkComment/checkComment"
+import PointComment from "./pages/pointComment/pointComment"
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/book/:id" element={<Book />} />
         <Route path="/book/list" element={<BookList />} />
+        <Route path="/book/comment/:id" element={<CheckComment />} />
+        <Route path="/book/comment/point/:id" element={<PointComment />} />
         <Route path="/likebook" element={<LikeBook />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
