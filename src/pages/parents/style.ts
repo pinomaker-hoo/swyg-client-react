@@ -4,7 +4,7 @@ export const OuterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1100px;
+  width: 100%;
 `
 
 export const InBox = styled.div`
@@ -15,23 +15,26 @@ export const BodyBox = styled.div``
 
 export const FirstBox = styled.div`
   margin-top: 100px;
-  width: 1100px;
+  width: 85%;
+  margin-left: 100px;
   height: 400px;
 `
 export const SecondBox = styled.div`
-  margin-top: 100px;
-  width: 1100px;
+  width: 85%;
+  margin-left: 100px;
   height: 300px;
 `
 export const ThirdBox = styled.div`
   margin-top: 100px;
-  width: 1100px;
+  width: 85%;
+  margin-left: 100px;
   height: 400px;
 `
 export const FourthBox = styled.div`
   margin-top: 100px;
-  width: 1100px;
-  height: 750px;
+  width: 85%;
+  margin-left: 100px;
+  height: 1000px;
 `
 export const ImgBox = styled.img`
   width: 275px;
@@ -95,8 +98,7 @@ export const BookBox = styled.div`
 `
 
 export const BookImage = styled.img`
-  width: 230px;
-  height: 340px;
+  width: 20%;
   margin-right: 40px;
   float: left;
   text-align: center;
