@@ -93,3 +93,4 @@ export const WhiteLine = styled.hr`
   margin-left: 100px;
   width: 85%;
 `
+export const MapBox = styled.div``

@@ -19,6 +19,7 @@ import {
   BookText,
   BookTitle,
   InBox,
+  MapBox,
   OuterBox,
   WhiteLine,
 } from "./style"
@@ -45,24 +46,24 @@ export default function BookList() {
         <BodyBox>
           <BookTagBtn>#흥미진진한</BookTagBtn>
           {bookList.splice(0, 3).map((item: any) => (
-            <>
+            <MapBox key={item.idx}>
               <BookCard data={item} />
               <WhiteLine />
-            </>
+            </MapBox>
           ))}
           <BookTagBtn>#흥미진진한</BookTagBtn>
           {bookList.splice(0, 3).map((item: any) => (
-            <>
+            <MapBox key={item.idx}>
               <BookCard data={item} />
               <WhiteLine />
-            </>
+            </MapBox>
           ))}
           <BookTagBtn>#흥미진진한</BookTagBtn>
           {bookList.splice(0, 3).map((item: any) => (
-            <>
+            <MapBox key={item.idx}>
               <BookCard data={item} />
               <WhiteLine />
-            </>
+            </MapBox>
           ))}
         </BodyBox>
       </InBox>

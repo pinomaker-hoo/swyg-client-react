@@ -279,3 +279,4 @@ export const FifthBtn = styled.button`
   border-radius: 28.5px;
   margin-top: 10px;
 `
+export const MapBox = styled.div``

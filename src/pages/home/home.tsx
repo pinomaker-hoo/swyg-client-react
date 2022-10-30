@@ -33,6 +33,7 @@ import {
   FourthImgCardTitle,
   FourthTitle,
   InBox,
+  MapBox,
   OuterBox,
   PText,
   SecondBox,
@@ -175,9 +176,11 @@ export default function Home() {
             <FourthTitle>친구들이 가장 많이 읽은 Top 6</FourthTitle>
             <FourthBody>
               {bookList.splice(0, 6).map((item: any) => (
-                <Link to={`/book/${item.idx}`}>
-                  <FourthBook data={item} key={item.idx} />
-                </Link>
+                <MapBox key={item.idx}>
+                  <Link to={`/book/${item.idx}`}>
+                    <FourthBook data={item} key={item.idx} />
+                  </Link>
+                </MapBox>
               ))}
             </FourthBody>
           </FourthBox>
