@@ -151,7 +151,6 @@ export default function Book() {
               .map((item: any) => (
                 <Comment key={item.idx} data={item} />
               ))}
-
             <CommentBox>
               <CommentLeft>
                 <ImageBox src={`http://localhost:8003/${user.imgPath}`} />
