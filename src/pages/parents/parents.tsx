@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { getUserInfo, updateImg } from "../../api/auth"
 import { getBookListCount } from "../../api/book"
+import { getUserBookList } from "../../api/userBook"
 import Header from "../../components/Header"
 import {
   BodyBox,
@@ -33,6 +34,7 @@ export default function Parents() {
   const [user, setUser]: any = useState()
   const [bookList1, setBookList1] = useState([])
   const [bookList2, setBookList2] = useState([])
+  const [readBookList, setReadBookList] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -48,6 +50,8 @@ export default function Parents() {
     setBookList2(() => data2)
     const { data } = await getUserInfo()
     setUser(() => data)
+    const { data: data3 }: any = await getUserBookList()
+    setReadBookList(() => data3)
     setLoading(() => false)
   }
 

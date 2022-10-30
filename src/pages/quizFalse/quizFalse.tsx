@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getQuiz } from "../../api/quiz"
+import { saveUserBook } from "../../api/userBook"
 import {
   Img,
   InBox,
@@ -33,7 +34,9 @@ export default function QuizFalse() {
     setLoading(() => false)
   }
 
-  const onClickCheckBtn = () => {
+  const onClickCheckBtn = async () => {
+    const { data: data2 }: any = await saveUserBook(id)
+    if (!data2) return alert("ERROR")
     navigate(`/book/${id}`)
   }
 

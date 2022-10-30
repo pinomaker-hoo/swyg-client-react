@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { savePoint } from "../../api/point"
+import { saveUserBook } from "../../api/userBook"
 import { Img, InBox, OuterBox, SubBtn, Title } from "./style"
 
 export default function PointComment() {
@@ -8,7 +9,8 @@ export default function PointComment() {
 
   const onClick = async () => {
     const { data }: any = await savePoint(50)
-    if (!data) return alert("ERROR")
+    const { data: data2 }: any = await saveUserBook(id)
+    if (!data || !data2) return alert("ERROR")
     navigate(`/book/${id}`)
   }
 
