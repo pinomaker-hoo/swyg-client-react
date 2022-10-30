@@ -18,6 +18,10 @@ import {
   FirstInfoBox,
   FirstLeftBox,
   FirstRightBox,
+  FirstStateBar,
+  FirstStateBox,
+  FirstStateLine,
+  FirstStateText,
   FirstTitleText,
   FourthBody,
   FourthBox,
@@ -39,9 +43,15 @@ import {
   SecondTagBtnBox,
   SecondTitle,
   ThirdBookCard,
+  ThirdBookCard2,
+  ThirdBookCard3,
   ThirdBookCardBox,
   ThirdBookCardImg,
+  ThirdBookCardImg2,
+  ThirdBookCardImg3,
   ThirdBookCardText,
+  ThirdBookCardText2,
+  ThirdBookCardText3,
   ThirdBox,
   ThirdSubTitle,
   ThirdTitle,
@@ -52,6 +62,7 @@ export default function Home() {
   const [bookList, setBookList] = useState([])
   const [loading, setLoading] = useState(true)
   const [mate, setMate]: any = useState()
+  const [point, setPoint]: any = useState()
 
   useEffect(() => {
     callApi()
@@ -61,7 +72,8 @@ export default function Home() {
     const { data: bookData }: any = await getBookListCount(15)
     const { data: mateData }: any = await getMate()
     setBookList(() => bookData)
-    setMate(() => mateData)
+    setMate(() => mateData.mate)
+    setPoint(() => mateData.point)
     setLoading(() => false)
   }
 
@@ -99,12 +111,30 @@ export default function Home() {
                 <FirstIcon src="/level.png" />
                 <FirstIconText>Lv1.</FirstIconText>
                 <FirstIcon src="/homestar.png" />
-                <FirstIconText>10p</FirstIconText>
+                <FirstIconText>{point}p</FirstIconText>
                 <FirstIcon src="/comment.png" />
                 <FirstIconText>코멘트</FirstIconText>
                 <FirstIcon src="/quiz.png" />
                 <FirstIconText>퀴즈</FirstIconText>
               </FirstInfoBox>
+              <FirstStateBox>
+                <FirstStateLine>
+                  <FirstStateText>감정</FirstStateText>
+                  <FirstStateText>호기심</FirstStateText>
+                  <FirstStateBar></FirstStateBar>
+                  <FirstStateText>100%</FirstStateText>
+                </FirstStateLine>
+                <FirstStateLine>
+                  <FirstStateText>식욕</FirstStateText>
+                  <FirstStateText>무</FirstStateText>
+                  <FirstStateText>0%</FirstStateText>
+                </FirstStateLine>
+                <FirstStateLine>
+                  <FirstStateText>아픔</FirstStateText>
+                  <FirstStateText>무</FirstStateText>
+                  <FirstStateText>0%</FirstStateText>
+                </FirstStateLine>
+              </FirstStateBox>
             </FirstLeftBox>
             <FirstRightBox>
               <FirstImg src="/egg.png" />
@@ -134,11 +164,11 @@ export default function Home() {
               메이트 성장을 도울 수 있어요!
             </ThirdSubTitle>
             <ThirdBookCardBox>
-              {bookList.splice(0, 5).map((item: any) => (
-                <Link to={`/book/${item.idx}`}>
-                  <ThirdBook data={item} key={item.idx} />
-                </Link>
-              ))}
+              <ThirdBook2 data={bookList[0]} />
+              <ThirdBook3 data={bookList[1]} />
+              <ThirdBook data={bookList[2]} />
+              <ThirdBook3 data={bookList[3]} />
+              <ThirdBook2 data={bookList[4]} />
             </ThirdBookCardBox>
           </ThirdBox>
           <FourthBox>
@@ -174,6 +204,22 @@ const ThirdBook = (props: any) => {
       <ThirdBookCardImg src={props.data.thumbnail} />
       <ThirdBookCardText>{props.data.title}</ThirdBookCardText>
     </ThirdBookCard>
+  )
+}
+const ThirdBook2 = (props: any) => {
+  return (
+    <ThirdBookCard2>
+      <ThirdBookCardImg2 src={props.data.thumbnail} />
+      <ThirdBookCardText2>{props.data.title}</ThirdBookCardText2>
+    </ThirdBookCard2>
+  )
+}
+const ThirdBook3 = (props: any) => {
+  return (
+    <ThirdBookCard3>
+      <ThirdBookCardImg3 src={props.data.thumbnail} />
+      <ThirdBookCardText3>{props.data.title}</ThirdBookCardText3>
+    </ThirdBookCard3>
   )
 }
 

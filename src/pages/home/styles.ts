@@ -71,6 +71,7 @@ export const FirstImg = styled.img`
   transform: translate(-50%, -50%);
 `
 export const FirstInfoBox = styled.div`
+  height: 50px;
   width: 100%;
 `
 export const FirstIcon = styled.img`
@@ -86,7 +87,30 @@ export const FirstIconText = styled.p`
   margin-top: 1px;
   color: white;
 `
-export const FirstStateBox = styled.div``
+export const FirstStateBox = styled.div`
+  margin-top: 3 0px;
+`
+
+export const FirstStateLine = styled.div`
+  width: 100%;
+  height: 50px;
+`
+
+export const FirstStateText = styled.p`
+  font-size: 20px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 1px;
+  color: white;
+`
+
+export const FirstStateBar = styled.div`
+  width: 160px;
+  height: 20px;
+  background-color: #ffe600;
+  border-radius: 10px;
+  float: left;
+`
 
 export const SecondTitle = styled.h1`
   color: white;
@@ -146,20 +170,52 @@ export const ThirdSubTitle = styled.p`
 `
 export const ThirdBookCardBox = styled.div`
   margin-top: 70px;
+  margin-left: 80px;
 `
 export const ThirdBookCard = styled.div`
   float: left;
-  width: 180px;
+  width: 240px;
   height: 400px;
-  margin-right: 30px;
 `
 export const ThirdBookCardImg = styled.img`
-  width: 180px;
-  height: 300px;
+  width: 240px;
+  border-radius: 10px;
 `
 export const ThirdBookCardText = styled.h3`
   text-align: center;
   color: white;
+`
+export const ThirdBookCard2 = styled.div`
+  margin-top : 85px;
+  float: left;
+  width: 120px
+  height: 200px;
+`
+export const ThirdBookCardImg2 = styled.img`
+  width: 120px;
+  border-radius: 10px;
+`
+export const ThirdBookCardText2 = styled.h3`
+  text-align: center;
+  color: white;
+  font-size: 15px;
+`
+export const ThirdBookCard3 = styled.div`
+  float: left;
+  width: 156px;
+  height: 280px;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-top: 60px;
+`
+export const ThirdBookCardImg3 = styled.img`
+  width: 156px;
+  border-radius: 10px;
+`
+export const ThirdBookCardText3 = styled.h3`
+  text-align: center;
+  color: white;
+  font-size: 18px;
 `
 
 export const FourthTitle = styled.h1`
@@ -172,7 +228,7 @@ export const FourthBody = styled.div`
 `
 
 export const FourthImgCard = styled.div`
-  width: 300px;
+  width: 350px;
   height: 200px;
   float: left;
 `
@@ -181,22 +237,23 @@ export const FourthImgCardImg = styled.img`
   height: 180px;
 `
 export const FourthImgCardTitle = styled.p`
+  width: 80%;
   margin-top: 110px;
-  font-size: 12px;
+  font-size: 15px;
   color: white;
 `
 export const FourthImgCardText = styled.p`
-  font-size: 15px;
+  font-size: 12px;
   color: white;
 `
 export const FourthImgCardLeft = styled.div`
   float: left;
-  width: 50%;
+  width: 45%;
   height: 100%;
 `
 export const FourthImgCardRight = styled.div`
   float: left;
-  width: 50%;
+  width: 55%;
   height: 100%;
 `
 export const FifthImg = styled.img`
