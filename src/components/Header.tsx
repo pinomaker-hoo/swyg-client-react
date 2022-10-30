@@ -36,9 +36,6 @@ export default function Header() {
         <LogoImg src="/logo.png" />
         <Logo>matebook</Logo>
       </Link>
-      <Link to={"/book/27"}>
-        <MenuText>책</MenuText>/
-      </Link>
       {logined ? (
         <Link to={"/likebook"}>
           <MenuText>찜</MenuText>
@@ -75,6 +72,7 @@ const Logo = styled.h1`
   float: left;
   font-size: 40px;
   margin-right: 400px;
+  margin-left: 10px;
 `
 
 const LogoImg = styled.img`
@@ -83,12 +81,13 @@ const LogoImg = styled.img`
   height: 35.85;
   margin-top: 24px;
   margin-right: 12px;
+  margin-left: 100px;
 `
 const MenuText = styled.h3`
   font-family: Aggro-L;
   color: white;
   font-size: 18px;
-  margin-left: 50px;
+  margin-left: 60px;
   margin-top: 40px;
   float: left;
 `
