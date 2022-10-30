@@ -1,14 +1,15 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { savePoint } from "../../api/point"
 import { Img, InBox, OuterBox, SubBtn, Title } from "./style"
 
 export default function QuizTrue() {
   const navigate = useNavigate()
+  const { id }: any = useParams()
 
   const onClick = async () => {
     const { data }: any = await savePoint(5)
     if (!data) return alert("ERROR")
-    navigate("/home")
+    navigate(`/book/${id}`)
   }
 
   return (

@@ -49,11 +49,15 @@ export default function QuizTest() {
     console.log(dataList[0].answer)
     console.log(answer)
     dataList[0].answer === answer
-      ? navigate("/quiz/true")
+      ? navigate(`/quiz/true/${dataList[0].idx}`)
       : navigate(`/quiz/false/${dataList[0].idx}`)
   }
 
   if (loading) return null
+  if (dataList) {
+    alert("퀴즈가 없습니다.")
+    navigate(`/book/${id}`)
+  }
   return (
     <OuterBox>
       <InBox>

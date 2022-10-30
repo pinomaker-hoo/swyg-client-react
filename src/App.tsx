@@ -30,7 +30,7 @@ export default function App() {
         <Route path="/quiz/:id" element={<QuizTest />} />
         <Route path="/quiz/make/:id" element={<MakeQuiz />} />
         <Route path="/quiz/make/choice/:id" element={<QuizChoice />} />
-        <Route path="/quiz/true" element={<QuizTrue />} />
+        <Route path="/quiz/true/:id" element={<QuizTrue />} />
         <Route path="/quiz/false/:id" element={<QuizFalse />} />
       </Routes>
     </div>

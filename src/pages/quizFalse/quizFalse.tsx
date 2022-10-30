@@ -34,7 +34,7 @@ export default function QuizFalse() {
   }
 
   const onClickCheckBtn = () => {
-    navigate("/home")
+    navigate(`/book/${id}`)
   }
 
   if (loading) return null
