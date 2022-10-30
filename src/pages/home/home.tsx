@@ -60,7 +60,7 @@ import {
 
 export default function Home() {
   const [text, setText] = useState("")
-  const [bookList, setBookList] = useState([])
+  const [bookList, setBookList]: any = useState([])
   const [loading, setLoading] = useState(true)
   const [mate, setMate]: any = useState()
   const [point, setPoint]: any = useState()
@@ -165,11 +165,22 @@ export default function Home() {
               메이트 성장을 도울 수 있어요!
             </ThirdSubTitle>
             <ThirdBookCardBox>
-              <ThirdBook2 data={bookList[0]} />
-              <ThirdBook3 data={bookList[1]} />
-              <ThirdBook data={bookList[2]} />
-              <ThirdBook3 data={bookList[3]} />
-              <ThirdBook2 data={bookList[4]} />
+              <Link to={`/book/${bookList[0].idx}`}>
+                <ThirdBook2 data={bookList[0]} />
+              </Link>
+              <Link to={`/book/${bookList[1].idx}`}>
+                <ThirdBook3 data={bookList[1]} />
+              </Link>
+              <Link to={`/book/${bookList[2].idx}`}>
+                <ThirdBook data={bookList[2]} />
+              </Link>
+              <Link to={`/book/${bookList[3].idx}`}>
+                <ThirdBook3 data={bookList[3]} />
+              </Link>
+              <Link to={`/book/${bookList[4].idx}`}>
+                {" "}
+                <ThirdBook2 data={bookList[4]} />
+              </Link>
             </ThirdBookCardBox>
           </ThirdBox>
           <FourthBox>

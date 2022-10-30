@@ -70,7 +70,7 @@ export default function Parents() {
           <FirstBox>
             <FirstDiv>
               <ImgBox
-                src="../../../public/profile3.jpeg"
+                src={`http://localhost:8003/${user.imgPath}`}
                 onClick={onClickImg}
               />
               <HideInput

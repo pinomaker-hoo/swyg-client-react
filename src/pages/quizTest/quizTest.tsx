@@ -35,7 +35,7 @@ export default function QuizTest() {
   }, [])
 
   const callApi = async () => {
-    const { data } = await getQuizList(id)
+    const { data }: any = await getQuizList(id)
     setDataList(() => data)
     setLoading(() => false)
   }
@@ -75,8 +75,18 @@ export default function QuizTest() {
             <QuizCardBack className="back">
               <QuizNumber>Q1</QuizNumber>
               <QuizTitle>{dataList[0].text}</QuizTitle>
-              <QuizButton color={answer ? "#F18B45" : "#442d7a"}>O</QuizButton>
-              <QuizButtonTwo color={answer ? "#442d7a" : "#F18B45"}>
+              <QuizButton
+                name="true"
+                onClick={onClickBtn}
+                color={answer ? "#F18B45" : "#442d7a"}
+              >
+                O
+              </QuizButton>
+              <QuizButtonTwo
+                name="false"
+                onClick={onClickBtn}
+                color={answer ? "#442d7a" : "#F18B45"}
+              >
                 X
               </QuizButtonTwo>
             </QuizCardBack>

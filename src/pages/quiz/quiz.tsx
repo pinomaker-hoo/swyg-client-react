@@ -32,12 +32,30 @@ export default function Quiz() {
   }, [])
 
   const callApi = async () => {
-    const { data } = await getQuizList(id)
+    const { data }: any = await getQuizList(id)
     setDataList(() => data)
     setLoading(() => false)
   }
+  const [colorOne, setColorOne] = useState("#442D7A")
+  const [colorTwo, setColorTwo] = useState("#442D7A")
+  const [answer, setAnswer] = useState(true || false)
+
+  const onClickBtn = async (event: any) => {
+    const { name } = await event.target
+
+    if (name === "true") setAnswer(() => true)
+    if (name === "false") setAnswer(() => false)
+    if (answer) {
+      setColorOne(() => "#F18B45")
+      setColorTwo(() => "#442d7a")
+    } else {
+      setColorOne(() => "#442d7a")
+      setColorTwo(() => "#F18B45")
+    }
+  }
 
   if (loading) return null
+
   return (
     <OuterBox>
       <InBox>
@@ -47,7 +65,31 @@ export default function Quiz() {
         </Text>
         <QuizBox>
           {dataList.map((item: any) => (
-            <QuizCard key={item.idx} data={item} />
+            <QuizContainer>
+              <QuizCardFront className="front">
+                <MainImgBox>
+                  <MainImg src="/Earth.png" />
+                </MainImgBox>
+                <StarImgBox>
+                  <StarImg src="/smallStar.png" />
+                  <PointText>5P</PointText>
+                </StarImgBox>
+              </QuizCardFront>
+              <QuizCardBack className="back">
+                <QuizNumber>Q1</QuizNumber>
+                <QuizTitle>{item.text}</QuizTitle>
+                <QuizButton name="true" onClick={onClickBtn} color={colorOne}>
+                  O
+                </QuizButton>
+                <QuizButtonTwo
+                  name="false"
+                  onClick={onClickBtn}
+                  color={colorTwo}
+                >
+                  X
+                </QuizButtonTwo>
+              </QuizCardBack>
+            </QuizContainer>
           ))}
         </QuizBox>
       </InBox>
@@ -55,24 +97,46 @@ export default function Quiz() {
   )
 }
 
-const QuizCard = (props: any) => {
-  return (
-    <QuizContainer>
-      <QuizCardFront className="front">
-        <MainImgBox>
-          <MainImg src="../../../public/earth.png" />
-        </MainImgBox>
-        <StarImgBox>
-          <StarImg src="../../../public/star.png" />
-          <PointText>5P</PointText>
-        </StarImgBox>
-      </QuizCardFront>
-      <QuizCardBack className="back">
-        <QuizNumber>Q1</QuizNumber>
-        <QuizTitle>{props.data.text}</QuizTitle>
-        <QuizButton>O</QuizButton>
-        <QuizButtonTwo>X</QuizButtonTwo>
-      </QuizCardBack>
-    </QuizContainer>
-  )
-}
+// const QuizCard = (props: any) => {
+//   const [colorOne, setColorOne] = useState("#442D7A")
+//   const [colorTwo, setColorTwo] = useState("#442D7A")
+//   const [answer, setAnswer] = useState(true || false)
+
+//   const onClickBtn = async (event: any) => {
+//     const { name } = await event.target
+
+//     if (name === "true") setAnswer(() => true)
+//     if (name === "false") setAnswer(() => false)
+//     if (answer) {
+//       setColorOne(() => "#F18B45")
+//       setColorTwo(() => "#442d7a")
+//     } else {
+//       setColorOne(() => "#442d7a")
+//       setColorTwo(() => "#F18B45")
+//     }
+//   }
+
+//   return (
+//     <QuizContainer>
+//       <QuizCardFront className="front">
+//         <MainImgBox>
+//           <MainImg src="/Earth.png" />
+//         </MainImgBox>
+//         <StarImgBox>
+//           <StarImg src="/smallStar.png" />
+//           <PointText>5P</PointText>
+//         </StarImgBox>
+//       </QuizCardFront>
+//       <QuizCardBack className="back">
+//         <QuizNumber>Q1</QuizNumber>
+//         <QuizTitle>{props.data.text}</QuizTitle>
+//         <QuizButton name="true" onClick={onClickBtn} color={colorOne}>
+//           O
+//         </QuizButton>
+//         <QuizButtonTwo name="false" onClick={onClickBtn} color={colorTwo}>
+//           X
+//         </QuizButtonTwo>
+//       </QuizCardBack>
+//     </QuizContainer>
+//   )
+// }

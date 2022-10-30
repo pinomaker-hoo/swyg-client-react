@@ -9,31 +9,27 @@ export const OuterBox = styled.div`
 
 export const InBox = styled.div`
   width: 100%;
-  height: 70%;
+  height: 100%;
 `
-export const BodyBox = styled.div``
+export const BodyBox = styled.div`
+  width: 85%;
+  margin-left: 100px;
+  height: 100%;
+`
 
 export const FirstBox = styled.div`
   margin-top: 100px;
-  width: 85%;
-  margin-left: 100px;
   height: 400px;
 `
 export const SecondBox = styled.div`
-  width: 85%;
-  margin-left: 100px;
   height: 300px;
 `
 export const ThirdBox = styled.div`
   margin-top: 100px;
-  width: 85%;
-  margin-left: 100px;
   height: 400px;
 `
 export const FourthBox = styled.div`
   margin-top: 100px;
-  width: 85%;
-  margin-left: 100px;
   height: 1000px;
 `
 export const ImgBox = styled.img`

@@ -6,10 +6,12 @@ import LikeBook from "./pages/likeBook/likeBook"
 import Login from "./pages/login/login"
 import MakeQuiz from "./pages/makeQuiz/makeQuiz"
 import Parents from "./pages/parents/parents"
-import Quiz from "./pages/quiz/quiz"
 import QuizChoice from "./pages/quizChoice/quizChoice"
+import QuizTest from "./pages/quizTest/quizTest"
 import Register from "./pages/register/register"
 import UserInfo from "./pages/userInfo/userInfo"
+import QuizTrue from "./pages/quizTrue/quizTrue"
+import QuizFalse from "./pages/quizFalse/quizFalse"
 
 export default function App() {
   return (
@@ -24,9 +26,12 @@ export default function App() {
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/info" element={<UserInfo />} />
         <Route path="/parents" element={<Parents />} />
-        <Route path="/quiz/:id" element={<Quiz />} />
+        {/* <Route path="/quiz/:id" element={<Quiz />} /> */}
+        <Route path="/quiz/:id" element={<QuizTest />} />
         <Route path="/quiz/make/:id" element={<MakeQuiz />} />
         <Route path="/quiz/make/choice/:id" element={<QuizChoice />} />
+        <Route path="/quiz/true" element={<QuizTrue />} />
+        <Route path="/quiz/false/:id" element={<QuizFalse />} />
       </Routes>
     </div>
   )

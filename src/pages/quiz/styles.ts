@@ -76,11 +76,16 @@ export const MainImg = styled.img`
 export const StarImgBox = styled.div``
 export const StarImg = styled.img`
   margin-top: 70px;
-  width: 64px;
-  height: 64px;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-left: 130px;
 `
 export const PointText = styled.h1`
   color: white;
+  float: left;
+  margin-top: 75px;
+  margin-left: 20px;
 `
 
 export const QuizNumber = styled.h3`
@@ -95,14 +100,14 @@ export const QuizTitle = styled.h1`
 export const QuizButton = styled.button`
   width: 145px;
   height: 135px;
-  background-color: white;
+  background-color: ${(props) => props.color};
   border-radius: 13px;
 `
 
 export const QuizButtonTwo = styled.button`
   width: 145px;
   height: 135px;
-  background-color: white;
+  background-color: ${(props) => props.color};
   border-radius: 13px;
   margin-left: 20px;
 `
