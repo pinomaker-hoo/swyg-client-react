@@ -10,18 +10,19 @@ export const OuterBox = styled.div`
 export const InBox = styled.div`
   width: 70%;
   height: 100%;
-  background-color: blue;
 `
 export const BodyBox = styled.div``
 
 export const TopBox = styled.div`
   margin-top: 100px;
-  width: 100%;
+  width: 85%;
   height: 750px;
+  margin-left: 100px;
 `
 export const BottomBox = styled.div`
   width: 100%;
   height: 2000px;
+  margin-left: 100px;
 `
 
 export const Title = styled.h1`
@@ -42,6 +43,7 @@ export const BookLeftBox = styled.div`
 `
 export const BookImage = styled.img`
   width: 100%;
+  border-radius: 10px;
 `
 export const BookTextBox = styled.div`
   margin-left: 50px;
@@ -54,7 +56,7 @@ export const BookInfo = styled.p`
   font-size: 20px;
 `
 export const BookSub = styled.h3`
-  margin-top: 80px;
+  margin-top: 40px;
   color: white;
 `
 export const BookStory = styled.p`
@@ -71,7 +73,7 @@ export const BookBtn = styled.button`
   color: white;
   font-size: 20px;
   margin-right: 24px;
-  margin-top: 50px;
+  margin-top: 150px;
 `
 
 export const BottomTitle = styled.h1`
@@ -79,7 +81,7 @@ export const BottomTitle = styled.h1`
   margin-bottom: 70px;
 `
 export const CommentBox = styled.div`
-  width: 100%;
+  width: 85%;
   height: 300px;
   border-radius: 20px;
   box-shadow: 0px 0px 5px 3px #efefef;

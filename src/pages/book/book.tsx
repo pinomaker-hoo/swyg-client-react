@@ -114,15 +114,12 @@ export default function Book() {
                     작가 : {book.authors}, 출판사 : {book.publisher}
                   </BookInfo>
                   <BookSub>줄거리</BookSub>
-                  <BookStory>{book.contents}</BookStory>
+                  <BookStory>{book.contents.substr(0, 110)}</BookStory>
                   <BookBtn onClick={onClickQuiz} color="#F18B45">
                     퀴즈 맞추기
                   </BookBtn>
                   <BookBtn onClick={onClickMakeQuiz} color="#805FC7">
                     퀴즈 내기
-                  </BookBtn>
-                  <BookBtn onClick={onClickLikeBookBtn} color="#805FC7">
-                    찜하기
                   </BookBtn>
                 </BookTextBox>
               </BookRightBox>
