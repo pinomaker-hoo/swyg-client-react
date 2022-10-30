@@ -27,12 +27,12 @@ export default function Header() {
     const logined = await useLogined()
     if (!logined) return
     alert("로그인이 필요합니다.")
-    navigate("/auth/login")
+    navigate("/")
   }
 
   return (
     <OuterBox>
-      <Link to={"/"}>
+      <Link to={"/home"}>
         <LogoImg src="/logo.png" />
         <Logo>matebook</Logo>
       </Link>
@@ -49,7 +49,7 @@ export default function Header() {
       {logined ? (
         <MenuText onClick={logoutBtn}>로그아웃</MenuText>
       ) : (
-        <Link to={"/auth/login"}>
+        <Link to={"/"}>
           <MenuText>로그인</MenuText>
         </Link>
       )}

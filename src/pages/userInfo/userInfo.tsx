@@ -38,9 +38,10 @@ export default function UserInfo() {
   const onChangeName = async (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(() => event.target.value)
   }
+
   const saveMateApi = async () => {
     const { data } = await saveMate(name)
-    return data ? navigate("/") : alert("ERROR")
+    return data ? navigate("/home") : alert("ERROR")
   }
 
   return (

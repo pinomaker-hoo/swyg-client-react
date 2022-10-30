@@ -67,14 +67,14 @@ export default function Book() {
     const logined = await useLogined()
     if (logined) return await saveReview(text, id)
     alert("로그인이 필요합니다.")
-    navigate("/auth/login")
+    navigate("/")
   }
 
   const onClickLikeBookBtn = async () => {
     const logined = await useLogined()
     if (!logined) {
       alert("로그인이 필요합니다.")
-      navigate("/auth/login")
+      navigate("/")
     } else {
       const { data } = await saveLikeBook(id)
       data ? alert("찜하였습니다.") : alert("ERROR")
@@ -85,14 +85,14 @@ export default function Book() {
     const logined = await useLogined()
     if (logined) return navigate(`/quiz/${id}`)
     alert("로그인이 필요합니다.")
-    navigate("/auth/login")
+    navigate("/")
   }
 
   const onClickMakeQuiz = async () => {
     const logined = await useLogined()
     if (logined) return navigate(`/quiz/make/choice/${id}`)
     alert("로그인이 필요합니다.")
-    navigate("/auth/login")
+    navigate("/")
   }
 
   if (!book) return null

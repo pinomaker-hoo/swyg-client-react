@@ -30,7 +30,7 @@ export default function Login() {
       if (!useNull([user.email, user.password])) return alert("Null ERROR")
       const { data } = await login(user)
       localStorage.setItem("info", JSON.stringify(data.user))
-      if (data) return navigate("/")
+      if (data) return navigate("/home")
       return alert("ERROR")
     } catch (err) {
       console.log(err)

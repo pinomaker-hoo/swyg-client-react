@@ -59,7 +59,6 @@ export default function Parents() {
     const formData = new FormData()
     formData.append("files", event.target.files[0])
     const { data }: any = await updateImg(formData)
-    console.log(data)
   }
 
   if (loading) return null

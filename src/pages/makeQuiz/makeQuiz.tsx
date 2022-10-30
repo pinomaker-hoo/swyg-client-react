@@ -25,7 +25,7 @@ export default function MakeQuiz() {
   const onClick = async () => {
     try {
       const { data } = await saveQuiz(text, answer, id)
-      return data ? navigate("/") : alert("ERROR")
+      return data ? navigate("/home") : alert("ERROR")
     } catch (err) {
       console.log(err)
     }

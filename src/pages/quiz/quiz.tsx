@@ -37,7 +37,6 @@ export default function Quiz() {
     setLoading(() => false)
   }
 
-  console.log(dataList)
   if (loading) return null
   return (
     <OuterBox>
