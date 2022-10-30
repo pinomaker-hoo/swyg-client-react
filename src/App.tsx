@@ -12,6 +12,7 @@ import Register from "./pages/register/register"
 import UserInfo from "./pages/userInfo/userInfo"
 import QuizTrue from "./pages/quizTrue/quizTrue"
 import QuizFalse from "./pages/quizFalse/quizFalse"
+import CheckQuiz from "./pages/checkQuiz/checkQuiz"
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/auth/info" element={<UserInfo />} />
         <Route path="/parents" element={<Parents />} />
         {/* <Route path="/quiz/:id" element={<Quiz />} /> */}
+        <Route path="/quiz/check" element={<CheckQuiz />} />
         <Route path="/quiz/:id" element={<QuizTest />} />
         <Route path="/quiz/make/:id" element={<MakeQuiz />} />
         <Route path="/quiz/make/choice/:id" element={<QuizChoice />} />
