@@ -4,12 +4,12 @@ export const OuterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1100px;
+  width: 100%;
 `
 
 export const InBox = styled.div`
-  width: 100%;
-  height: 70%;
+  width: 70%;
+  height: 100%;
 `
 export const BodyBox = styled.div`
   width: 100%;
@@ -18,12 +18,15 @@ export const BodyBox = styled.div`
 
 export const TitleText = styled.h1`
   color: white;
+  margin-left: 100px;
+  margin-bottom: -50px;
 `
 
 export const BookBox = styled.div`
-  width: 100%;
+  width: 85%;
   height: 400px;
   margin-top: 100px;
+  margin-left: 100px;
 `
 export const LeftBox = styled.div`
   width: 20%;
@@ -48,19 +51,22 @@ export const ImageBox = styled.img`
 `
 export const BookTitle = styled.h1`
   color: white;
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-top: 30px;
 `
 
 export const BookInfo = styled.p`
   color: white;
   font-size: 20px;
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-top: 30px;
 `
 export const BookStory = styled.p`
   color: white;
   font-size: 20px;
   line-height: 30px;
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-top: 70px;
 `
 
 export const BookBtn = styled.button`
@@ -69,5 +75,6 @@ export const BookBtn = styled.button`
   border: none;
   border-radius: 20px;
   background-color: white;
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-top: 35px;
 `

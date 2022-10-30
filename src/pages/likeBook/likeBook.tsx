@@ -60,7 +60,7 @@ const Book = (props: any) => {
         <BookInfo>
           작가 : {data.authors}, 출판사 : {data.publisher}
         </BookInfo>
-        <BookStory>{data.contents}</BookStory>
+        <BookStory>{data.contents.substr(0, 120)} . . .</BookStory>
         <Link to={`/book/${data.idx}`}>
           <BookBtn>미리보기</BookBtn>
         </Link>

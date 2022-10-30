@@ -11,7 +11,6 @@ export const OuterBox = styled.div`
 export const InBox = styled.div`
   width: 70%;
   height: 100%;
-  background-color: blue;
 `
 export const BodyBox = styled.div``
 
@@ -280,9 +279,3 @@ export const FifthBtn = styled.button`
   border-radius: 28.5px;
   margin-top: 10px;
 `
-// export const EarthImage = styled.img`
-//   display: flex;
-//   position: absolute;
-//   width: 450px;
-//   margin-left: -120px;
-// `
