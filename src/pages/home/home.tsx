@@ -139,13 +139,17 @@ export default function Home() {
               </FirstStateBox>
             </FirstLeftBox>
             <FirstRightBox>
-              <FirstImg src="/egg.png" />
+              {point >= 50 ? (
+                <FirstImg src="/duck.png" />
+              ) : (
+                <FirstImg src="/egg.png" />
+              )}
             </FirstRightBox>
           </FirstBox>
           <SecondBox>
             <SecondTitle>어떤 책을 찾고 있어?</SecondTitle>
             <SecondInputBox>
-              <SecondInputBox
+              <SecondInput
                 onChange={onChange}
                 placeholder="ex. 안나의 일기"
                 onKeyPress={onClickBook}
@@ -179,7 +183,6 @@ export default function Home() {
                 <ThirdBook3 data={bookList[3]} />
               </Link>
               <Link to={`/book/${bookList[4].idx}`}>
-                {" "}
                 <ThirdBook2 data={bookList[4]} />
               </Link>
             </ThirdBookCardBox>

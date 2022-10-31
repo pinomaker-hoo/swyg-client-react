@@ -123,7 +123,7 @@ export const SecondInputBox = styled.div`
 export const SecondInput = styled.input`
   background-image: url(search.png);
   background-repeat: no-repeat;
-  background-position: 850px center;
+  background-position: 900px center;
   width: 80%;
   height: 100px;
   border-radius: 10px;
