@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import { getBookListCount, KakaoSearch, SaveBook } from "../../api/book"
+import { Link, useNavigate } from "react-router-dom"
+import { getBookListCount } from "../../api/book"
 import { getMate } from "../../api/mate"
 import Header from "../../components/Header"
 import {
@@ -59,11 +59,12 @@ import {
 } from "./style"
 
 export default function Home() {
-  const [text, setText] = useState("")
   const [bookList, setBookList]: any = useState([])
   const [loading, setLoading] = useState(true)
   const [mate, setMate]: any = useState()
   const [point, setPoint]: any = useState()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     callApi()
@@ -71,7 +72,6 @@ export default function Home() {
 
   const callApi = async () => {
     const { data: bookData }: any = await getBookListCount(15)
-    console.log(bookData)
     const { data: mateData }: any = await getMate()
     setBookList(() => bookData)
     setMate(() => mateData.mate)
@@ -79,21 +79,9 @@ export default function Home() {
     setLoading(() => false)
   }
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value)
-  }
-
   const onClickBook = async (event: any) => {
     if (event.key === "Enter") {
-      const params = {
-        query: text,
-        size: 3,
-        target: "title",
-      }
-      const { data }: any = await KakaoSearch(params)
-      for (const item of data.documents) {
-        const { data } = await SaveBook(item)
-      }
+      navigate("/book/search", { state: event.target.value })
     }
   }
 
@@ -150,7 +138,6 @@ export default function Home() {
             <SecondTitle>어떤 책을 찾고 있어?</SecondTitle>
             <SecondInputBox>
               <SecondInput
-                onChange={onChange}
                 placeholder="ex. 안나의 일기"
                 onKeyPress={onClickBook}
               />

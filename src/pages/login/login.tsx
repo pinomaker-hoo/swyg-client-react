@@ -8,10 +8,8 @@ import {
   LoginBtn,
   Logo,
   LabelText,
-  OtherTextOne,
   OtherTextTwo,
   KakaoBtn,
-  NaverBtn,
 } from "./style"
 import { useNull } from "../../common/Hooks"
 
