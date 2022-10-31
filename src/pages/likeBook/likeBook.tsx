@@ -39,9 +39,13 @@ export default function LikeBook() {
         <Header />
         <BodyBox>
           <TitleText>전체 {bookList.length}권</TitleText>
-          {bookList.map((item: any) => (
-            <Book data={item.book} key={item.idx} />
-          ))}
+          {bookList.length > 0 ? (
+            bookList.map((item: any) => (
+              <Book data={item.book} key={item.idx} />
+            ))
+          ) : (
+            <BookBox />
+          )}
         </BodyBox>
       </InBox>
     </OuterBox>
