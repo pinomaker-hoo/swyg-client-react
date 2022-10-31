@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getQuiz } from "../../api/quiz"
 import { saveUserBook } from "../../api/userBook"
-
 import {
   Img,
   InBox,

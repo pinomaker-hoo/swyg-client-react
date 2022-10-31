@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getQuizList } from "../../api/quiz"
-
 import {
   InBox,
   OuterBox,
