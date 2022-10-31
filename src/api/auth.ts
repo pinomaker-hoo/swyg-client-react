@@ -1,7 +1,8 @@
 import axios from "axios"
+import { BASE_URL_SERVER } from "."
 
 const auth = axios.create({
-  baseURL: "http://localhost:8003/auth",
+  baseURL: `${BASE_URL_SERVER}/auth`,
   withCredentials: true,
   headers: {},
 })

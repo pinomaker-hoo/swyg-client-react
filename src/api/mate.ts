@@ -1,7 +1,8 @@
 import axios from "axios"
+import { BASE_URL_SERVER } from "."
 
 const mate = axios.create({
-  baseURL: "http://localhost:8003/mate",
+  baseURL: `${BASE_URL_SERVER}/mate`,
   withCredentials: true,
   headers: {},
 })

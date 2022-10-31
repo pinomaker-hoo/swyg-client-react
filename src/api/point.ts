@@ -1,7 +1,8 @@
 import axios from "axios"
+import { BASE_URL_SERVER } from "."
 
 const pointApi = axios.create({
-  baseURL: "http://localhost:8003/point",
+  baseURL: `${BASE_URL_SERVER}/point`,
   withCredentials: true,
   headers: {},
 })

@@ -1,7 +1,8 @@
 import axios from "axios"
+import { BASE_URL_SERVER } from "."
 
 const likeBook = axios.create({
-  baseURL: "http://localhost:8003/likeBook",
+  baseURL: `${BASE_URL_SERVER}/likeBook`,
   withCredentials: true,
   headers: {},
 })

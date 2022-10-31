@@ -1,7 +1,8 @@
 import axios from "axios"
+import { BASE_URL_SERVER } from "."
 
 const review = axios.create({
-  baseURL: "http://localhost:8003/review",
+  baseURL: `${BASE_URL_SERVER}/review`,
   withCredentials: true,
   headers: {},
 })

@@ -1,7 +1,8 @@
 import axios from "axios"
+import { BASE_URL_SERVER } from "."
 
 const quiz = axios.create({
-  baseURL: "http://localhost:8003/quiz",
+  baseURL: `${BASE_URL_SERVER}/quiz`,
   withCredentials: true,
   headers: {},
 })
