@@ -40,6 +40,8 @@ export default function UserInfo() {
   }
 
   const saveMateApi = async () => {
+    if (!text || !name)
+      return alert("메이트 이름이나 최근에 읽은 책을 입력해주세요.")
     const { data } = await saveMate(name)
     return data ? navigate("/home") : alert("ERROR")
   }

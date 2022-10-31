@@ -25,14 +25,15 @@ export const LabelText = styled.h3`
 `
 export const InputBox = styled.input`
   background-color: #442d7a;
-  width: 672px;
+  width: 662px;
   height: 60px;
   outline: none;
   -webkit-box-shadow: 0 0 0 1000px #442d7a inset;
   margin: 0px;
-  padding: 0px;
+  padding-left: 10px;
   border: none;
   border-radius: 8px;
+  font-size: 20px;
 `
 
 export const BookDiv = styled.div`
