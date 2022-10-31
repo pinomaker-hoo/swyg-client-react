@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getQuizList } from "../../api/quiz"
+
 import {
   InBox,
   OuterBox,
@@ -31,13 +32,16 @@ export default function QuizTest() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    callApi()
+    callApi().then(() => setLoading(() => false))
+    if (dataList.length < 1) {
+      alert("퀴즈가 없습니다.")
+      navigate(`/book/${id}`)
+    }
   }, [])
 
   const callApi = async () => {
     const { data }: any = await getQuizList(id)
     setDataList(() => data)
-    setLoading(() => false)
   }
 
   const onClickBtn = async (event: any) => {
@@ -54,11 +58,6 @@ export default function QuizTest() {
   }
 
   if (loading) return null
-
-  if (!dataList) {
-    alert("퀴즈가 없습니다.")
-    navigate(`/book/${id}`)
-  }
 
   return (
     <OuterBox>

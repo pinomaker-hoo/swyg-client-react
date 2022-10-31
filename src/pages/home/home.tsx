@@ -145,7 +145,7 @@ export default function Home() {
           <SecondBox>
             <SecondTitle>어떤 책을 찾고 있어?</SecondTitle>
             <SecondInputBox>
-              <SecondInput
+              <SecondInputBox
                 onChange={onChange}
                 placeholder="ex. 안나의 일기"
                 onKeyPress={onClickBook}

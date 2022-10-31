@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getQuizList } from "../../api/quiz"
+
 import {
   InBox,
   OuterBox,
@@ -28,13 +29,12 @@ export default function Quiz() {
   const { id }: any = useParams()
 
   useEffect(() => {
-    callApi()
+    callApi().then(() => setLoading(() => false))
   }, [])
 
   const callApi = async () => {
     const { data }: any = await getQuizList(id)
     setDataList(() => data)
-    setLoading(() => false)
   }
   const [colorOne, setColorOne] = useState("#442D7A")
   const [colorTwo, setColorTwo] = useState("#442D7A")
@@ -42,7 +42,6 @@ export default function Quiz() {
 
   const onClickBtn = async (event: any) => {
     const { name } = await event.target
-
     if (name === "true") setAnswer(() => true)
     if (name === "false") setAnswer(() => false)
     if (answer) {
@@ -55,7 +54,6 @@ export default function Quiz() {
   }
 
   if (loading) return null
-
   return (
     <OuterBox>
       <InBox>

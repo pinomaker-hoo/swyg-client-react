@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { removeCookie } from "../common/Cookie"
 import { getJwtCookie, useLogined } from "../common/Hooks"
 
-export default function Header() {
+export default function Header(props: any) {
   const [logined, setLogined] = useState(false)
 
   const navigate = useNavigate()

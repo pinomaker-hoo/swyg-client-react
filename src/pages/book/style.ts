@@ -20,9 +20,7 @@ export const TopBox = styled.div`
   margin-left: 100px;
 `
 export const BottomBox = styled.div`
-  width: 100%;
   height: 2000px;
-  margin-left: 100px;
 `
 
 export const Title = styled.h1`
@@ -78,53 +76,60 @@ export const BookBtn = styled.button`
 
 export const BottomTitle = styled.h1`
   color: white;
+  margin-left: 100px;
   margin-bottom: 70px;
+  margin-top: 70px;
 `
 export const CommentBox = styled.div`
   width: 85%;
   height: 300px;
   border-radius: 20px;
-  box-shadow: 0px 0px 5px 3px #efefef;
+  box-shadow: 0px 0px 3px 3px #efefef;
   margin-bottom: 30px;
   background-color: white;
+  margin-left: 85px;
 `
 
 export const CommentLeft = styled.div`
-  width: 10%;
-  height: 100%;
+  width: 15%;
+  height: 300px;
   float: left;
+  text-align: center;
 `
 export const CommentRight = styled.div`
-  width: 90%;
-  height: 100%;
+  width: 85%;
+  height: 300px;
   float: left;
 `
 
 export const ImageBox = styled.img`
-  margin-top: 20px;
-  width: 84px;
-  height: 84px;
+  margin-top: 30px;
+  width: 64px;
+  height: 64px;
   border-radius: 42px;
 `
 export const CommentName = styled.h1`
-  margin-top: 20px;
+  margin-top: 40px;
+  font-size: 30px;
 `
+
 export const CommentText = styled.p`
   font-size: 20px;
   line-height: 30px;
+  height: 120px;
+  width: 90%;
 `
 export const CommentIcon = styled.img`
   width: 35px;
   height: 35px;
-  margin-top: 20px;
+  margin-top: 10px;
   float: left;
 `
-
 export const CommentInfo = styled.h3`
   color: ${(props) => props.color};
   float: left;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 16px;
+  margin-left: 12px;
   font-size: 28px;
 `
 

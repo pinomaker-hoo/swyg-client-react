@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { BASE_URL_SERVER } from "../../api"
 import { getUserInfo } from "../../api/auth"
 import { getBook } from "../../api/book"
+
 import { saveLikeBook } from "../../api/likeBook"
 import { getReview, getReviewList, saveReview } from "../../api/review"
 import {
@@ -213,10 +214,7 @@ const Comment = (props: any) => {
       <CommentRight>
         <CommentName>{data.user.name}</CommentName>
         <CommentText>{data.text}</CommentText>
-        <CommentIcon
-          onClick={onClickReviewLike}
-          src="../../../public/icon-like.png"
-        />
+        <CommentIcon onClick={onClickReviewLike} src="/icon-like.png" />
         <CommentInfo color="#f18b45">{likeList.length}</CommentInfo>
         {/* <CommentIcon src="../../../public/icon-comment.png" />
         <CommentInfo>10</CommentInfo> */}
