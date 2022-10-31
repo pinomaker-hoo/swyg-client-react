@@ -15,24 +15,28 @@ export const InBox = styled.div`
 
 export const InputBox = styled.input`
   background-color: #442d7a;
-  width: 672px;
+  width: 652px;
   height: 60px;
   outline: none;
   -webkit-box-shadow: 0 0 0 1000px #442d7a inset;
-  margin: 0px;
-  padding: 0px;
   border: none;
   border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  padding-left: 20px;
 `
 export const Logo = styled.h1`
   font-family: SB_Aggro_B;
   color: white;
-  margin-bottom: 40px;
+  font-size: 40px;
+  margin-bottom: 20px;
 `
 
 export const LabelText = styled.h3`
+  margin-top: 30px;
   margin-bottom: 15px;
   font-family: SB_Aggro_M;
+  font-size: 24px;
   color: white;
 `
 
@@ -47,7 +51,8 @@ export const OtherTextTwo = styled.p`
   font-family: SB_Aggro_L;
   color: white;
   float: center;
-  margin-left: 240px;
+  text-align: center;
+  font-size: 20px;
 `
 
 export const LoginBtn = styled.button`
@@ -59,10 +64,11 @@ export const LoginBtn = styled.button`
   color: white;
   font-family: SB_Aggro_L;
   border-radius: 8px;
+  font-size: 20px;
 `
 
 export const KakaoBtn = styled.button`
-  margin-top: 20px;
+  margin-top: 70px;
   width: 672px;
   height: 60px;
   background-color: #ffe715;
@@ -70,6 +76,7 @@ export const KakaoBtn = styled.button`
   color: black;
   font-family: SB_Aggro_L;
   border-radius: 8px;
+  font-size: 20px;
 `
 
 export const NaverBtn = styled.button`
