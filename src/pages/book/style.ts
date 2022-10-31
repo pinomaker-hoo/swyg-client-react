@@ -64,7 +64,7 @@ export const BookStory = styled.p`
 `
 
 export const BookBtn = styled.button`
-  width: 160px;
+  width: 150px;
   height: 54px;
   border-radius: 27px;
   background-color: ${(props) => props.color};

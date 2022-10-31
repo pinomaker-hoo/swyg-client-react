@@ -136,6 +136,9 @@ export default function Book() {
                   <BookBtn onClick={onClickMakeQuiz} color="#805FC7">
                     퀴즈 내기
                   </BookBtn>
+                  <BookBtn onClick={onClickLikeBookBtn} color="#805FC7">
+                    찜하기
+                  </BookBtn>
                 </BookTextBox>
               </BookRightBox>
             </BookBox>
