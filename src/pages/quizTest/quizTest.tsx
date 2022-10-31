@@ -31,16 +31,17 @@ export default function QuizTest() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    callApi().then(() => setLoading(() => false))
-    if (dataList.length < 1) {
-      alert("퀴즈가 없습니다.")
-      navigate(`/book/${id}`)
-    }
+    callApi()
   }, [])
 
   const callApi = async () => {
     const { data }: any = await getQuizList(id)
-    setDataList(() => data)
+    setDataList(data)
+    if (data.length < 1) {
+      alert("퀴즈가 없습니다.")
+      navigate(`/book/${id}`)
+    }
+    setLoading(() => false)
   }
 
   const onClickBtn = async (event: any) => {

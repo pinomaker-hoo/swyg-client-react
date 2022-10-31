@@ -50,6 +50,7 @@ export default function Register() {
       month.push(m.toString())
     }
   }
+  
   let days: any[] = []
   let date = new Date(form.year, Number(form.month), 0).getDate()
   for (let d = 1; d <= date; d += 1) {
