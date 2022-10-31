@@ -50,11 +50,9 @@ export default function QuizTest() {
   }
 
   const onClickSubBtn = async () => {
-    console.log(dataList[0].answer)
-    console.log(answer)
     dataList[0].answer === answer
-      ? navigate(`/quiz/true/${dataList[0].idx}`)
-      : navigate(`/quiz/false/${dataList[0].idx}`)
+      ? navigate(`/quiz/true/${id}`)
+      : navigate(`/quiz/false/${id}`)
   }
 
   if (loading) return null
