@@ -54,10 +54,12 @@ export default function QuizTest() {
   }
 
   if (loading) return null
-  if (dataList) {
+
+  if (!dataList) {
     alert("퀴즈가 없습니다.")
     navigate(`/book/${id}`)
   }
+
   return (
     <OuterBox>
       <InBox>

@@ -71,6 +71,7 @@ export default function Home() {
 
   const callApi = async () => {
     const { data: bookData }: any = await getBookListCount(15)
+    console.log(bookData)
     const { data: mateData }: any = await getMate()
     setBookList(() => bookData)
     setMate(() => mateData.mate)

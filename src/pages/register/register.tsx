@@ -80,7 +80,7 @@ export default function Register() {
       if (!useSame(user.password, passwordC))
         return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
       // onCheckCode()
-      const { data } = await register(
+      const { data }: any = await register(
         user,
         `${form.year}-${form.month}-${form.day}`,
         male

@@ -45,9 +45,9 @@ export default function Parents() {
   const imgInput: any = useRef()
 
   const callApi = async () => {
-    const { data: data1 } = await getBookListCount(4)
+    const { data: data1 }: any = await getBookListCount(4)
     setBookList1(() => data1)
-    const { data: data2 } = await getBookListCount(4)
+    const { data: data2 }: any = await getBookListCount(4)
     setBookList2(() => data2)
     const { data } = await getUserInfo()
     setUser(() => data)

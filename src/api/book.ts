@@ -1,5 +1,5 @@
 import axios from "axios"
-import { BASE_URL_SERVER } from "."
+import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
 const KakaoKey = "f8e6e54fa6a6a1af7adf51a197880f75"
 
 const Kakao = axios.create({
@@ -10,7 +10,7 @@ const Kakao = axios.create({
 })
 
 const book = axios.create({
-  baseURL: `${BASE_URL_SERVER}/book`,
+  baseURL: `${BASE_URL_LOCAL}/book`,
   withCredentials: true,
   headers: {},
 })
@@ -24,26 +24,41 @@ export const KakaoSearch = async (params: any) => {
   return await Kakao.get("/v3/search/book", { params })
 }
 
-export const SaveBook = async (data: any) => {
-  return await book({
-    method: "post",
-    url: "/",
-    data: {
-      title: data.title,
-      contents: data.contents,
-      authors: data.authors[0],
-      publisher: data.publisher,
-      thumbnail: data.thumbnail,
-      //   datetime: data.datetime,
-      isbn: data.isbn,
-    },
-  })
+export const SaveBook = async (book: any) => {
+  try {
+    const { data } = await book({
+      method: "post",
+      url: "/",
+      data: {
+        title: book.title,
+        contents: book.contents,
+        authors: book.authors[0],
+        publisher: book.publisher,
+        thumbnail: book.thumbnail,
+        //   datetime: data.datetime,
+        isbn: book.isbn,
+      },
+    })
+    return data
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const getBookListCount = async (count: number) => {
-  return await book.get(`/count/${count}`)
+  try {
+    const { data } = await book.get(`/count/${count}`)
+    return data
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const getBook = async (idx: string) => {
-  return await book.get(`/${idx}`)
+  try {
+    const { data } = await book.get(`/${idx}`)
+    return data
+  } catch (err) {
+    console.log(err)
+  }
 }

@@ -28,7 +28,7 @@ export default function Login() {
   const onLogin = async () => {
     try {
       if (!useNull([user.email, user.password])) return alert("Null ERROR")
-      const { data } = await login(user)
+      const { data }: any = await login(user)
       localStorage.setItem("info", JSON.stringify(data.user))
       if (data) return navigate("/home")
       return alert("ERROR")

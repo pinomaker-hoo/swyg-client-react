@@ -1,14 +1,18 @@
 import axios from "axios"
-import { BASE_URL_SERVER } from "."
+import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
 
 const auth = axios.create({
-  baseURL: `${BASE_URL_SERVER}/auth`,
+  baseURL: `${BASE_URL_LOCAL}/auth`,
   withCredentials: true,
   headers: {},
 })
 
 export const login = async (user: { email: string; password: string }) => {
-  return await auth.post("/local", user)
+  try {
+    return await auth.post("/local", user)
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const register = async (
@@ -20,23 +24,38 @@ export const register = async (
   birth: string,
   male: boolean
 ) => {
-  return await auth.post("/", {
-    ...user,
-    birth,
-    male,
-  })
+  try {
+    return await auth.post("/", {
+      ...user,
+      birth,
+      male,
+    })
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const sendMail = async (email: string) => {
-  return await auth.post("/mail", {
+  const { data } = await auth.post("/mail", {
     email,
   })
+  return data
 }
 
 export const getUserInfo = async () => {
-  return await auth.get("/")
+  try {
+    const { data } = await auth.get("/")
+    return data
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const updateImg = async (formData: any) => {
-  return await auth.patch("/", formData)
+  try {
+    const { data } = await auth.patch("/", formData)
+    return data
+  } catch (err) {
+    console.log(err)
+  }
 }

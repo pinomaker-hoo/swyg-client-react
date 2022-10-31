@@ -1,19 +1,20 @@
 import axios from "axios"
-import { BASE_URL_SERVER } from "."
+import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
 
 const review = axios.create({
-  baseURL: `${BASE_URL_SERVER}/review`,
+  baseURL: `${BASE_URL_LOCAL}/review`,
   withCredentials: true,
   headers: {},
 })
 
 export const saveReview = async (text: string, id: string) => {
   try {
-    return await review({
+    const { data } = await review({
       method: "post",
       url: `/${id}`,
       data: { text },
     })
+    return data
   } catch (err) {
     console.log(err)
   }
@@ -21,10 +22,11 @@ export const saveReview = async (text: string, id: string) => {
 
 export const getReview = async (id: string): Promise<any> => {
   try {
-    return await review({
+    const { data } = await review({
       method: "get",
       url: `/${id}`,
     })
+    return data
   } catch (err) {
     console.log(err)
   }
@@ -32,7 +34,8 @@ export const getReview = async (id: string): Promise<any> => {
 
 export const getReviewList = async (id: string) => {
   try {
-    return await review.get(`/list/${id}`)
+    const { data } = await review.get(`/list/${id}`)
+    return data
   } catch (err) {
     console.log(err)
   }
