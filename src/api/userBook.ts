@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
 
 const userBook = axios.create({
-  baseURL: `${BASE_URL_LOCAL}/userBook`,
+  baseURL: `${BASE_URL_SERVER}/userBook`,
   withCredentials: true,
   headers: {},
 })
