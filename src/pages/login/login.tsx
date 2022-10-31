@@ -52,10 +52,10 @@ export default function Login() {
         </label>
         <LoginBtn onClick={onLogin}>로그인</LoginBtn>
         <OtherTextOne>아이디/비밀번호 찾기</OtherTextOne>
-        <a href="http://localhost:8003/auth/naver">
+        <a href="http://210.90.136.10:8003/auth/naver">
           <NaverBtn>네이버 로그인</NaverBtn>
         </a>
-        <a href="http://localhost:8003/auth/kakao">
+        <a href="http://210.90.136.10:8003/auth/kakao">
           <KakaoBtn>카카오계정 로그인</KakaoBtn>
         </a>
         <Link to={"/auth/register"}>
