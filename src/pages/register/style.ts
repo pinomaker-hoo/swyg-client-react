@@ -18,6 +18,8 @@ export const Logo = styled.h1`
   color: white;
   margin-bottom: 40px;
   margin-top: -100px;
+  font-size: 40px;
+  margin-bottom: 20px;
 `
 
 export const LabelText = styled.h3`
@@ -29,7 +31,7 @@ export const LabelText = styled.h3`
 
 export const InputName = styled.input`
   background-color: #442d7a;
-  width: 208px;
+  width: 198px;
   height: 60px;
   outline: none;
   -webkit-box-shadow: 0 0 0 1000px #442d7a inset;
@@ -37,23 +39,25 @@ export const InputName = styled.input`
   padding: 0px;
   border: none;
   border-radius: 8px;
+  font-size: 18px;
+  padding-left: 10px;
 `
 
 export const InputBirth = styled.input`
   background-color: #442d7a;
   width: 208px;
   height: 60px;
-  outline: none;
   -webkit-box-shadow: 0 0 0 1000px #442d7a inset;
   margin: 0px;
   padding: 0px;
   border: none;
   border-radius: 8px;
+  outline: none;
 `
 
 export const InputEmail = styled.input`
   background-color: #442d7a;
-  width: 492px;
+  width: 482px;
   height: 60px;
   outline: none;
   -webkit-box-shadow: 0 0 0 1000px #442d7a inset;
@@ -61,11 +65,13 @@ export const InputEmail = styled.input`
   padding: 0px;
   border: none;
   border-radius: 8px;
+  padding-left: 10px;
+  font-size: 18px;
 `
 
 export const InputOther = styled.input`
   background-color: #442d7a;
-  width: 672px;
+  width: 662px;
   height: 60px;
   outline: none;
   -webkit-box-shadow: 0 0 0 1000px #442d7a inset;
@@ -73,16 +79,19 @@ export const InputOther = styled.input`
   padding: 0px;
   border: none;
   border-radius: 8px;
+  padding-left: 10px;
+  font-size: 18px;
 `
 
 export const CodeBtn = styled.button`
-  margin-left: 10px;
+  margin-left: 25px;
   background-color: #442d7a;
   width: 152px;
   height: 60px;
   color: white;
   border-radius: 8px;
   border: none;
+  font-size: 20px;
 `
 
 export const MaleBtn = styled.button`
@@ -122,6 +131,7 @@ export const RegisterBtn = styled.button`
   border-radius: 8px;
   margin-left: 260px;
   margin-top: 30px;
+  font-size: 20px;
 `
 export const YearsSelect = styled.select`
   background-color: #442d7a;
@@ -139,6 +149,14 @@ export const MonthsSelect = styled.select`
   margin-left: 56px;
 `
 export const DaysSelect = styled.select`
+  background-color: #442d7a;
+  width: 104px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  margin-left: 56px;
+`
+export const MaleSelect = styled.select`
   background-color: #442d7a;
   width: 104px;
   height: 60px;

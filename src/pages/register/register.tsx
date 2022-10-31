@@ -11,7 +11,6 @@ import {
   LabelText,
   RegisterBtn,
   CodeBtn,
-  MaleBtn,
   LabelTextMale,
   LineBox,
   InLineBox,
@@ -19,22 +18,23 @@ import {
   YearsSelect,
   MonthsSelect,
   DaysSelect,
+  MaleSelect,
 } from "./style"
 import { useNull, useSame } from "../../common/Hooks"
 
 export default function Register() {
-  const navigate = useNavigate()
   const [user, setUser] = useState({ email: "", password: "", name: "" })
   const [serverCode, setServerCode] = useState(0)
   const [inputCode, setInputCode] = useState(0)
   const [passwordC, setPasswordC] = useState("")
   const [form, setForm] = useState({
-    year: 2022,
+    year: "2022",
     month: "01",
     day: "01",
   })
-  const [male, setMale] = useState(true)
+  const [male, setMale]: any = useState(true)
 
+  const navigate = useNavigate()
   const now = new Date()
 
   let years = []
@@ -50,9 +50,9 @@ export default function Register() {
       month.push(m.toString())
     }
   }
-  
+
   let days: any[] = []
-  let date = new Date(form.year, Number(form.month), 0).getDate()
+  let date = new Date(Number(form.year), Number(form.month), 0).getDate()
   for (let d = 1; d <= date; d += 1) {
     if (d < 10) {
       days.push("0" + d.toString())
@@ -80,7 +80,7 @@ export default function Register() {
         return alert("Null ERROR")
       if (!useSame(user.password, passwordC))
         return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
-      // onCheckCode()
+      onCheckCode()
       const { data }: any = await register(
         user,
         `${form.year}-${form.month}-${form.day}`,
@@ -119,25 +119,20 @@ export default function Register() {
           </InLineBox>
           <InLineBox>
             <LabelTextMale>성별</LabelTextMale>
-            <MaleBtn
-              color={male ? "#F18B45" : "#442d7a"}
-              onClick={() => setMale(() => true)}
+            <MaleSelect
+              value={male}
+              onChange={(e) => setMale(() => e.target.value)}
             >
-              남자
-            </MaleBtn>
-            <MaleBtn
-              color={male ? "#442d7a" : "#F18B45"}
-              onClick={() => setMale(() => false)}
-            >
-              여자
-            </MaleBtn>
+              <option value="true">남자</option>
+              <option value="false">여자</option>
+            </MaleSelect>
           </InLineBox>
         </LineBox>
         <label>
           <LabelText>생년월일</LabelText>
           <YearsSelect
-            value={form.day}
-            onChange={(e) => setForm({ ...form, day: e.target.value })}
+            value={form.year}
+            onChange={(e) => setForm({ ...form, year: e.target.value })}
           >
             {years.map((item) => (
               <option value={item} key={item}>
@@ -146,8 +141,8 @@ export default function Register() {
             ))}
           </YearsSelect>
           <MonthsSelect
-            value={form.day}
-            onChange={(e) => setForm({ ...form, day: e.target.value })}
+            value={form.month}
+            onChange={(e) => setForm({ ...form, month: e.target.value })}
           >
             {month.map((item) => (
               <option value={item} key={item}>
