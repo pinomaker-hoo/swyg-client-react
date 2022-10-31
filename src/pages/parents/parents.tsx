@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
+import { BASE_URL_SERVER } from "../../api"
 import { getUserInfo, updateImg } from "../../api/auth"
 import { getBookListCount } from "../../api/book"
 import { getUserBookList } from "../../api/userBook"
@@ -73,10 +74,15 @@ export default function Parents() {
         <BodyBox>
           <FirstBox>
             <FirstDiv>
-              <ImgBox
-                src={`http://localhost:8003/${user.imgPath}`}
-                onClick={onClickImg}
-              />
+              {user.imgPath ? (
+                <ImgBox
+                  src={`${BASE_URL_SERVER}/${user.imgPath}`}
+                  onClick={onClickImg}
+                />
+              ) : (
+                <ImgBox src="/user.png" onClick={onClickImg} />
+              )}
+
               <HideInput
                 type="file"
                 accept="image/*"

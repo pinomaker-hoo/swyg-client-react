@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
+import { BASE_URL_SERVER } from "../../api"
 import { getUserInfo } from "../../api/auth"
 import { getBook } from "../../api/book"
 import { saveLikeBook } from "../../api/likeBook"
@@ -153,7 +154,11 @@ export default function Book() {
               ))}
             <CommentBox>
               <CommentLeft>
-                <ImageBox src={`http://localhost:8003/${user.imgPath}`} />
+                {user.imgPath ? (
+                  <ImageBox src={`${BASE_URL_SERVER}/${user.imgPath}`} />
+                ) : (
+                  <ImageBox src="/user.png" />
+                )}
               </CommentLeft>
               <CommentRight>
                 <CommentName>{user.name}</CommentName>
@@ -199,7 +204,11 @@ const Comment = (props: any) => {
   return (
     <CommentBox>
       <CommentLeft>
-        <ImageBox src={`http://localhost:8003/${data.user.imgPath}`} />
+        {data.user.imgPath ? (
+          <ImageBox src={`${BASE_URL_SERVER}/${data.user.imgPath}`} />
+        ) : (
+          <ImageBox src="/user.png" />
+        )}
       </CommentLeft>
       <CommentRight>
         <CommentName>{data.user.name}</CommentName>
