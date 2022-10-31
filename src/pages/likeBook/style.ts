@@ -69,6 +69,15 @@ export const BookStory = styled.p`
   margin-top: 70px;
 `
 
+export const BookStory1 = styled.p`
+  color: white;
+  font-size: 20px;
+  line-height: 30px;
+  margin-left: 50px;
+  margin-top: 70px;
+  opacity: 0;
+`
+
 export const BookBtn = styled.button`
   width: 120px;
   height: 40px;
