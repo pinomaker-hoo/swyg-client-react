@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
 
 const pointApi = axios.create({
-  baseURL: `${BASE_URL_SERVER}/point`,
+  baseURL: `${BASE_URL_LOCAL}/point`,
   withCredentials: true,
   headers: {},
 })

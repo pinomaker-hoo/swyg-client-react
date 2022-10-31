@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
 
 const mate = axios.create({
-  baseURL: `${BASE_URL_SERVER}/mate`,
+  baseURL: `${BASE_URL_LOCAL}/mate`,
   withCredentials: true,
   headers: {},
 })

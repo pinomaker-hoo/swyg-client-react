@@ -10,7 +10,7 @@ const Kakao = axios.create({
 })
 
 const book = axios.create({
-  baseURL: `${BASE_URL_SERVER}/book`,
+  baseURL: `${BASE_URL_LOCAL}/book`,
   withCredentials: true,
   headers: {},
 })
