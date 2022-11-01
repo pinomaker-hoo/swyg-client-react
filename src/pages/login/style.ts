@@ -26,7 +26,7 @@ export const InputBox = styled.input`
   padding-left: 20px;
 `
 export const Logo = styled.h1`
-  font-family: SB_Aggro_B;
+  font-family: Aggro-B;
   color: white;
   font-size: 40px;
   margin-bottom: 20px;
@@ -35,24 +35,24 @@ export const Logo = styled.h1`
 export const LabelText = styled.h3`
   margin-top: 30px;
   margin-bottom: 15px;
-  font-family: SB_Aggro_M;
-  font-size: 24px;
+  font-family: Aggro-M;
+  font-size: 20px;
   color: white;
 `
 
 export const OtherTextOne = styled.p`
-  font-family: SB_Aggro_L;
+  font-family: Aggro-L;
   color: white;
   float: right;
 `
 
 export const OtherTextTwo = styled.p`
-  margin-top: 20pxr;
-  font-family: SB_Aggro_L;
+  margin-top: 40px;
+  font-family: Aggro-L;
   color: white;
   float: center;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
 `
 
 export const LoginBtn = styled.button`
@@ -62,7 +62,7 @@ export const LoginBtn = styled.button`
   background-color: #442d7a;
   border: 8px;
   color: white;
-  font-family: SB_Aggro_L;
+  font-family: Aggro-L;
   border-radius: 8px;
   font-size: 20px;
 `
@@ -74,7 +74,7 @@ export const KakaoBtn = styled.button`
   background-color: #ffe715;
   border: 8px;
   color: black;
-  font-family: SB_Aggro_L;
+  font-family: Aggro-L;
   border-radius: 8px;
   font-size: 20px;
 `

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getBookListCount } from "../../api/book"
 import { getMate } from "../../api/mate"
-import { getCookie } from "../../common/Cookie"
 import Header from "../../components/Header"
 import {
   BodyBox,
@@ -23,6 +22,7 @@ import {
   FirstStateBox,
   FirstStateLine,
   FirstStateText,
+  FirstStateText1,
   FirstTitleText,
   FourthBody,
   FourthBox,
@@ -60,7 +60,6 @@ import {
 } from "./style"
 
 export default function Home() {
-  
   const [bookList, setBookList]: any = useState([])
   const [loading, setLoading] = useState(true)
   const [mate, setMate]: any = useState()
@@ -112,19 +111,19 @@ export default function Home() {
               <FirstStateBox>
                 <FirstStateLine>
                   <FirstStateText>감정</FirstStateText>
-                  <FirstStateText>호기심</FirstStateText>
+                  <FirstStateText1>호기심</FirstStateText1>
                   <FirstStateBar></FirstStateBar>
-                  <FirstStateText>100%</FirstStateText>
+                  <FirstStateText1>100%</FirstStateText1>
                 </FirstStateLine>
                 <FirstStateLine>
                   <FirstStateText>식욕</FirstStateText>
-                  <FirstStateText>무</FirstStateText>
-                  <FirstStateText>0%</FirstStateText>
+                  <FirstStateText1>무</FirstStateText1>
+                  <FirstStateText1>0%</FirstStateText1>
                 </FirstStateLine>
                 <FirstStateLine>
                   <FirstStateText>아픔</FirstStateText>
-                  <FirstStateText>무</FirstStateText>
-                  <FirstStateText>0%</FirstStateText>
+                  <FirstStateText1>무</FirstStateText1>
+                  <FirstStateText1>0%</FirstStateText1>
                 </FirstStateLine>
               </FirstStateBox>
             </FirstLeftBox>
@@ -239,7 +238,14 @@ const FourthBook = (props: any) => {
         <FourthImgCardImg src={props.data.thumbnail} />
       </FourthImgCardLeft>
       <FourthImgCardRight>
-        <FourthImgCardTitle>{props.data.title}</FourthImgCardTitle>
+        {props.data.title.length > 16 ? (
+          <FourthImgCardTitle>
+            {props.data.title.substr(0, 16)} ...
+          </FourthImgCardTitle>
+        ) : (
+          <FourthImgCardTitle>{props.data.title}</FourthImgCardTitle>
+        )}
+
         <FourthImgCardText>#재미있는</FourthImgCardText>
       </FourthImgCardRight>
     </FourthImgCard>

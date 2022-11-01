@@ -15,11 +15,15 @@ export const InBox = styled.div`
 
 export const Title = styled.h1`
   color: white;
+  font-family: Aggro-M;
+  font-size: 50px;
 `
 
 export const Text = styled.h3`
   color: white;
   margin-top: 50px;
+  font-family: Aggro-L;
+  font-size: 22px;
 `
 
 export const QuizBox = styled.div`

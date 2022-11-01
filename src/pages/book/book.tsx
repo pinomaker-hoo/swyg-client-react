@@ -37,6 +37,8 @@ import {
   TopBox,
   InBox,
   OuterBox,
+  SubmitBtnDiv,
+  SubmitBtnDivun,
 } from "./style"
 
 export default function Book() {
@@ -71,6 +73,7 @@ export default function Book() {
   }
 
   const onClickBtn = async () => {
+    if (!text) return alert("댓글을 입력하세요!")
     const logined = await useLogined()
     if (logined) {
       await saveReview(text, id)
@@ -122,10 +125,11 @@ export default function Book() {
                 <BookTextBox>
                   <BookTitle>{book.title}</BookTitle>
                   <BookInfo>
-                    작가 : {book.authors}, 출판사 : {book.publisher}
+                    작가 &nbsp;| &nbsp; {book.authors} &nbsp; &nbsp; &nbsp;
+                    {book.publisher}
                   </BookInfo>
                   <BookSub>줄거리</BookSub>
-                  <BookStory>{book.contents.substr(0, 110)}</BookStory>
+                  <BookStory>{book.contents.substr(0, 220)}</BookStory>
                   <BookBtn onClick={onClickQuiz} color="#F18B45">
                     퀴즈 맞추기
                   </BookBtn>
@@ -145,7 +149,7 @@ export default function Book() {
               .map((item: any) => (
                 <Comment key={item.idx} data={item} />
               ))}
-            <BottomTitle>친구들이 단 코멘트 </BottomTitle>
+            <BottomTitle>친구들이 단 코멘트 &nbsp; &gt;</BottomTitle>
             {reviewList
               .filter((item: any) => item.user.idx !== user.idx)
               .map((item: any) => (
@@ -162,9 +166,12 @@ export default function Book() {
               <CommentRight>
                 <CommentName>{user.name}</CommentName>
                 <CommentTextInput type="text" onChange={onChangeText} />
-                <SubmitBtn onClick={onClickBtn}>등록하기</SubmitBtn>
               </CommentRight>
             </CommentBox>
+            <SubmitBtnDiv>
+              <SubmitBtn onClick={onClickBtn}>코멘트 달기</SubmitBtn>
+            </SubmitBtnDiv>
+            <SubmitBtnDivun></SubmitBtnDivun>
           </BottomBox>
         </BodyBox>
       </InBox>

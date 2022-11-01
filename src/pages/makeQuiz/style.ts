@@ -15,6 +15,8 @@ export const InBox = styled.div`
 
 export const Title = styled.h1`
   color: white;
+  font-family: Aggro-M;
+  font-size: 50px;
 `
 
 export const MidBox = styled.div`
@@ -23,13 +25,16 @@ export const MidBox = styled.div`
 `
 
 export const InputBox = styled.input`
-  width: 784px;
+  width: 764px;
   height: 120px;
   border-radius: 13px;
   background-color: #442d7a;
-  margin: 0px;
-  padding: 0px;
+  float: left;
+  padding-left: 20px;
   border: 1px white solid;
+  font-family: Aggro-M;
+  font-size: 24px;
+  color: white;
 `
 export const TrueBtn = styled.button`
   width: 180px;
@@ -37,7 +42,7 @@ export const TrueBtn = styled.button`
   border: none;
   border-radius: 13px;
   background-color: ${(props) => props.color};
-  margin-left: 30px;
+
   color: white;
 `
 export const FalseBtn = styled.button`
@@ -56,4 +61,10 @@ export const SubBtn = styled.button`
   background-color: #805fc7;
   color: white;
   border-radius: 8px;
+  font-family: Aggro-L;
+  font-size: 20px;
+`
+
+export const AnswerImg = styled.img`
+  height: 30%;
 `

@@ -14,7 +14,7 @@ export const InBox = styled.div`
 `
 
 export const Logo = styled.h1`
-  font-family: SB_Aggro_B;
+  font-family: Aggro-B;
   color: white;
   margin-bottom: 40px;
   margin-top: -100px;
@@ -24,7 +24,8 @@ export const Logo = styled.h1`
 
 export const LabelText = styled.h3`
   margin-bottom: 15px;
-  font-family: SB_Aggro_M;
+  font-family: Aggro-M;
+  font-size: 20px;
   color: white;
   width: 200px;
 `
@@ -128,6 +129,7 @@ export const RegisterBtn = styled.button`
   height: 54px;
   color: white;
   border: none;
+  font-family: Aggro-L;
   border-radius: 8px;
   margin-left: 260px;
   margin-top: 30px;

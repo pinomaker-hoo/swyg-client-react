@@ -17,13 +17,13 @@ export const Title = styled.h1`
   color: white;
   margin-top: -50px;
   font-size: 50px;
+  font-family: Aggro-M;
 `
 export const SubBtn = styled.button`
   background-color: #805fc7;
   width: 160px;
   height: 54px;
   border-radius: 8px;
-  margin-top: 100px;
   color: white;
   font-size: 20px;
 `

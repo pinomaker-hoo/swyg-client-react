@@ -12,7 +12,9 @@ import {
   BookImage,
   DateBox,
   DateColum,
+  DateSubTitle,
   DateText,
+  DateText2,
   DateTitle,
   FirstBox,
   FirstDiv,
@@ -39,11 +41,10 @@ export default function Parents() {
   const [bookList2, setBookList2] = useState([])
   const [dayCount, setDayCount]: any = useState([0, 0, 0, 0, 0, 0, 0])
   const [loading, setLoading] = useState(true)
-  const [sevenDay, setSevenDay]: any = useState(new Date())
 
   useEffect(() => {
     callApi()
-  }, [])
+  }, [user])
 
   const imgInput: any = useRef()
 
@@ -62,6 +63,7 @@ export default function Parents() {
       return createdAt > today
     })
     for (const item of filterArr) {
+      console.log(item)
       const dateToDay = getDateToDay(item.createdAt)
       updateDayState(dateToDay)
     }
@@ -105,7 +107,6 @@ export default function Parents() {
               ) : (
                 <ImgBox src="/user.png" onClick={onClickImg} />
               )}
-
               <HideInput
                 type="file"
                 accept="image/*"
@@ -119,34 +120,35 @@ export default function Parents() {
           </FirstBox>
           <SecondBox>
             <DateTitle>최근 독서 기록</DateTitle>
+            <DateSubTitle>(단위/권)</DateSubTitle>
             <DateBox>
               <DateColum>
                 <DateText>일</DateText>
-                <DateText>{dayCount[0]}</DateText>
+                <DateText2>{dayCount[0]}</DateText2>
               </DateColum>
               <DateColum>
                 <DateText>월</DateText>
-                <DateText>{dayCount[1]}</DateText>
+                <DateText2>{dayCount[1]}</DateText2>
               </DateColum>
               <DateColum>
                 <DateText>화</DateText>
-                <DateText>{dayCount[2]}</DateText>
+                <DateText2>{dayCount[2]}</DateText2>
               </DateColum>
               <DateColum>
                 <DateText>수</DateText>
-                <DateText>{dayCount[3]}</DateText>
+                <DateText2>{dayCount[3]}</DateText2>
               </DateColum>
               <DateColum>
                 <DateText>목</DateText>
-                <DateText>{dayCount[4]}</DateText>
+                <DateText2>{dayCount[4]}</DateText2>
               </DateColum>
               <DateColum>
                 <DateText>금</DateText>
-                <DateText>{dayCount[5]}</DateText>
+                <DateText2>{dayCount[5]}</DateText2>
               </DateColum>
               <DateColum>
                 <DateText>토</DateText>
-                <DateText>{dayCount[6]}</DateText>
+                <DateText2>{dayCount[6]}</DateText2>
               </DateColum>
             </DateBox>
           </SecondBox>

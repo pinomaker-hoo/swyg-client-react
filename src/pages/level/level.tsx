@@ -20,7 +20,7 @@ export default function Level() {
         </ImgBox>
         <br />
         <Link to={"/home"}>
-          <SubBtn>확인하기.</SubBtn>
+          <SubBtn>확인하기</SubBtn>
         </Link>
       </InBox>
     </OuterBox>

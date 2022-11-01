@@ -23,13 +23,14 @@ export const FirstBox = styled.div`
 `
 export const SecondBox = styled.div`
   height: 300px;
+  margin-top: 100px;
 `
 export const ThirdBox = styled.div`
   margin-top: 100px;
   height: 400px;
 `
 export const FourthBox = styled.div`
-  margin-top: 100px;
+  margin-top: 200px;
   height: 1000px;
 `
 export const ImgBox = styled.img`
@@ -42,15 +43,28 @@ export const ImgBox = styled.img`
 export const NameText = styled.h1`
   color: white;
   margin: auto;
+  font-family: Aggro-M;
+  font-size: 34px;
 `
 export const DateBox = styled.div`
   width: 100%;
   height: 250px;
   background-color: white;
+  margin-top: 50px;
 `
-export const DateTitle = styled.h3`
+export const DateTitle = styled.span`
   color: white;
+  font-family: Aggro-M;
+  font-size: 24px;
 `
+
+export const DateSubTitle = styled.span`
+  color: #8f8f8f;
+  font-family: Aggro-L;
+  font-size: 20px;
+  margin-left: 20px;
+`
+
 export const DateColum = styled.div`
   width: ${100 / 7}%;
   height: 100%;
@@ -58,22 +72,38 @@ export const DateColum = styled.div`
   text-align: center;
 `
 export const DateText = styled.h3`
+  color: #8f8f8f;
+  font-size: 24px;
+  margin-top: 50px;
+  font-family: Aggro-M;
+`
+
+export const DateText2 = styled.h3`
   color: black;
   font-size: 32px;
+  font-family: Aggro-M;
   margin-top: 50px;
 `
 export const ThirdTitle = styled.h1`
   color: white;
+  font-size: 24px;
+  font-family: Aggro-M;
+  margin-bottom: 30px;
 `
 
 export const ListUl = styled.ul``
 export const ListLi = styled.li`
   color: white;
   margin-bottom: 30px;
+  font-size: 20px;
+  font-family: Aggro-M;
 `
 export const ListText = styled.h3`
   color: #f18b45;
   margin-left: 10px;
+  margin-top: 70px;
+  font-size: 24px;
+  font-family: Aggro-M;
 `
 
 export const TagBtn = styled.button`
@@ -83,9 +113,13 @@ export const TagBtn = styled.button`
   border-radius: 27px;
   color: #442d7a;
   margin-top: 50px;
+  font-size: 18px;
+  font-family: Aggro-M;
 `
 export const FourthTitle = styled.h1`
   color: white;
+  font-size: 24px;
+  font-family: Aggro-M;
 `
 export const BookBox = styled.div`
   width: 100%;

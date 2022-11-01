@@ -37,7 +37,7 @@ export const FourthBox = styled.div`
 export const FifthBox = styled.div`
   width: 100%;
   height: 300px;
-  margin-top: 100px;
+  margin-top: 300px;
 `
 export const FirstLeftBox = styled.div`
   width: 46%;
@@ -54,6 +54,7 @@ export const FirstRightBox = styled.div`
 `
 export const PText = styled.p`
   color: white;
+  font-family: Aggro-L;
   font-size: 20px;
 `
 
@@ -61,6 +62,7 @@ export const FirstTitleText = styled.h1`
   font-size: 50px;
   margin-top: -10px;
   color: white;
+  font-family: Aggro-M;
 `
 
 export const FirstImg = styled.img`
@@ -86,6 +88,7 @@ export const FirstIconText = styled.p`
   margin-right: 20px;
   margin-top: 1px;
   color: white;
+  font-family: Aggro-M;
 `
 export const FirstStateBox = styled.div`
   margin-top: 3 0px;
@@ -102,6 +105,16 @@ export const FirstStateText = styled.p`
   margin-right: 20px;
   margin-top: 1px;
   color: white;
+  font-family: Aggro-M;
+`
+
+export const FirstStateText1 = styled.p`
+  font-size: 20px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 1px;
+  color: white;
+  font-family: Aggro-L;
 `
 
 export const FirstStateBar = styled.div`
@@ -116,6 +129,8 @@ export const SecondTitle = styled.h1`
   color: white;
   font-size: 30px;
   text-align: center;
+  font-family: Aggro-M;
+  margin-bottom: 40px;
 `
 export const SecondInputBox = styled.div`
   text-align: center;
@@ -129,6 +144,7 @@ export const SecondInput = styled.input`
   border-radius: 10px;
   padding-left: 30px;
   font-size: 25px;
+  font-family: Aggro-L;
 `
 
 export const SecondTagBtnBox = styled.div`
@@ -143,7 +159,8 @@ export const SecondTagBtn1 = styled.button`
   border: 3px solid #ffef62;
   float: left;
   margin-left: 180px;
-  font-size: 18px;
+  font-size: 15px;
+  font-family: Aggro-M;
 `
 export const SecondTagBtn = styled.button`
   width: 130px;
@@ -154,7 +171,7 @@ export const SecondTagBtn = styled.button`
   border: 3px solid #ffef62;
   float: left;
   margin-left: 30px;
-  font-size: 18px;
+  font-size: 15px;
   font-family: Aggro-M;
 `
 
@@ -162,11 +179,13 @@ export const ThirdTitle = styled.h1`
   font-size: 35px;
   color: white;
   text-align: center;
+  font-family: Aggro-M;
 `
 export const ThirdSubTitle = styled.p`
   font-size: 25px;
   color: white;
   text-align: center;
+  font-family: Aggro-L;
 `
 export const ThirdBookCardBox = styled.div`
   margin-top: 70px;
@@ -184,6 +203,7 @@ export const ThirdBookCardImg = styled.img`
 export const ThirdBookCardText = styled.h3`
   text-align: center;
   color: white;
+  font-family: Aggro-M;
 `
 export const ThirdBookCard2 = styled.div`
   margin-top : 85px;
@@ -199,6 +219,7 @@ export const ThirdBookCardText2 = styled.h3`
   text-align: center;
   color: white;
   font-size: 15px;
+  font-family: Aggro-M;
 `
 export const ThirdBookCard3 = styled.div`
   float: left;
@@ -216,12 +237,15 @@ export const ThirdBookCardText3 = styled.h3`
   text-align: center;
   color: white;
   font-size: 18px;
+  font-family: Aggro-M;
 `
 
 export const FourthTitle = styled.h1`
   text-align: center;
   color: white;
   font-size: 35px;
+  font-family: Aggro-M;
+  margin-bottom: 100px;
 `
 export const FourthBody = styled.div`
   margin-left: 100px;
@@ -241,6 +265,7 @@ export const FourthImgCardTitle = styled.p`
   margin-top: 110px;
   font-size: 15px;
   color: white;
+  font-family: Aggro-M;
 `
 export const FourthImgCardText = styled.p`
   font-size: 12px;
@@ -257,20 +282,24 @@ export const FourthImgCardRight = styled.div`
   height: 100%;
 `
 export const FifthImg = styled.img`
-  width: 64%;
+  width: 58%;
   margin-left: 4%;
 `
 export const FifthLeftBox = styled.div`
-  width: 24%;
+  width: 30%;
   float: left;
   margin-left: 8%;
 `
 export const FifthTitle = styled.h1`
   margin-top: -5px;
   color: white;
+  font-family: Aggro-M;
+  font-size: 30px;
 `
 export const FifthText = styled.p`
   color: white;
+  font-family: Aggro-L;
+  font-size: 25px;
 `
 export const FifthBtn = styled.button`
   width: 160px;
@@ -278,5 +307,7 @@ export const FifthBtn = styled.button`
   background-color: white;
   border-radius: 28.5px;
   margin-top: 10px;
+  font-family: Aggro-M;
+  font-size: 18px;
 `
 export const MapBox = styled.div``

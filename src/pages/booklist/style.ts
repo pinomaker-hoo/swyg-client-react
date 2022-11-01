@@ -41,23 +41,30 @@ export const BookImg = styled.img`
 `
 
 export const BookTitle = styled.h1`
+  font-family: Aggro-B;
+  font-size: 35px;
   color: white;
 `
 
 export const BookSubTitle = styled.h3`
   color: white;
+  font-family: Aggro-L;
+  font-size: 20px;
 `
 
 export const BookText = styled.p`
   color: white;
   font-size: 20px;
   line-height: 30px;
-  letter-spacing: 3px;
+  letter-spacing: 1p x;
+  font-family: Aggro-L;
 `
 
 export const BookIntroduce = styled.h3`
-  margin-top: 50px;
+  margin-top: 30px;
   color: white;
+  font-family: Aggro-M;
+  font-size: 20px;
 `
 export const BookBtn1 = styled.button`
   background-color: ${(props) => props.color};
@@ -67,6 +74,8 @@ export const BookBtn1 = styled.button`
   border: none;
   border-radius: 20px;
   margin-top: 100px;
+  font-size: 15px;
+  font-family: Aggro-L;
 `
 export const BookBtn2 = styled.button`
   background-color: ${(props) => props.color};
@@ -76,6 +85,8 @@ export const BookBtn2 = styled.button`
   border: none;
   border-radius: 20px;
   margin-top: 30px;
+  font-size: 15px;
+  font-family: Aggro-L;
 `
 export const BookTagBtn = styled.button`
   width: 160px;
@@ -83,10 +94,11 @@ export const BookTagBtn = styled.button`
   border: none;
   border-radius: 27.5px;
   background-color: #ffef62;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 30px;
   margin-top: 50px;
   margin-left: 100px;
+  font-family: Aggro-M;
 `
 export const WhiteLine = styled.hr`
   color: white;

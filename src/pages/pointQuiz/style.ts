@@ -17,6 +17,7 @@ export const Title = styled.h1`
   color: white;
   margin-top: -50px;
   font-size: 50px;
+  font-family: Aggro-M;
 `
 export const SubBtn = styled.button`
   background-color: #805fc7;
@@ -28,6 +29,7 @@ export const SubBtn = styled.button`
   font-size: 20px;
 `
 export const Img = styled.img`
+  margin-left: -60px;
   width: 400px;
   margin-top: 80px;
 `

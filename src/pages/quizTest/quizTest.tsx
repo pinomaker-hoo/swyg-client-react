@@ -20,6 +20,7 @@ import {
   QuizButton,
   QuizButtonTwo,
   SubBtn,
+  AnswerImg,
 } from "./styles"
 
 export default function QuizTest() {
@@ -36,6 +37,7 @@ export default function QuizTest() {
 
   const callApi = async () => {
     const { data }: any = await getQuizList(id)
+    console.log(data)
     setDataList(data)
     if (data.length < 1) {
       alert("퀴즈가 없습니다.")
@@ -51,8 +53,8 @@ export default function QuizTest() {
 
   const onClickSubBtn = async () => {
     dataList[0].answer === answer
-      ? navigate(`/quiz/true/${id}`)
-      : navigate(`/quiz/false/${id}`)
+      ? navigate(`/quiz/true/${dataList[0].idx}`, { state: id })
+      : navigate(`/quiz/false/${dataList[0].idx}`, { state: id })
   }
 
   if (loading) return null
@@ -82,14 +84,14 @@ export default function QuizTest() {
                 onClick={onClickBtn}
                 color={answer ? "#F18B45" : "#442d7a"}
               >
-                O
+                <AnswerImg src="/true.png" />
               </QuizButton>
               <QuizButtonTwo
                 name="false"
                 onClick={onClickBtn}
                 color={answer ? "#442d7a" : "#F18B45"}
               >
-                X
+                <AnswerImg src="/false.png" />
               </QuizButtonTwo>
             </QuizCardBack>
           </QuizContainer>

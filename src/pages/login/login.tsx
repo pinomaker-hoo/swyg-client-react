@@ -57,7 +57,9 @@ export default function Login() {
           <KakaoBtn>카카오계정 로그인</KakaoBtn>
         </a>
         <Link to={"/auth/register"}>
-          <OtherTextTwo>matebook이 처음이라면? 회원가입</OtherTextTwo>
+          <OtherTextTwo>
+            matebook이 처음이라면? &nbsp; &nbsp; &nbsp; &nbsp; 회원가입
+          </OtherTextTwo>
         </Link>
       </InBox>
     </OuterBox>

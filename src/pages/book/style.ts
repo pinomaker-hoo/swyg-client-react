@@ -25,6 +25,8 @@ export const BottomBox = styled.div`
 
 export const Title = styled.h1`
   color: white;
+  font-size: 26px;
+  font-family: Aggro-M;
 `
 
 export const BookBox = styled.div``
@@ -48,19 +50,26 @@ export const BookTextBox = styled.div`
 `
 export const BookTitle = styled.h1`
   color: white;
+  font-size: 30px;
+  font-family: Aggro-B;
 `
 export const BookInfo = styled.p`
   color: white;
   font-size: 20px;
+  font-family: Aggro-L;
 `
 export const BookSub = styled.h3`
   margin-top: 40px;
+  font-size: 24px;
+  font-family: Aggro-M;
   color: white;
 `
 export const BookStory = styled.p`
   color: white;
   font-size: 20px;
   line-height: 30px;
+  font-size: 20px;
+  font-family: Aggro-L;
 `
 
 export const BookBtn = styled.button`
@@ -70,8 +79,10 @@ export const BookBtn = styled.button`
   background-color: ${(props) => props.color};
   color: white;
   font-size: 20px;
-  margin-right: 24px;
-  margin-top: 150px;
+  margin-right: 26px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-family: Aggro-L;
 `
 
 export const BottomTitle = styled.h1`
@@ -79,6 +90,8 @@ export const BottomTitle = styled.h1`
   margin-left: 100px;
   margin-bottom: 70px;
   margin-top: 70px;
+  font-size: 35px;
+  font-family: Aggro-M;
 `
 export const CommentBox = styled.div`
   width: 85%;
@@ -111,6 +124,7 @@ export const ImageBox = styled.img`
 export const CommentName = styled.h1`
   margin-top: 40px;
   font-size: 30px;
+  font-family: Aggro-M;
 `
 
 export const CommentText = styled.p`
@@ -118,6 +132,7 @@ export const CommentText = styled.p`
   line-height: 30px;
   height: 120px;
   width: 90%;
+  font-family: Aggro-L;
 `
 export const CommentIcon = styled.img`
   width: 35px;
@@ -131,6 +146,7 @@ export const CommentInfo = styled.h3`
   margin-top: 16px;
   margin-left: 12px;
   font-size: 28px;
+  font-family: Aggro-M;
 `
 
 export const CommentTextInput = styled.input`
@@ -145,7 +161,13 @@ export const SubmitBtn = styled.button`
   background-color: #805fc7;
   color: white;
   border: none;
-  border-radius: 27px;
-  float: right;
-  margin-right: 100px;
+  border-radius: 8px;
+  font-family: Aggro-L;
+  font-size: 20px;
+`
+export const SubmitBtnDiv = styled.div`
+  text-align: center;
+`
+export const SubmitBtnDivun = styled.div`
+  height: 50px;
 `

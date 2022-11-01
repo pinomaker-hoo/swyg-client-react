@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { saveQuiz } from "../../api/quiz"
 import {
+  AnswerImg,
   FalseBtn,
   InBox,
   InputBox,
@@ -55,10 +56,10 @@ export default function MakeQuiz() {
         <MidBox>
           <InputBox placeholder="퀴즈를 입력해 주세요." onChange={onChange} />
           <TrueBtn name="true" onClick={onClickBtn} color={colorOne}>
-            O
+            <AnswerImg src="/true.png" />
           </TrueBtn>
           <FalseBtn name="false" onClick={onClickBtn} color={colorTwo}>
-            X
+            <AnswerImg src="/false.png" />
           </FalseBtn>
         </MidBox>
         <SubBtn onClick={onClick}>퀴즈내기</SubBtn>

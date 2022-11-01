@@ -71,7 +71,7 @@ const Logo = styled.h1`
   color: white;
   float: left;
   font-size: 40px;
-  margin-right: 400px;
+  margin-right: 350px;
   margin-left: 10px;
 `
 
@@ -79,11 +79,11 @@ const LogoImg = styled.img`
   float: left;
   width: 43px;
   height: 35.85;
-  margin-top: 24px;
+  margin-top: 30px;
   margin-right: 12px;
   margin-left: 100px;
 `
-const MenuText = styled.h3`
+const MenuText = styled.p`
   font-family: Aggro-L;
   color: white;
   font-size: 18px;

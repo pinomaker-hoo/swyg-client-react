@@ -67,3 +67,12 @@ export const getBook = async (idx: string) => {
     console.log(err)
   }
 }
+
+export const findBookByIsbn = async (isbn: string) => {
+  try {
+    const { data } = await book.get(`/book/${isbn}`)
+    return data
+  } catch (err) {
+    console.log(err)
+  }
+}

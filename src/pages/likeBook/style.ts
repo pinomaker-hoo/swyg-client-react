@@ -20,6 +20,9 @@ export const TitleText = styled.h1`
   color: white;
   margin-left: 100px;
   margin-bottom: -50px;
+  margin-top: 50px;
+  font-family: Aggro-M;
+  font-size: 28px;
 `
 
 export const BookBox = styled.div`
@@ -34,25 +37,23 @@ export const LeftBox = styled.div`
   float: left;
 `
 export const MiddleBox = styled.div`
+  margin-left: 5%;
   width: 75%;
   height: 100%;
   float: left;
 `
 
-export const RightBox = styled.div`
-  width: 5%;
-  height: 100%;
-  float: left;
-`
 export const ImageBox = styled.img`
-  width: 208px;
   height: 350px;
   margin-top: 25px;
+  border-radius: 8px;
 `
 export const BookTitle = styled.h1`
   color: white;
   margin-left: 50px;
   margin-top: 30px;
+  font-family: Aggro-B;
+  font-size: 35px;
 `
 
 export const BookInfo = styled.p`
@@ -60,13 +61,15 @@ export const BookInfo = styled.p`
   font-size: 20px;
   margin-left: 50px;
   margin-top: 30px;
+  font-family: Aggro-L;
 `
 export const BookStory = styled.p`
   color: white;
   font-size: 20px;
   line-height: 30px;
   margin-left: 50px;
-  margin-top: 70px;
+  margin-top: 40px;
+  font-family: Aggro-L;
 `
 
 export const BookStory1 = styled.p`
@@ -86,4 +89,7 @@ export const BookBtn = styled.button`
   background-color: white;
   margin-left: 50px;
   margin-top: 35px;
+  color: #805fc7;
+  font-family: Aggro-L;
+  font-size: 17px;
 `

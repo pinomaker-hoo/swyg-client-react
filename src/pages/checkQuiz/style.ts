@@ -17,6 +17,8 @@ export const Title = styled.h1`
   color: white;
   margin-top: -50px;
   font-size: 50px;
+  font-family: Aggro-M;
+  font-size: 50px;
 `
 
 export const Img = styled.img`

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { getQuiz } from "../../api/quiz"
 import { saveUserBook } from "../../api/userBook"
 import {
+  BtnBox,
   Img,
   InBox,
   OuterBox,
@@ -23,6 +24,7 @@ export default function QuizFalse() {
 
   const { id }: any = useParams()
   const navigate = useNavigate()
+  let { state } = useLocation()
 
   useEffect(() => {
     callApi()
@@ -37,7 +39,7 @@ export default function QuizFalse() {
   const onClickCheckBtn = async () => {
     const { data: data2 }: any = await saveUserBook(id)
     if (!data2) return alert("ERROR")
-    navigate(`/book/${id}`)
+    navigate(`/book/${state}`)
   }
 
   if (loading) return null
@@ -50,12 +52,14 @@ export default function QuizFalse() {
           <QuizCardBack className="back">
             <QuizNumber>Q1</QuizNumber>
             <QuizTitle>{quiz.text}</QuizTitle>
-            <QuizButton color={quiz.answer ? "#F18B45" : "#442d7a"}>
-              <QuizImg src="/true.png" />
-            </QuizButton>
-            <QuizButtonTwo color={quiz.answer ? "#442d7a" : "#F18B45"}>
-              <QuizImg src="/false.png" />
-            </QuizButtonTwo>
+            <BtnBox>
+              <QuizButton color={quiz.answer ? "#F18B45" : "#442d7a"}>
+                <QuizImg src="/true.png" />
+              </QuizButton>
+              <QuizButtonTwo color={quiz.answer ? "#442d7a" : "#F18B45"}>
+                <QuizImg src="/false.png" />
+              </QuizButtonTwo>
+            </BtnBox>
           </QuizCardBack>
         </QuizContainer>
         <br />

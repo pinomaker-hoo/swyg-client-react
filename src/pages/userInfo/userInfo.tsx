@@ -59,7 +59,7 @@ export default function UserInfo() {
           <InputBox onChange={onChangeText} />
         </label>
         <BookDiv>
-          <LabelText>최근에 읽은 책</LabelText>
+          <LabelText>관심 읽은 책</LabelText>
           {bookList.map((item: any, idx: number) => (
             <BookBox key={item.idx}>
               <BookImg src={item.thumbnail}></BookImg>

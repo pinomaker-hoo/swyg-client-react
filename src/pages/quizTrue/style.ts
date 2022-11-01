@@ -17,6 +17,8 @@ export const Title = styled.h1`
   color: white;
   margin-top: -50px;
   font-size: 50px;
+  font-family: Aggro-M;
+  font-size: 50px;
 `
 export const SubBtn = styled.button`
   background-color: #805fc7;
@@ -24,6 +26,9 @@ export const SubBtn = styled.button`
   height: 54px;
   border-radius: 8px;
   margin-top: 100px;
+  font-family: Aggro-L;
+  font-size: 20px;
+  color: white;
 `
 export const Img = styled.img`
   width: 400px;

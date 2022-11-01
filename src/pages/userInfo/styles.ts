@@ -16,11 +16,13 @@ export const InBox = styled.div`
 
 export const LogoText = styled.h1`
   color: white;
-  font-family: SB_Aggro_B;
+  font-family: Aggro-B;
+  font-size: 40px;
 `
 export const LabelText = styled.h3`
   margin-bottom: 15px;
-  font-family: SB_Aggro_M;
+  font-family: Aggro-M;
+  font-size: 20px;
   color: white;
 `
 export const InputBox = styled.input`
@@ -46,10 +48,11 @@ export const BookBox = styled.div`
 
 export const BookImg = styled.img`
   width: 180px;
-  height: 240px;
+
   float: left;
   margin-right: 65px;
   margin-top: 30px;
+  border-radius: 8px;
 `
 
 export const SubBtn = styled.button`
@@ -60,4 +63,6 @@ export const SubBtn = styled.button`
   margin-left: 260px;
   margin-top: 30px;
   border-radius: 8px;
+  font-family: Aggro-L;
+  font-size: 20px;
 `

@@ -16,11 +16,15 @@ export const InBox = styled.div`
 export const Title = styled.h1`
   color: white;
   margin-top: -70px;
+  font-family: Aggro-M;
+  font-size: 50px;
 `
 
 export const Text = styled.h3`
   color: white;
   margin-top: 30px;
+  font-family: Aggro-L;
+  font-size: 22px;
 `
 
 export const QuizBox = styled.div`
@@ -48,7 +52,7 @@ export const QuizCardFront = styled.div`
   width: 368px;
   height: 500px;
   background-color: #442d7a;
-  opacity: 0.59;
+  // opacity: 0.59;
   border-radius: 15px;
   backface-visibility: hidden;
   transition: 0.5s linear;
@@ -60,7 +64,7 @@ export const QuizCardBack = styled.div`
   width: 368px;
   height: 500px;
   background-color: #442d7a;
-  opacity: 0.59;
+  // opacity: 0.59;
   border-radius: 15px;
   backface-visibility: hidden;
   transition: 0.5s linear;
@@ -88,16 +92,22 @@ export const PointText = styled.h1`
   float: left;
   margin-top: 75px;
   margin-left: 20px;
+  font-family: Aggro-M;
+  font-size: 30px;
 `
 
 export const QuizNumber = styled.h3`
   margin-left: -300px;
   color: white;
+  font-family: Aggro-M;
+  font-size: 18px;
 `
 export const QuizTitle = styled.h1`
   margin-top: 30px;
   margin-bottom: 100px;
   color: white;
+  font-family: Aggro-L;
+  font-size: 24px;
 `
 export const QuizButton = styled.button`
   width: 145px;
@@ -121,4 +131,9 @@ export const SubBtn = styled.button`
   border-radius: 8px;
   background-color: #805fc7;
   color: white;
+  font-family: Aggro-L;
+  font-size: 20px;
+`
+export const AnswerImg = styled.img`
+  height: 30%;
 `

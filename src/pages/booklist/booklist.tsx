@@ -89,9 +89,14 @@ const BookCard = (props: any) => {
         <BookImg src={props.data.thumbnail} />
       </BookLeftBox>
       <BookMiddleBox>
-        <BookTitle>{props.data.title}</BookTitle>
+        {props.data.title.length > 16 ? (
+          <BookTitle>{props.data.title.substr(0, 16)} ...</BookTitle>
+        ) : (
+          <BookTitle>{props.data.title}</BookTitle>
+        )}
         <BookSubTitle>
-          작가 {props.data.authors} {props.data.publisher}
+          작가 &nbsp;| &nbsp; {props.data.authors} &nbsp; &nbsp; &nbsp;
+          {props.data.publisher}
         </BookSubTitle>
         <BookIntroduce>소개</BookIntroduce>
         <BookText>{props.data.contents.substr(0, 80)} . . .</BookText>

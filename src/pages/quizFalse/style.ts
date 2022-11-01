@@ -17,6 +17,7 @@ export const Title = styled.h1`
   color: white;
   margin-top: -50px;
   font-size: 50px;
+  font-family: Aggro-M;
 `
 export const SubBtn = styled.button`
   background-color: #805fc7;
@@ -25,6 +26,8 @@ export const SubBtn = styled.button`
   border-radius: 8px;
   margin-top: 50px;
   color: white;
+  font-family: Aggro-L;
+  font-size: 20px;
 `
 export const Img = styled.img`
   margin-top: -100px;
@@ -49,20 +52,26 @@ export const QuizCardBack = styled.div`
 export const QuizNumber = styled.h3`
   margin-left: -300px;
   color: white;
+  font-family: Aggro-M;
+  font-size: 18px;
 `
 export const QuizTitle = styled.h1`
   margin-top: 30px;
-  margin-left: -150px;
   margin-bottom: 100px;
   color: white;
-
   font-size: 24px;
+  font-family: Aggro-L;
 `
 export const QuizButton = styled.button`
   width: 145px;
   height: 135px;
   background-color: ${(props) => props.color};
   border-radius: 13px;
+  float: left;
+  margin-left: 30px;
+`
+export const BtnBox = styled.div`
+  text-align: center;
 `
 
 export const QuizButtonTwo = styled.button`
@@ -70,6 +79,7 @@ export const QuizButtonTwo = styled.button`
   height: 135px;
   background-color: ${(props) => props.color};
   border-radius: 13px;
+  float: left;
   margin-left: 20px;
 `
 export const QuizImg = styled.img``

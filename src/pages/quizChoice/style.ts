@@ -16,11 +16,15 @@ export const InBox = styled.div`
 
 export const Title = styled.h1`
   color: white;
+  font-family: Aggro-M;
+  font-size: 50px;
 `
 
 export const Text = styled.h3`
   color: white;
   margin-top: 50px;
+  font-family: Aggro-L;
+  font-size: 22px;
 `
 
 export const ChoiceDiv = styled.div`
@@ -31,7 +35,7 @@ export const ChoiceBox = styled.div`
   width: 368px;
   height: 276px;
   background-color: ${(props) => props.color};
-  opacity: 0.59;
+  // opacity: 0.59;
   float: left;
   margin-left: 56px;
   border-radius: 15px;
@@ -43,7 +47,8 @@ export const ChoiceBox = styled.div`
 export const BoxText = styled.h3`
   font-size: 30px;
   color: white;
-  font-family: SB_Aggro_M;
+  font-family: Aggro-M;
+  font-size: 40px;
 `
 
 export const SubBtn = styled.button`
@@ -52,4 +57,7 @@ export const SubBtn = styled.button`
   height: 54px;
   border-radius: 8px;
   margin-top: 130px;
+  color: white;
+  font-family: Aggro-L;
+  font-size: 20px;
 `

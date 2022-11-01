@@ -1,7 +1,8 @@
 @font-face {
   font-family: "Aggro-M";
   font-display: fallback;
-  src: url("./Aggro-Medium.eot?iefix") format("embedded-opentype");
+  src: url("./SB_Aggro_OTF_M.woff") format("woff"),
+    url("./Aggro-M.eot?iefix") format("embedded-opentype");
   font-weight: 500;
   font-style: medium;
 }
@@ -9,7 +10,8 @@
 @font-face {
   font-family: "Aggro-B";
   font-display: fallback;
-  src: url("./Aggro-Bold.eot?iefix") format("embedded-opentype");
+  src: url("./SB_Aggro_OTF_B.woff") format("woff"),
+    url("./Aggro-Bold.eot") format("embedded-opentype");
   font-weight: 700;
   font-style: bold;
 }
@@ -17,7 +19,17 @@
 @font-face {
   font-family: "Aggro-L";
   font-display: fallback;
-  src: url("./Aggro-Light.eot?iefix") format("embedded-opentype");
+  src: url("./SB_Aggro_OTF_L.woff") format("woff"),
+    url("./Aggro-Light.eot?iefix") format("embedded-opentype");
   font-weight: 300;
   font-style: light;
 }
+
+/* @font-face {
+  font-family: "Noto Sans CJK KR";
+  font-style: normal;
+  font-weight: 100;
+  src: url("styles/fonts/NotoSansKR-Light.woff2") format("woff2"),
+    url("styles/fonts/NotoSansKR-Light.woff") format("woff"),
+    url("styles/fonts/NotoSansKR-Light.otf") format("truetype");
+} */
