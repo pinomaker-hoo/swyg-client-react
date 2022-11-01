@@ -1,6 +1,5 @@
 import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
-import { getCookie } from "../common/Cookie"
 import { useLogined } from "../common/Hooks"
 
 const auth = axios.create({
@@ -46,6 +45,11 @@ export const sendMail = async (email: string) => {
 
 export const getUserInfo = async () => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await auth.get("/")
     return data
   } catch (err) {
@@ -55,6 +59,11 @@ export const getUserInfo = async () => {
 
 export const updateImg = async (formData: any) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await auth.patch("/", formData)
     return data
   } catch (err) {

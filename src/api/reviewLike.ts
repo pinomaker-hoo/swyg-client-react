@@ -1,5 +1,6 @@
 import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { useLogined } from "../common/Hooks"
 
 const reviewLike = axios.create({
   baseURL: `${BASE_URL_SERVER}/reviewLike`,
@@ -9,6 +10,11 @@ const reviewLike = axios.create({
 
 export const saveReviewLike = async (id: string) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await reviewLike({
       url: `/${id}`,
       method: "post",
@@ -20,6 +26,11 @@ export const saveReviewLike = async (id: string) => {
 }
 export const deleteReviewLike = async (id: string) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await reviewLike({
       url: `/${id}`,
       method: "delete",
@@ -32,6 +43,11 @@ export const deleteReviewLike = async (id: string) => {
 
 export const getReviewLikeList = async (id: string) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await reviewLike.get(`/${id}`)
     return data
   } catch (err) {

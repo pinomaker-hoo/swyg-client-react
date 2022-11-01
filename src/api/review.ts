@@ -1,5 +1,6 @@
 import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { useLogined } from "../common/Hooks"
 
 const review = axios.create({
   baseURL: `${BASE_URL_SERVER}/review`,
@@ -9,6 +10,11 @@ const review = axios.create({
 
 export const saveReview = async (text: string, id: string) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await review({
       method: "post",
       url: `/${id}`,
@@ -34,6 +40,11 @@ export const getReview = async (id: string): Promise<any> => {
 
 export const getReviewList = async (id: string) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await review.get(`/list/${id}`)
     return data
   } catch (err) {

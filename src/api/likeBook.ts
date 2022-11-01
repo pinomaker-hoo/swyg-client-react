@@ -1,5 +1,6 @@
 import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { useLogined } from "../common/Hooks"
 
 const likeBook = axios.create({
   baseURL: `${BASE_URL_SERVER}/likeBook`,
@@ -9,6 +10,11 @@ const likeBook = axios.create({
 
 export const saveLikeBook = async (bookId: string): Promise<any> => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await likeBook({
       url: `/${bookId}`,
       method: "post",
@@ -21,6 +27,11 @@ export const saveLikeBook = async (bookId: string): Promise<any> => {
 
 export const deleteLikeBook = async (bookId: string) => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await likeBook({
       url: `/${bookId}`,
       method: "delete",
@@ -33,6 +44,11 @@ export const deleteLikeBook = async (bookId: string) => {
 
 export const getLikeBookList = async (): Promise<any> => {
   try {
+    const logined = await useLogined()
+    if (!logined) {
+      alert("로그인 해주세요")
+      return (location.href = "/")
+    }
     const { data } = await likeBook({
       url: "/",
       method: "get",
