@@ -109,3 +109,4 @@ export const FirstDiv = styled.div`
 export const HideInput = styled.input`
   display: none;
 `
+export const MapKeyBox = styled.div``

@@ -24,6 +24,7 @@ import {
   ListLi,
   ListText,
   ListUl,
+  MapKeyBox,
   NameText,
   OuterBox,
   SecondBox,
@@ -36,8 +37,9 @@ export default function Parents() {
   const [user, setUser]: any = useState()
   const [bookList1, setBookList1] = useState([])
   const [bookList2, setBookList2] = useState([])
-  const [readBookList, setReadBookList] = useState([])
+  const [dayCount, setDayCount]: any = useState([0, 0, 0, 0, 0, 0, 0])
   const [loading, setLoading] = useState(true)
+  const [sevenDay, setSevenDay]: any = useState(new Date())
 
   useEffect(() => {
     callApi()
@@ -53,7 +55,16 @@ export default function Parents() {
     const { data } = await getUserInfo()
     setUser(() => data)
     const { data: data3 }: any = await getUserBookList()
-    setReadBookList(() => data3)
+    const today = new Date()
+    today.setDate(today.getDate() - 7)
+    const filterArr = data3.filter((item: any) => {
+      const createdAt = new Date(item.createdAt)
+      return createdAt > today
+    })
+    for (const item of filterArr) {
+      const dateToDay = getDateToDay(item.createdAt)
+      updateDayState(dateToDay)
+    }
     setLoading(() => false)
   }
 
@@ -67,7 +78,18 @@ export default function Parents() {
     const { data }: any = await updateImg(formData)
   }
 
+  const getDateToDay = (data: any) => {
+    const date = new Date(data)
+    const WEEKDAY: number[] = [0, 1, 2, 3, 4, 5, 6]
+    return WEEKDAY[date.getDay()]
+  }
+
+  const updateDayState = (data: number) => {
+    dayCount[data]++
+  }
+
   if (loading) return null
+  console.log(dayCount)
   return (
     <OuterBox>
       <InBox>
@@ -100,31 +122,31 @@ export default function Parents() {
             <DateBox>
               <DateColum>
                 <DateText>일</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[0]}</DateText>
               </DateColum>
               <DateColum>
                 <DateText>월</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[1]}</DateText>
               </DateColum>
               <DateColum>
                 <DateText>화</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[2]}</DateText>
               </DateColum>
               <DateColum>
                 <DateText>수</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[3]}</DateText>
               </DateColum>
               <DateColum>
                 <DateText>목</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[4]}</DateText>
               </DateColum>
               <DateColum>
                 <DateText>금</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[5]}</DateText>
               </DateColum>
               <DateColum>
                 <DateText>토</DateText>
-                <DateText>0</DateText>
+                <DateText>{dayCount[6]}</DateText>
               </DateColum>
             </DateBox>
           </SecondBox>
@@ -154,17 +176,21 @@ export default function Parents() {
             <TagBtn>#언어자극</TagBtn>
             <BookBox>
               {bookList1.map((item: any) => (
-                <Link to={`/book/${item.idx}`}>
-                  <BookImage key={item.idx} src={item.thumbnail} />
-                </Link>
+                <MapKeyBox key={item.idx}>
+                  <Link to={`/book/${item.idx}`}>
+                    <BookImage key={item.idx} src={item.thumbnail} />
+                  </Link>
+                </MapKeyBox>
               ))}
             </BookBox>
             <TagBtn>#어휘력 향상</TagBtn>
             <BookBox>
               {bookList2.map((item: any) => (
-                <Link to={`/book/${item.idx}`}>
-                  <BookImage key={item.idx} src={item.thumbnail} />
-                </Link>
+                <MapKeyBox key={item.idx}>
+                  <Link to={`/book/${item.idx}`}>
+                    <BookImage src={item.thumbnail} />
+                  </Link>
+                </MapKeyBox>
               ))}
             </BookBox>
           </FourthBox>
