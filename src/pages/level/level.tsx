@@ -1,15 +1,23 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { Img, InBox, OuterBox, SubBtn, Title } from "./style"
+import { Img, ImgBox, InBox, OuterBox, SubBtn, Title } from "./style"
 
 export default function Level() {
-  // const navigate = useNavigate()
+  const [changed, setChanged] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setChanged(false)
+    }, 2000)
+  }, [])
 
   return (
     <OuterBox>
       <InBox>
         <Title>진화 했어!</Title>
-        <Img src="/eggLogo.png" />
+        <ImgBox>
+          {changed ? <Img src="/eggLogo.png" /> : <Img src="/duckLogo.png" />}
+        </ImgBox>
         <br />
         <Link to={"/home"}>
           <SubBtn>확인하기.</SubBtn>
