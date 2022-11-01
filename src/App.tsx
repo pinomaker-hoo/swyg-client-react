@@ -23,6 +23,9 @@ export default function App() {
   return (
     <div>
       <Routes>
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+        <Route path="/auth/info" element={<UserInfo />} />
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/book/:id" element={<Book />} />
@@ -31,9 +34,6 @@ export default function App() {
         <Route path="/book/comment/:id" element={<CheckComment />} />
         <Route path="/book/comment/point/:id" element={<PointComment />} />
         <Route path="/likebook" element={<LikeBook />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/auth/info" element={<UserInfo />} />
         <Route path="/parents" element={<Parents />} />
         {/* <Route path="/quiz/:id" element={<Quiz />} /> */}
         <Route path="/quiz/check/:id" element={<CheckQuiz />} />

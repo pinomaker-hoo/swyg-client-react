@@ -48,7 +48,6 @@ export default function Search() {
     setBookList(() => kakaoBook.documents)
     for (const item of kakaoBook.documents) {
       const { data }: any = await SaveBook(item)
-      console.log(data)
     }
     setLoading(() => false)
   }

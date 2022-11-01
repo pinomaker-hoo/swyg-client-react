@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getBookListCount } from "../../api/book"
 import { getMate } from "../../api/mate"
+import { getCookie } from "../../common/Cookie"
 import Header from "../../components/Header"
 import {
   BodyBox,

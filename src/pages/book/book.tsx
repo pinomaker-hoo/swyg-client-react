@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { BASE_URL_SERVER } from "../../api"
 import { getUserInfo } from "../../api/auth"
 import { getBook } from "../../api/book"
 import { saveLikeBook } from "../../api/likeBook"
-import { getReview, getReviewList, saveReview } from "../../api/review"
-import {
-  deleteReviewLike,
-  getReviewLikeList,
-  saveReviewLike,
-} from "../../api/reviewLike"
+import { getReviewList, saveReview } from "../../api/review"
+import { getReviewLikeList, saveReviewLike } from "../../api/reviewLike"
 import { useLogined } from "../../common/Hooks"
 import Header from "../../components/Header"
 import {

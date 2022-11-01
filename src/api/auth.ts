@@ -1,5 +1,7 @@
 import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { getCookie } from "../common/Cookie"
+import { useLogined } from "../common/Hooks"
 
 const auth = axios.create({
   baseURL: `${BASE_URL_SERVER}/auth`,
