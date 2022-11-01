@@ -1,13 +1,19 @@
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { Img, InBox, OuterBox, SubBtn, Title } from "./style"
 
 export default function Level() {
+  // const navigate = useNavigate()
+
   return (
     <OuterBox>
       <InBox>
-        <Title>50p를 획득했어!</Title>
+        <Title>진화 했어!</Title>
         <Img src="/eggLogo.png" />
         <br />
-        <SubBtn>포인트 받기</SubBtn>
+        <Link to={"/home"}>
+          <SubBtn>확인하기.</SubBtn>
+        </Link>
       </InBox>
     </OuterBox>
   )

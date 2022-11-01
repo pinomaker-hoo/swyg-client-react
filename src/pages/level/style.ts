@@ -30,4 +30,7 @@ export const SubBtn = styled.button`
 export const Img = styled.img`
   width: 300px;
   margin-top: 80px;
+  transform: rotate(5deg);
+  transform: rotate(-5deg);
+  @for
 `

@@ -22,3 +22,12 @@ export const savePoint = async (point: number) => {
     console.log(err)
   }
 }
+
+export const getPoint = async () => {
+  try {
+    const { data } = await pointApi.get("/")
+    return data
+  } catch (err) {
+    console.log(err)
+  }
+}
