@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { KakaoSearch, SaveBook } from "../../api/book"
+import { BookSearch, SaveBook } from "../../api/book"
 import { saveLikeBook } from "../../api/likeBook"
 import { useLogined } from "../../common/Hooks"
 import Header from "../../components/Header"
@@ -30,24 +30,25 @@ export default function Search() {
   const [loading, setLoading]: any = useState(true)
   const [text, setText]: any = useState("")
 
-  const navigate = useNavigate()
-  const { state } = useLocation()
+  let { state } = useLocation()
 
   useEffect(() => {
     setText(state)
-    callApi()
+    text && callApi()
   }, [text])
 
   const callApi = async () => {
     const params = {
       query: text,
+      sort: "accuracy",
+      page: 1,
       size: 5,
-      target: "title",
     }
-    const { data: kakaoBook }: any = await KakaoSearch(params)
+    const { data: kakaoBook }: any = await BookSearch(params)
     setBookList(() => kakaoBook.documents)
     for (const item of kakaoBook.documents) {
-      await SaveBook(item)
+      const { data }: any = await SaveBook(item)
+      console.log(data)
     }
     setLoading(() => false)
   }
@@ -65,22 +66,10 @@ export default function Search() {
         <Header />
         <BodyBox>
           <SecondInputBox>
-            <SecondInput placeholder={state} onKeyPress={onPress} />
+            <SecondInput onKeyPress={onPress} />
           </SecondInputBox>
-          {bookList.splice(0, 3).map((item: any) => (
-            <MapBox key={item.idx}>
-              <BookCard data={item} />
-              <WhiteLine />
-            </MapBox>
-          ))}
-          {bookList.splice(0, 3).map((item: any) => (
-            <MapBox key={item.idx}>
-              <BookCard data={item} />
-              <WhiteLine />
-            </MapBox>
-          ))}
-          {bookList.splice(0, 3).map((item: any) => (
-            <MapBox key={item.idx}>
+          {bookList.map((item: any) => (
+            <MapBox key={item.isbn}>
               <BookCard data={item} />
               <WhiteLine />
             </MapBox>
@@ -93,6 +82,7 @@ export default function Search() {
 
 const BookCard = (props: any) => {
   const navigate = useNavigate()
+
   const onClickLikeBookBtn = async (id: string) => {
     const logined = await useLogined()
     if (!logined) {
@@ -103,6 +93,7 @@ const BookCard = (props: any) => {
       data ? alert("찜하였습니다.") : alert("ERROR")
     }
   }
+
   return (
     <BookBox>
       <BookLeftBox>
