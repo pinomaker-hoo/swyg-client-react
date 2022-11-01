@@ -17,6 +17,7 @@ import PointQuiz from "./pages/pointQuiz/pointQuiz"
 import CheckComment from "./pages/checkComment/checkComment"
 import PointComment from "./pages/pointComment/pointComment"
 import Search from "./pages/search/search"
+import Level from "./pages/level/level"
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/quiz/make/choice/:id" element={<QuizChoice />} />
         <Route path="/quiz/true/:id" element={<QuizTrue />} />
         <Route path="/quiz/false/:id" element={<QuizFalse />} />
+        <Route path="/level" element={<Level />} />
       </Routes>
     </div>
   )
