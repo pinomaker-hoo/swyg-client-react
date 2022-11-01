@@ -1,11 +1,12 @@
 import axios from "axios"
 import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
-const KakaoKey = "f8e6e54fa6a6a1af7adf51a197880f75"
+const REST_API_KEY = "f8e6e54fa6a6a1af7adf51a197880f75"
 
 const Kakao = axios.create({
-  baseURL: "https://dapi.kakao.com",
+  baseURL: "https://dapi.kakao.com", // 공통 요청 경로를 지정해준다.
   headers: {
-    Authorization: `KakaoAK ${KakaoKey}`,
+    "Content-Type": "application/json; charset=utf-8",
+    Authorization: `KakaoAK ${REST_API_KEY}`,
   },
 })
 
@@ -20,23 +21,27 @@ const book = axios.create({
  * @param params query : text, size : number, target : "title"
  * @returns
  */
-export const KakaoSearch = async (params: any) => {
-  return await Kakao.get("/v3/search/book", { params })
+
+export const BookSearch = (params: any) => {
+  try {
+    return Kakao.get("/v3/search/book", { params })
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-export const SaveBook = async (book: any) => {
+export const SaveBook = async (bookData: any) => {
   try {
     const { data } = await book({
       method: "post",
       url: "/",
       data: {
-        title: book.title,
-        contents: book.contents,
-        authors: book.authors[0],
-        publisher: book.publisher,
-        thumbnail: book.thumbnail,
-        //   datetime: data.datetime,
-        isbn: book.isbn,
+        title: bookData.title,
+        contents: bookData.contents,
+        authors: bookData.authors[0],
+        publisher: bookData.publisher,
+        thumbnail: bookData.thumbnail,
+        isbn: bookData.isbn,
       },
     })
     return data
