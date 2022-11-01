@@ -56,7 +56,6 @@ export default function QuizTest() {
   }
 
   if (loading) return null
-
   return (
     <OuterBox>
       <InBox>
