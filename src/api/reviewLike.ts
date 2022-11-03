@@ -1,9 +1,9 @@
 import axios from "axios"
-import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { BASE_URL } from "."
 import { useLogined } from "../common/Hooks"
 
 const reviewLike = axios.create({
-  baseURL: `${BASE_URL_SERVER}/reviewLike`,
+  baseURL: `${BASE_URL}/reviewLike`,
   withCredentials: true,
   headers: {},
 })

@@ -1,9 +1,9 @@
 import axios from "axios"
-import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { BASE_URL } from "."
 import { useLogined } from "../common/Hooks"
 
 const quiz = axios.create({
-  baseURL: `${BASE_URL_SERVER}/quiz`,
+  baseURL: `${BASE_URL}/quiz`,
   withCredentials: true,
   headers: {},
 })

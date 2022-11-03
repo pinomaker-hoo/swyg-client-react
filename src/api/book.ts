@@ -1,5 +1,5 @@
 import axios from "axios"
-import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { BASE_URL } from "."
 const REST_API_KEY = "f8e6e54fa6a6a1af7adf51a197880f75"
 
 const Kakao = axios.create({
@@ -11,7 +11,7 @@ const Kakao = axios.create({
 })
 
 const book = axios.create({
-  baseURL: `${BASE_URL_SERVER}/book`,
+  baseURL: `${BASE_URL}/book`,
   withCredentials: true,
   headers: {},
 })

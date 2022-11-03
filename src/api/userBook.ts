@@ -1,9 +1,9 @@
 import axios from "axios"
-import { BASE_URL_LOCAL, BASE_URL_SERVER } from "."
+import { BASE_URL } from "."
 import { useLogined } from "../common/Hooks"
 
 const userBook = axios.create({
-  baseURL: `${BASE_URL_SERVER}/userBook`,
+  baseURL: `${BASE_URL}/userBook`,
   withCredentials: true,
   headers: {},
 })
