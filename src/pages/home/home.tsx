@@ -78,8 +78,6 @@ export default function Home() {
     setMate(() => mateData.mate)
     setPoint(() => mateData.point)
     setLoading(() => false)
-    console.log(screen.availWidth)
-    console.log(screen.availHeight)
   }
 
   const onClickBook = async (event: any) => {

@@ -1,5 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "."
+import { getCookie } from "../common/Cookie"
 import { useLogined } from "../common/Hooks"
 
 const quiz = axios.create({
@@ -10,6 +11,7 @@ const quiz = axios.create({
 
 export const saveQuiz = async (text: string, answer: boolean, id: string) => {
   try {
+    const token = await getCookie("accesstoken")
     const logined = await useLogined()
     if (!logined) {
       alert("로그인 해주세요")
@@ -19,6 +21,7 @@ export const saveQuiz = async (text: string, answer: boolean, id: string) => {
       url: `/${id}`,
       method: "post",
       data: { text, answer },
+      headers: { accesstoken: token },
     })
     return data
   } catch (err) {

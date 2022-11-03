@@ -1,5 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "."
+import { getCookie } from "../common/Cookie"
 import { useLogined } from "../common/Hooks"
 
 const auth = axios.create({
@@ -10,7 +11,8 @@ const auth = axios.create({
 
 export const login = async (user: { email: string; password: string }) => {
   try {
-    return await auth.post("/local", user)
+    const { data } = await auth.post("/local", user)
+    return data
   } catch (err) {
     console.log(err)
   }
@@ -26,11 +28,12 @@ export const register = async (
   male: boolean
 ) => {
   try {
-    return await auth.post("/", {
+    const { data } = await auth.post("/", {
       ...user,
       birth,
       male,
     })
+    return data
   } catch (err) {
     console.log(err)
   }
@@ -45,12 +48,15 @@ export const sendMail = async (email: string) => {
 
 export const getUserInfo = async () => {
   try {
+    const token = await getCookie("accesstoken")
     const logined = await useLogined()
     if (!logined) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
-    const { data } = await auth.get("/")
+    const { data } = await auth.get("/", {
+      headers: { accessToken: token },
+    })
     return data
   } catch (err) {
     console.log(err)
@@ -59,12 +65,15 @@ export const getUserInfo = async () => {
 
 export const updateImg = async (formData: any) => {
   try {
+    const token = await getCookie("accesstoken")
     const logined = await useLogined()
     if (!logined) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
-    const { data } = await auth.patch("/", formData)
+    const { data } = await auth.patch("/", formData, {
+      headers: { accessToken: token },
+    })
     return data
   } catch (err) {
     console.log(err)

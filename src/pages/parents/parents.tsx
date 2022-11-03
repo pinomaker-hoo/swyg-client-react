@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
-import { BASE_URL_SERVER } from "../../api"
+import { BASE_URL } from "../../api"
 import { getUserInfo, updateImg } from "../../api/auth"
 import { getBookListCount } from "../../api/book"
 import { getUserBookList } from "../../api/userBook"
@@ -101,7 +101,7 @@ export default function Parents() {
             <FirstDiv>
               {user.imgPath ? (
                 <ImgBox
-                  src={`${BASE_URL_SERVER}/${user.imgPath}`}
+                  src={`${BASE_URL}/${user.imgPath}`}
                   onClick={onClickImg}
                 />
               ) : (
