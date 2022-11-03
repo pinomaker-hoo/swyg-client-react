@@ -1,7 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "."
 import { getCookie } from "../common/Cookie"
-import { useLogined } from "../common/Hooks"
 
 const review = axios.create({
   baseURL: `${BASE_URL}/review`,
@@ -12,8 +11,7 @@ const review = axios.create({
 export const saveReview = async (text: string, id: string) => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }

@@ -1,7 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "."
 import { getCookie } from "../common/Cookie"
-import { useLogined } from "../common/Hooks"
 
 const userBook = axios.create({
   baseURL: `${BASE_URL}/userBook`,
@@ -12,8 +11,7 @@ const userBook = axios.create({
 export const saveUserBook = async (bookIdx: string) => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
@@ -31,8 +29,7 @@ export const saveUserBook = async (bookIdx: string) => {
 export const getUserBookList = async () => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }

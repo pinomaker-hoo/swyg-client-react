@@ -1,7 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "."
 import { getCookie } from "../common/Cookie"
-import { useLogined } from "../common/Hooks"
 
 const mate = axios.create({
   baseURL: `${BASE_URL}/mate`,
@@ -12,8 +11,7 @@ const mate = axios.create({
 export const saveMate = async (name: string) => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
@@ -32,8 +30,7 @@ export const saveMate = async (name: string) => {
 export const getMate = async () => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }

@@ -1,7 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "."
 import { getCookie } from "../common/Cookie"
-import { useLogined } from "../common/Hooks"
 
 const reviewLike = axios.create({
   baseURL: `${BASE_URL}/reviewLike`,
@@ -12,8 +11,7 @@ const reviewLike = axios.create({
 export const saveReviewLike = async (id: string) => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
@@ -31,8 +29,7 @@ export const saveReviewLike = async (id: string) => {
 export const deleteReviewLike = async (id: string) => {
   try {
     const token = await getCookie("accesstoken")
-    const logined = await useLogined()
-    if (!logined) {
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
@@ -49,8 +46,8 @@ export const deleteReviewLike = async (id: string) => {
 
 export const getReviewLikeList = async (id: string) => {
   try {
-    const logined = await useLogined()
-    if (!logined) {
+    const token = await getCookie("accesstoken")
+    if (!token) {
       alert("로그인 해주세요")
       return (location.href = "/")
     }
