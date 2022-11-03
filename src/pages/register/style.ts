@@ -42,6 +42,7 @@ export const InputName = styled.input`
   border-radius: 8px;
   font-size: 18px;
   padding-left: 10px;
+  color: white;
 `
 
 export const InputBirth = styled.input`
@@ -54,6 +55,7 @@ export const InputBirth = styled.input`
   border: none;
   border-radius: 8px;
   outline: none;
+  color: white;
 `
 
 export const InputEmail = styled.input`
@@ -67,6 +69,7 @@ export const InputEmail = styled.input`
   border: none;
   border-radius: 8px;
   padding-left: 10px;
+  color: white;
   font-size: 18px;
 `
 
@@ -81,6 +84,7 @@ export const InputOther = styled.input`
   border: none;
   border-radius: 8px;
   padding-left: 10px;
+  color: white;
   font-size: 18px;
 `
 
@@ -137,32 +141,40 @@ export const RegisterBtn = styled.button`
 `
 export const YearsSelect = styled.select`
   background-color: #442d7a;
-  width: 208px;
+  width: 198px;
   height: 60px;
   border: none;
   border-radius: 8px;
+  padding-left: 10px;
+  color: white;
 `
 export const MonthsSelect = styled.select`
   background-color: #442d7a;
-  width: 208px;
+  width: 198px;
   height: 60px;
   border: none;
   border-radius: 8px;
   margin-left: 56px;
+  padding-left: 10px;
+  color: white;
 `
 export const DaysSelect = styled.select`
   background-color: #442d7a;
-  width: 104px;
+  width: 94px;
   height: 60px;
   border: none;
   border-radius: 8px;
   margin-left: 56px;
+  padding-left: 10px;
+  color: white;
 `
 export const MaleSelect = styled.select`
   background-color: #442d7a;
-  width: 104px;
+  width: 94px;
   height: 60px;
   border: none;
   border-radius: 8px;
   margin-left: 56px;
+  padding-left: 10px;
+  color: white;
 `
