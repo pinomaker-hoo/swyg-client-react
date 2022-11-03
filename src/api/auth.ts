@@ -27,6 +27,8 @@ export const register = async (
   male: boolean
 ) => {
   try {
+    if (typeof male === "string" && male === "false") male = false
+    if (typeof male === "string" && male === "true") male = true
     const { data } = await auth({
       url: "/",
       method: "post",
