@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { login } from "../../api/auth"
 import { Link, useNavigate } from "react-router-dom"
+import { BASE_URL } from "../../api"
 import {
   OuterBox,
   InBox,
@@ -29,6 +30,7 @@ export default function Login() {
       if (!useNull([user.email, user.password])) return alert("Null ERROR")
       const { data }: any = await login(user)
       if (!data) return alert("ERROR")
+      console.log(data.token)
       await setCookie("accesstoken", data.token)
       localStorage.setItem("info", JSON.stringify(data.user))
       return navigate("/home")
@@ -55,7 +57,7 @@ export default function Login() {
         {/* <a href="http://210.90.136.10:8003/auth/naver">
           <NaverBtn>네이버 로그인</NaverBtn>
         </a> */}
-        <a href="http://210.90.136.10:8003/auth/kakao">
+        <a href={`${BASE_URL}/auth/kakao`}>
           <KakaoBtn>카카오계정 로그인</KakaoBtn>
         </a>
         <Link to={"/auth/register"}>

@@ -19,5 +19,10 @@ export const useLogined = async (): Promise<boolean> => {
 }
 
 export const getJwtCookie = async (): Promise<string> => {
-  return await getCookie("accessToken")
+  return await getCookie("accesstoken")
+}
+
+export const getParams = async () => {
+  const params = new URL(window.location.href).searchParams
+  return params.get("token")
 }

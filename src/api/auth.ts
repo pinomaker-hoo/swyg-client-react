@@ -28,11 +28,17 @@ export const register = async (
   male: boolean
 ) => {
   try {
-    const { data } = await auth.post("/", {
-      ...user,
-      birth,
-      male,
+    const { data } = await auth({
+      url: "/",
+      method: "post",
+      data: {
+        ...user,
+        birth,
+        male,
+      },
+      withCredentials: true,
     })
+
     return data
   } catch (err) {
     console.log(err)

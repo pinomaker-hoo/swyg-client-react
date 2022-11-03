@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getBookListCount } from "../../api/book"
 import { getMate } from "../../api/mate"
+import { setCookie } from "../../common/Cookie"
+import { getParams } from "../../common/Hooks"
 import Header from "../../components/Header"
 import {
   BodyBox,
@@ -72,6 +74,8 @@ export default function Home() {
   }, [])
 
   const callApi = async () => {
+    const token = await getParams()
+    if (token) await setCookie("accesstoken", token)
     const { data: bookData }: any = await getBookListCount(15)
     const { data: mateData }: any = await getMate()
     setBookList(() => bookData)

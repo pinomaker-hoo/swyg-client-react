@@ -88,6 +88,7 @@ export default function Register() {
       )
       if (data) navigate("/auth/info")
     } catch (err) {
+      console.log(err)
       alert("ERROR")
     }
   }
@@ -102,7 +103,7 @@ export default function Register() {
     }
   }
 
-  const onCheckCode = async () => {
+  const onCheckCode = () => {
     if (serverCode !== inputCode) return alert("같지 않습니다.")
   }
 

@@ -19,7 +19,7 @@ export default function Header(props: any) {
   }
 
   const logoutBtn = async () => {
-    removeCookie("accessToken")
+    removeCookie("accesstoken")
     navigate("/")
   }
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getBookListCount } from "../../api/book"
 import { saveMate } from "../../api/mate"
+import { setCookie } from "../../common/Cookie"
+import { getParams } from "../../common/Hooks"
 import {
   BookBox,
   BookDiv,
@@ -26,6 +28,8 @@ export default function UserInfo() {
   }, [])
 
   const getBookList = async () => {
+    const token = await getParams()
+    if (token) await setCookie("accesstoken", token)
     const { data }: any = await getBookListCount(9)
     setBookList(() => data)
     console.log(data)
