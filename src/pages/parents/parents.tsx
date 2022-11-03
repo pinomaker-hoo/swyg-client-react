@@ -44,7 +44,7 @@ export default function Parents() {
 
   useEffect(() => {
     callApi()
-  }, [user])
+  }, [])
 
   const imgInput: any = useRef()
 
@@ -63,7 +63,6 @@ export default function Parents() {
       return createdAt > today
     })
     for (const item of filterArr) {
-      console.log(item)
       const dateToDay = getDateToDay(item.createdAt)
       updateDayState(dateToDay)
     }
