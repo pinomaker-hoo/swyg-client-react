@@ -5,7 +5,7 @@ export const OuterBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-image: url("/Group1.png");
+  background-image: url("/HomeBackgroundImg.png");
 `
 
 export const InBox = styled.div`
@@ -27,12 +27,12 @@ export const SecondBox = styled.div`
 export const ThirdBox = styled.div`
   width: 100%;
   height: 500px;
-  margin-top: 100px;
+  margin-top: 300px;
 `
 export const FourthBox = styled.div`
   width: 100%;
   height: 500px;
-  margin-top: 200px;
+  margin-top: 500px;
 `
 export const FifthBox = styled.div`
   width: 100%;
