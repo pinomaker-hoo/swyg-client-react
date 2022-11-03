@@ -22,7 +22,7 @@ export default function PointQuiz() {
     const { data }: any = await savePoint(15)
     const { data: data2 }: any = await saveUserBook(id)
     if (!data || !data2) return alert("ERROR")
-    if (point < 50 && point + 50 >= 50) return navigate("/level")
+    if (point < 50 && point + 15 >= 50) return navigate("/level")
     navigate(`/book/${id}`)
   }
 
