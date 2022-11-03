@@ -35,6 +35,12 @@ export const Img = styled.img`
   width: 100px;
   position: absolute;
 `
+export const Img2 = styled.img`
+  margin-top: -85px;
+  margin-left: 200px;
+  width: 200px;
+  position: absolute;
+`
 export const QuizContainer = styled.div`
   display: flex;
   justify-content: center;

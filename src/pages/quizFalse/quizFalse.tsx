@@ -5,6 +5,7 @@ import { saveUserBook } from "../../api/userBook"
 import {
   BtnBox,
   Img,
+  Img2,
   InBox,
   OuterBox,
   QuizButton,
@@ -49,6 +50,7 @@ export default function QuizFalse() {
         <Title>어떤 퀴즈를 틀렸는지 확인해봐!</Title>
         <QuizContainer>
           <Img src="/duck.png" />
+          <Img2 src="/text.png" />
           <QuizCardBack className="back">
             <QuizNumber>Q1</QuizNumber>
             <QuizTitle>{quiz.text}</QuizTitle>
