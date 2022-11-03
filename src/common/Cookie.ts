@@ -7,7 +7,9 @@ export const getCookie = async (name: string) => {
 }
 
 export const setCookie = async (name: string, value: string, option?: any) => {
-  return cookies.set(name, value, { ...option })
+  const date: Date = new Date()
+  date.setSeconds(date.getSeconds() + 10800)
+  return cookies.set(name, value, { expires: date })
 }
 
 export const removeCookie = async (name: string) => {

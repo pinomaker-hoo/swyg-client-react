@@ -12,6 +12,7 @@ import {
   KakaoBtn,
 } from "./style"
 import { useNull } from "../../common/Hooks"
+import { setCookie } from "../../common/Cookie"
 
 export default function Login() {
   const navigate = useNavigate()
@@ -27,9 +28,10 @@ export default function Login() {
     try {
       if (!useNull([user.email, user.password])) return alert("Null ERROR")
       const { data }: any = await login(user)
+      if (!data) return alert("ERROR")
+      await setCookie("accesstoken", data.token)
       localStorage.setItem("info", JSON.stringify(data.user))
-      if (data) return navigate("/home")
-      return alert("ERROR")
+      return navigate("/home")
     } catch (err) {
       console.log(err)
       alert("ERROR")
