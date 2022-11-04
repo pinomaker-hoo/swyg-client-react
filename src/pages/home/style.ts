@@ -204,6 +204,7 @@ export const ThirdBookCardText = styled.h3`
   text-align: center;
   color: white;
   font-family: Aggro-M;
+  width: 240px;
 `
 export const ThirdBookCard2 = styled.div`
   margin-top : 85px;
@@ -218,8 +219,9 @@ export const ThirdBookCardImg2 = styled.img`
 export const ThirdBookCardText2 = styled.h3`
   text-align: center;
   color: white;
-  font-size: 15px;
   font-family: Aggro-M;
+  width: 120px;
+  font-size: 15px;
 `
 export const ThirdBookCard3 = styled.div`
   float: left;
@@ -234,6 +236,7 @@ export const ThirdBookCardImg3 = styled.img`
   border-radius: 10px;
 `
 export const ThirdBookCardText3 = styled.h3`
+  width: 156px;
   text-align: center;
   color: white;
   font-size: 18px;

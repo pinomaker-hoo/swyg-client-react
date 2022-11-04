@@ -27,22 +27,18 @@ export const register = async (
   male: boolean
 ) => {
   try {
-    if (typeof male === "string" && male === "false") male = false
-    if (typeof male === "string" && male === "true") male = true
-    const { data } = await auth({
-      url: "/",
-      method: "post",
-      data: {
-        ...user,
-        birth,
-        male,
-      },
-      withCredentials: true,
-    })
+    const bodyData = {
+      email: user.email,
+      name: user.name,
+      password: user.password,
+      birth,
+      male,
+    }
+    const { data } = await auth.post("/register", bodyData)
 
     return data
   } catch (err) {
-    console.log(err)
+    console.log(1, err)
   }
 }
 

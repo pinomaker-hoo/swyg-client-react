@@ -36,6 +36,7 @@ export const InputBox = styled.input`
   border: none;
   border-radius: 8px;
   font-size: 20px;
+  color: white;
 `
 
 export const BookDiv = styled.div`

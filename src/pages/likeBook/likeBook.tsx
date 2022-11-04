@@ -13,7 +13,6 @@ import {
   BookStory,
   BookTitle,
   BookBtn,
-  BookStory1,
 } from "./style"
 import { Link } from "react-router-dom"
 import Header from "../../components/Header"

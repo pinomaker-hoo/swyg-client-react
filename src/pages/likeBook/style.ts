@@ -31,6 +31,7 @@ export const BookBox = styled.div`
   margin-top: 100px;
   margin-left: 100px;
 `
+
 export const LeftBox = styled.div`
   width: 20%;
   height: 100%;

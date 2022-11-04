@@ -21,6 +21,7 @@ import {
   MaleSelect,
 } from "./style"
 import { useNull, useSame } from "../../common/Hooks"
+import { setCookie } from "../../common/Cookie"
 
 export default function Register() {
   const [user, setUser] = useState({ email: "", password: "", name: "" })
@@ -32,7 +33,7 @@ export default function Register() {
     month: "01",
     day: "01",
   })
-  const [male, setMale]: any = useState(true)
+  const [male, setMale]: any = useState("male")
 
   const navigate = useNavigate()
   const now = new Date()
@@ -81,14 +82,14 @@ export default function Register() {
       if (!useSame(user.password, passwordC))
         return alert("비밀번호와 비밀번호 확인이 같지 않습니다.")
       onCheckCode()
-      const { data }: any = await register(
-        user,
-        `${form.year}-${form.month}-${form.day}`,
-        male
-      )
+      let maleData: boolean
+      male === "male" ? (maleData = true) : (maleData = false)
+      const {data} = await register(user, `${form.year}-${form.month}-${form.day}`, maleData)
+      await setCookie("accesstoken", data.token)
+      localStorage.setItem("info", JSON.stringify(data.user))
       if (data) navigate("/auth/info")
     } catch (err) {
-      console.log(err)
+      console.log(2, err)
       alert("ERROR")
     }
   }
@@ -124,8 +125,8 @@ export default function Register() {
               value={male}
               onChange={(e) => setMale(() => e.target.value)}
             >
-              <option value="true">남자</option>
-              <option value="false">여자</option>
+              <option value="male">남자</option>
+              <option value="female">여자</option>
             </MaleSelect>
           </InLineBox>
         </LineBox>

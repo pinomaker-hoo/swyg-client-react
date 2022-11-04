@@ -77,6 +77,7 @@ export default function Parents() {
     const formData = new FormData()
     formData.append("files", event.target.files[0])
     const { data }: any = await updateImg(formData)
+    if (data) location.href = "/parents"
   }
 
   const getDateToDay = (data: any) => {
