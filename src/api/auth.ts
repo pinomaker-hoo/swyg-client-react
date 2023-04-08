@@ -8,6 +8,7 @@ const auth = axios.create({
   headers: {},
 })
 
+// 사용자가 입력한 ID, Password
 export const login = async (user: { email: string; password: string }) => {
   try {
     const { data } = await auth.post("/local", user)
@@ -16,6 +17,13 @@ export const login = async (user: { email: string; password: string }) => {
     console.log(err)
   }
 }
+
+/**\
+ * user = {
+ *   email : "admin",
+ *  password : "1234"
+ * }
+ */
 
 export const register = async (
   user: {
