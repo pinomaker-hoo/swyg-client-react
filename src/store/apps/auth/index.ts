@@ -1,4 +1,5 @@
 // ** Redux Imports
+import { RootState } from "@/store"
 import { createSlice } from "@reduxjs/toolkit"
 
 interface AuthStateProps {
@@ -35,5 +36,7 @@ export const authSlice = createSlice({
 })
 
 export default authSlice.reducer
+
+export const getAccessToken = (state: RootState) => state.auth.user.accessToken
 
 export const { updateUser, userLogout } = authSlice.actions
