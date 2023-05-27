@@ -6,17 +6,12 @@ import App from "./App"
 import "./assets/font/font.css"
 import "./main.css"
 
-// ** Router Imports
-import { BrowserRouter } from "react-router-dom"
-
 // ** Redux Imports
 import { Provider } from "react-redux"
 import { store } from "./store"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </Provider>
 )

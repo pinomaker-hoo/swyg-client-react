@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom"
+// ** Router Imports
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+
 import Book from "./pages/book/book"
 import BookList from "./pages/booklist/booklist"
 import Home from "./pages/home/home"
@@ -18,10 +20,11 @@ import CheckComment from "./pages/checkComment/checkComment"
 import PointComment from "./pages/pointComment/pointComment"
 import Search from "./pages/search/search"
 import Level from "./pages/level/level"
+import { ProtectRoute, PublicRoute } from "./utils/protect-route"
 
 export default function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Routes>
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
@@ -44,7 +47,13 @@ export default function App() {
         <Route path="/quiz/true/:id" element={<QuizTrue />} />
         <Route path="/quiz/false/:id" element={<QuizFalse />} />
         <Route path="/level" element={<Level />} />
+        <Route element={<ProtectRoute />}>
+          <Route path="/protect" element={<h1>Protect Test</h1>} />
+        </Route>
+        <Route element={<PublicRoute />}>
+          <Route path="/public" element={<h1>public Test</h1>} />
+        </Route>
       </Routes>
-    </div>
+    </BrowserRouter>
   )
 }
