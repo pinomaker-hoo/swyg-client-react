@@ -8,4 +8,9 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
+  server: {
+    proxy: {
+      // "/api": "http://phone.pinodev.shop:8000/api",
+    },
+  },
 })
