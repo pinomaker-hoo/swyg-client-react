@@ -4,7 +4,7 @@ import App from "./App"
 
 // ** Style Imports
 import "./assets/font/font.css"
-import "./main.css"
+import "@/styles/global.css"
 
 // ** Redux Imports
 import { Provider } from "react-redux"
